@@ -1538,6 +1538,7 @@ export generalist_tune_all_instnaces=False
 # export data_inst_flag='ori_grab_s2_duck_inspect_1_nf_300' 
 # export data_inst_flag='ori_grab_s2_camera_takepicture_2_nf_300' 
 export data_inst_flag='ori_grab_s2_apple_eat_1_nf_300' 
+export data_inst_flag='ori_grab_s2_cubesmall_inspect_1_nf_300' 
 export target_inst_tag_list_fn=''
 export test_inst_tag=${data_inst_flag}
 export single_instance_training=True # the learning model would not print additional infos in this setting
