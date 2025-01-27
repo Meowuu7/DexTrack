@@ -1,0 +1,445 @@
+# used to create the object
+name: ShadowHandManip
+
+physics_engine: ${..physics_engine}
+
+# if given, will override the device setting in gym.
+env: 
+  numEnvs: 1 # ${resolve_default:4096,${...num_envs}}
+  envSpacing: 1.5
+  episodeLength: 200
+  cameraFollow: True # if the camera follows humanoid or not
+  enableDebugVis: False
+  aggregateMode: 1
+  
+
+  random_prior: True
+  repose_z: True
+  goal_cond: False
+
+  object_code_dict: {
+    'sem/Car-669043a8ce40d9d78781f76a6db4ab62':[0.06],
+  }
+
+  stiffnessScale: 1.0
+  forceLimitScale: 1.0
+  useRelativeControl: False
+  dofSpeedScale: 20.0
+  actionsMovingAverage: 1.0
+  controlFrequencyInv: 1 # 60 Hz
+
+  startPositionNoise: 0.0
+  startRotationNoise: 0.0
+
+  resetPositionNoise: 0.0
+  resetRotationNoise: 0.0
+  resetDofPosRandomInterval: 0.0
+  resetDofVelRandomInterval: 0.0
+
+  distRewardScale: 20
+  transition_scale: 0.5
+  orientation_scale: 0.1
+  rotRewardScale: 1.0
+  rotEps: 0.1
+  actionPenaltyScale: -0.0002
+  reachGoalBonus: 250
+  fallDistance: 0.4
+  fallPenalty: 0.0
+
+  objectType: "pot" 
+  observationType: "full_state"
+  handAgentIndex: "[[0, 1, 2, 3, 4, 5]]"
+  asymmetric_observations: False
+  successTolerance: 0.1
+  printNumSuccesses: False
+  maxConsecutiveSuccesses: 0
+
+  asset:
+    assetRoot: "../assets/hand"
+    assetFileName: "mjcf/open_ai_assets/hand/shadow_hand.xml"
+    assetFileNameBlock: "urdf/objects/cube_multicolor.urdf"
+    assetFileNameBall: "urdf/objects/ball.urdf"
+    assetFileNameEgg: "mjcf/open_ai_assets/hand/egg.xml"
+    assetFileNamePen: "mjcf/open_ai_assets/hand/pen.xml"
+
+task:
+  randomize: False
+  randomization_params:
+    frequency: 600   # Define how many simulation steps between generating new randomizations
+    observations:
+      range: [ 0, .002 ] # range for the white noise
+      range_correlated: [ 0, .001 ] # range for correlated noise, refreshed with freq `frequency`
+      operation: "additive"
+      distribution: "gaussian"
+      schedule: "linear"   # "constant" is to turn on noise after `schedule_steps` num steps
+      schedule_steps: 40000
+    actions:
+      range: [ 0., .05 ]
+      range_correlated: [ 0, .015 ] # range for correlated noise, refreshed with freq `frequency`
+      operation: "additive"
+      distribution: "gaussian"
+      schedule: "linear"  # "linear" will linearly interpolate between no rand and max rand
+      schedule_steps: 40000
+    sim_params:
+      gravity:
+        range: [ 0, 0.4 ]
+        operation: "additive"
+        distribution: "gaussian"
+        schedule: "linear"  # "linear" will linearly interpolate between no rand and max rand
+        schedule_steps: 40000
+    actor_params:
+      hand:
+        color: True
+        tendon_properties:
+          damping:
+            range: [ 0.3, 3.0 ]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+          stiffness:
+            range: [ 0.75, 1.5 ]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+        dof_properties:
+          damping:
+            range: [ 0.3, 3.0 ]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+          stiffness:
+            range: [ 0.75, 1.5 ]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+          lower:
+            range: [ 0, 0.01 ]
+            operation: "additive"
+            distribution: "gaussian"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+          upper:
+            range: [ 0, 0.01 ]
+            operation: "additive"
+            distribution: "gaussian"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+        rigid_body_properties:
+          mass:
+            range: [ 0.5, 1.5 ]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+        rigid_shape_properties:
+          friction:
+            num_buckets: 250
+            range: [ 0.7, 1.3 ]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+      object:
+        scale:
+          range: [ 0.95, 1.05 ]
+          operation: "scaling"
+          distribution: "uniform"
+          schedule: "linear"  # "linear" will scale the current random sample by ``min(current num steps, schedule_steps) / schedule_steps`
+          schedule_steps: 30000
+        rigid_body_properties:
+          mass:
+            range: [ 0.5, 1.5 ]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by ``min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+        rigid_shape_properties:
+          friction:
+            num_buckets: 250
+            range: [ 0.7, 1.3 ]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 30000
+
+sim:
+  dt: 0.0166 # 1/60 s
+  substeps: 2
+  up_axis: "z"
+  use_gpu_pipeline: ${eq:${...pipeline},"gpu"}
+  gravity: [0.0, 0.0, -9.81]
+  physx:
+    num_threads: 4
+    solver_type: 1  # 0: pgs, 1: tgs
+    num_position_iterations: 8 # 8 bottle
+    num_velocity_iterations: 0
+    contact_offset: 0.002
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 1000.0
+    default_buffer_size_multiplier: 5.0
+  flex:
+    num_outer_iterations: 5
+    num_inner_iterations: 20
+    warm_start: 0.8
+    relaxation: 0.75
+
+
+# ######## 20230927_037 ########
+# scaled_object_asset_file: 'taco_20230927_037_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20230927_037_brush3_data_opt_tag_optrobo1.npy'
+
+
+# ######## 20230930_001 ########
+# scaled_object_asset_file: 'taco_20230930_001_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20230930_001_plank1_data.npy'
+
+
+
+######## 20231031_184 ########
+# scaled_object_asset_file: 'taco_20231031_184_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231031_184_hammer20231031_184_data.npy'
+
+######## 20231031_171 ########
+# scaled_object_asset_file: 'taco_20231031_171_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231031_171_hammer20231031_171_data.npy'
+
+
+# ######## 20231027_067 ########
+# scaled_object_asset_file: 'taco_20231027_067_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_067_shovel20231027_067_data.npy'
+
+
+
+# ######## 20231027_067 ########
+# scaled_object_asset_file: 'taco_20231027_066_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_066_shovel20231027_066_data.npy'
+
+
+# ######## 20231027_067 ########
+# scaled_object_asset_file: 'taco_20231027_074_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_074_shovel20231027_074_data.npy'
+
+
+
+######## 20231027_067 ########
+# scaled_object_asset_file: 'taco_20231027_087_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_087_shovel20231027_087_data.npy'
+
+
+
+# ######## 20231027_022 ########
+# scaled_object_asset_file: 'taco_20231027_022_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_022_shovel20231027_022_data.npy'
+
+
+# ######## 20231027_022 ########
+# scaled_object_asset_file: 'taco_20231027_027_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_027_20231027_027_data.npy'
+
+
+
+
+# ######## 20231027_022 ########
+# scaled_object_asset_file: 'taco_20231027_066_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_066_20231027_066_data.npy'
+
+
+# ######## 20231027_022 ########
+# scaled_object_asset_file: 'taco_20231027_114_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_114_20231027_114_data.npy'
+
+
+# ######## 20231027_022 ########
+# scaled_object_asset_file: 'taco_20231027_130_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_130_20231027_130_data.npy'
+
+
+# ######## grab - mouse ########
+# scaled_object_asset_file: 'grab_mouse_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_grab_train_split_102_mouse_data_opt.npy'
+
+
+# ######## grab - mouse ########
+# scaled_object_asset_file: 'grab_bunny_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_grab_train_split_85_bunny_data_opt.npy'
+
+
+# ######## grab - mouse ########
+# scaled_object_asset_file: 'taco_20231026_002_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_002_20231026_002_data.npy'
+
+
+
+# ######## grab - mouse ########
+# scaled_object_asset_file: 'taco_20231026_005_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_005_20231026_005_data.npy'
+
+
+# ######## grab - mouse ########
+# scaled_object_asset_file: 'taco_20231026_006_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_006_20231026_006_data.npy'
+
+# scaled_object_asset_file: 'grab_stapler107_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/Data/ReferenceData/shadow_grab_train_split_107_stapler107_data_fingerretar.npy'
+
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_mixer_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s05_mixer_data_v3.npy'
+
+
+# two_hands: False
+# scaled_object_asset_file: 'grab_mouse_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_grab_mouse_102_dgrasptracking.npy'
+
+
+# two_hands: False
+# scaled_object_asset_file: 'grab_bunny_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_grab_bunny_85_dgrasptracking.npy'
+
+
+
+
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231105_067_wocollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_spoon2_idx_20231105_067_dgrasptracking.npy'
+
+
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_mixer_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s05_mixer_data_v3_opt2.npy'
+
+
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_phone_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s07_phone_data_v3_opt2.npy'
+
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_ketchup_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s07_ketchup_data_v3_opt2.npy'
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_microwave_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s07_microwave_data_v3_opt2.npy'
+
+# two_hands: True
+# scaled_object_asset_file: 'arctic_microwave_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s06_microwave_data_v3_opt2.npy'
+
+# scaled_object_asset_file: 'arctic_espressomachine_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s06_espressomachine_data_v3_opt2.npy'
+
+# scaled_object_asset_file: 'arctic_capsulemachine_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s06_capsulemachine_data_v3_opt2.npy'
+
+# scaled_object_asset_file: 'arctic_phone_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s05_phone_data_v3_opt2.npy'
+
+# scaled_object_asset_file: 'arctic_microwave_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s05_microwave_data_v3_opt2.npy'
+
+# scaled_object_asset_file: 'arctic_capsulemachine_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_arctic_s05_capsulemachine_data_v3_opt2.npy'
+
+
+# # ######## 20231027_022 ########
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231020_195_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231020_195_20231020_195_data.npy'
+
+
+# ######## 20231020_197 ########
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231020_197_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231020_197_20231020_197_data.npy'
+
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231020_199_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231020_199_20231020_199_data.npy'
+
+
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231020_201_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231020_201_20231020_201_data.npy'
+
+# two_hands: False
+# scaled_object_asset_file: 'taco_20231020_203_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231020_203_20231020_203_data.npy'
+
+
+two_hands: False
+# scaled_object_asset_file: 'taco_20231024_044_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231024_044_20231024_044_data.npy'
+
+# scaled_object_asset_file: 'taco_20231024_043_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231024_043_20231024_043_data.npy'
+
+# scaled_object_asset_file: 'taco_20231024_045_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231024_045_20231024_045_data.npy'
+
+# 20231026_016
+# scaled_object_asset_file: 'taco_20231026_016_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_016_20231026_016_data.npy'
+
+# scaled_object_asset_file: 'taco_20231026_017_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_017_20231026_017_data.npy'
+
+
+# scaled_object_asset_file: 'taco_20231026_018_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_018_20231026_018_data.npy'
+
+# scaled_object_asset_file: 'taco_20231026_015_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_015_20231026_015_data.npy'
+
+# scaled_object_asset_file: 'taco_20231026_005_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_005_20231026_005_data.npy'
+
+
+# scaled_object_asset_file: 'taco_20231026_006_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_006_20231026_006_data.npy'
+
+# scaled_object_asset_file: 'taco_20231026_002_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231026_002_20231026_002_data.npy'
+
+
+# scaled_object_asset_file: 'taco_20231027_130_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_130_20231027_130_data.npy'
+
+# scaled_object_asset_file: 'taco_20231027_132_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_132_20231027_132_data.npy'
+
+
+# scaled_object_asset_file: 'taco_20231027_086_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_train_split_20231027_086_20231027_086_data.npy'
+
+# scaled_object_asset_file: 'taco_20231027_086_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231027_086_idx_20231027_086_dgrasptracking.npy'
+
+
+# scaled_object_asset_file: 'taco_20231024_044_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231024_044_idx_20231024_044_dgrasptracking.npy'
+
+
+### 
+# scaled_object_asset_file: 'taco_20231027_130_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231027_130_idx_20231027_130_dgrasptracking.npy'
+
+
+# scaled_object_asset_file: 'taco_20231020_199_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231020_199_idx_20231020_199_dgrasptracking.npy'
+
+# scaled_object_asset_file: 'taco_20231026_016_wcollision.urdf'
+# gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231026_016_idx_20231026_016_dgrasptracking.npy'
+
+scaled_object_asset_file: 'taco_20231027_114_wcollision.urdf'
+gt_data_fn: '/home/xueyi/diffsim/Control-VAE/ReferenceData/shadow_taco_20231027_114_idx_20231027_114_dgrasptracking.npy'
+
+

@@ -1,0 +1,76 @@
+SIMULATOR:
+  dim: 3
+  gravity: [0., -1.4, 0.]
+  default_dt: 5.e-4
+  quality: 1.
+  padding: [28, 3, 28]
+  needs_grad: True
+  use_checkpointing: True
+  max_substeps_local: 20
+  max_substeps: 3500
+  max_num_particles: 50000
+  use_dynamic_field: False
+  checkpoint_cache_device: torch_cpu
+  base_active_materials: []
+  max_actuation: 10
+ENVIRONMENT:
+  ITEMS:
+    # Terrain
+    - type: Static.BoundingBox # World boundary
+      semantic_id: 0 # static obstacle
+    - type: Static.Terrain
+      surface: Surface.Sticky
+      semantic_id: 0 # static obstacle
+      friction: 0.05
+      min_height: 0.1
+      max_height: 0.1
+      signed_dist_thresh: 0.01
+    - type: Primitive.Ellipsoid
+      radius: [0.02, 0.02, 0.02]
+      initial_position: [0.36, 0.275, 0.4]
+      initial_velocity: [0., 0., 0.]
+      sample_density: 16
+      material: Snow
+      particle_id: 2
+      semantic_id: 2
+  # Environment-specific
+  use_renderer: False
+  actuation_strength: 0.3
+  observation_space: [time, com]
+  design_space: pbr
+  design_space_config:
+    n_actuators: 10
+    initial_principle_direction: [1., 0., 0.]
+    p_rho_lower_bound_mul: 0.1
+    base_shape:
+      type: Primitive.Box
+      size: [0.04, 0.2, 0.04]
+      sample_density: 64
+      initial_position: [0.35, 0.0, 0.4]
+      initial_velocity: [0., 0., 0.]
+      material: DiffAquaMuscle
+      particle_id: 3 # used as robot id
+      particle_info:
+        muscle_direction: [0., 1., 0.]
+        p_rho_0: 1.e+3
+        E_0: 1.e+4
+      semantic_id: 3
+  CUSTOM:
+    randomize_terrain: False
+    has_matter_on_ground: False
+    matter_id: 4
+    matter_materials: []
+    matter_thickness: 0.02
+    matter_sample_density: 8
+    matter_semantic_id: 4
+    matter_youngs_modulus: 1.e+5
+    matter_padding: [32, 3, 32]
+RENDERER:
+  type: ggui
+  GGUI:
+    ambient_light: [0.5, 0.5, 0.5]
+    camera_lookat: [0.5, 0.05, 0.5] # horizontal look
+    camera_position: [0.5, 0.3, 0.0]
+    particle_radius: 0.002
+    particle_coloring_mode: actuation
+    ground_surface_cmap: textures/ice.png

@@ -1,0 +1,174 @@
+defaults:
+  - _self_
+  # - agent: ddpg # sac
+# 
+# seed: 42 #  0 #  42
+# seed: 3407
+# seed: 0 #  0 #  42
+# seed: 17
+# seed: 27
+# seed: 37
+# seed: 47
+# seed: 57
+# seed: 67
+# seed: 77
+# seed: 87
+seed: 97
+# seed: 107
+# seed: 117
+# seed: 127
+# seed: 137
+# seed: 147
+# seed: 157
+# seed: 167
+# seed: 177
+# seed: 187
+# seed: 197
+# seed: 207
+# seed: 217
+# seed: 227
+# seed: 237
+# seed: 247
+# seed: 257
+# seed: 267
+# seed: 277
+# seed: 287
+# seed: 297
+# seed: 307
+# seed: 317
+# seed: 327
+# seed: 337
+# seed: 347
+# seed: 357
+# seed: 367
+# seed: 377
+# seed: 387
+# seed: 397
+# seed: 407
+# seed: 417
+# seed: 427
+# seed: 437
+# seed: 447
+# seed: 457
+# seed: 467
+# seed: 477
+# seed: 487
+# seed: 497
+# seed: 507
+# seed: 517
+# seed: 717
+
+
+# dummy: True
+dummy: False
+
+uni_manip:
+  fixed_y_len: 0.05
+  base_x_len: 0.1
+  st_len_one_side: 0.2
+  ed_len_one_side: 0.4
+  nn_stages: 6
+  # urdf_fn: /root/diffsim/QuasiSim/rsc/shadow_hand_description/shadowhand_new.urdf
+  urdf_fn: /root/diffsim/QuasiSim/rsc/shadow_hand_description/shadowhand.urdf
+
+  # nn_links: 5
+  # len_one_side: 0.26666666666666666
+  # /data/xueyi/softzoo/assets/obj_info_n_links_5_childlinklen_0.30000000000000004_baseX_0.1_Y_0.05.npy
+
+  # nn_links: 5
+  # len_one_side: 0.30000000000000004
+
+  # /data/xueyi/softzoo/assets/obj_info_n_links_9_childlinklen_0.30000000000000004_baseX_0.1_Y_0.05.npy
+  # nn_links: 9
+  # len_one_side: 0.30000000000000004
+
+  # /data/xueyi/softzoo/assets/obj_info_n_links_9_childlinklen_0.33333333333333337_baseX_0.1_Y_0.05.npy
+  # nn_links: 9
+  # len_one_side: 0.33333333333333337
+
+  # nn_links: 9
+  # len_one_side: 0.4
+
+  # /data/xueyi/softzoo/assets/obj_info_n_links_17_childlinklen_0.33333333333333337_baseX_0.1_Y_0.05.npy
+  # nn_links: 17
+  # len_one_side: 0.33333333333333337
+
+  # nn_links: 17
+  # len_one_side: 0.4
+
+  nn_links: 3
+  len_one_side: 0.2
+
+
+sim:
+  # contact_spring_d: 1e-1 #  5e-1
+  contact_spring_d:  5e-1
+  contact_damping_d: 1e-1
+
+optimization:
+  # inherit_from_prev: False
+  inherit_from_prev: True
+  link_rotational_lr: 0.001
+  link_translational_lr: 0.001
+
+
+
+general:
+  vis: False
+  save_ckpts: False
+  use_wandb: False
+
+
+task:
+  goal_x: 0.7
+  goal_y: 0.3
+  goal_z: 0.3
+  nn_timesteps: 10
+  dt: 1e-1
+  dim: 2
+  task_idx:  0 ## 0: rigid sphere; 1: rigid cube; 2: rigid SDF 
+
+run:
+  root_dir: /data/xueyi/softzoo
+  proj_dir: /root/diffsim/softzoo
+  # exp_folder_tag: exp
+  exp_folder_tag: expv4
+  start_inst_idx: 0 # 0
+  # start_inst_idx: 1
+  # prev_saved_best_ckpt_fn: "/data/xueyi/softzoo/expv4_projected/n_links_5_tag_iinst_4_nlinks_5_childlinklen_0.2_actpassivgoalreaching_3_lessconstraints_v4_test_inherit_True_seed_717_contact_spring_d_0.5_damping_0.1_/checkpoints/ckpt_best.npy"
+  prev_saved_best_ckpt_fn: ""
+
+# seeds: 
+# - 3407
+# - 42
+# - 0
+#  # https://arxiv.org/abs/2109.08203
+
+# tag: null
+# env_name: LunarLanderContinuous-v2
+# vec_envs: 1
+
+# train:
+#   nstep: ${buffer.nstep}
+#   vec_envs: ${vec_envs}
+#   timesteps: 200_000
+#   batch_size: 128
+#   plot_interval: 5000
+#   eval_interval: 5000
+#   eval_episodes: 5
+
+# buffer:
+#   capacity: 200_000
+#   use_per: False
+#   nstep: 1
+#   gamma: ${agent.gamma}
+#   per_alpha: 0.7
+#   per_beta: 0.4
+#   per_eps: 0.01
+
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: /data/xueyi/softzoo/runs/${now:%Y-%m-%d}/${now:%H-%M-%S}_${hydra.job.override_dirname}

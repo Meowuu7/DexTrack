@@ -1,0 +1,70 @@
+SIMULATOR:
+  dim: 3
+  gravity: [0., -3.8, 0.]
+  default_dt: 5.e-4
+  quality: 1.
+  padding: [32, 3, 32]
+  needs_grad: False
+  use_checkpointing: False
+  max_substeps_local: 20
+  max_substeps: 6000
+  max_num_particles: 150000
+  use_dynamic_field: False
+  base_active_materials: []
+  max_actuation: 20
+ENVIRONMENT:
+  objective: move_forward
+  objective_config:
+    reward_mode: per_step_velocity
+    forward_direction: [1., 0., 0.]
+    max_episode_steps: 200
+  ITEMS:
+    # Terrain
+    - type: Static.BoundingBox # World boundary
+      semantic_id: 0 # static obstacle
+    - type: Static.Terrain
+      surface: Surface.Slip
+      semantic_id: 0 # static obstacle
+      friction: 0.5
+      min_height: 0.01 #08
+      max_height: 0.1
+  # Environment-specific
+  use_renderer: True
+  actuation_strength: 1.0
+  observation_space: [time]
+  design_space: pbr
+  design_space_config:
+    n_actuators: 20
+    p_rho_lower_bound_mul: 0.1
+    base_shape:
+      type: Primitive.Box
+      size: [0.1, 0.06, 0.1]
+      sample_density: 48
+      initial_position: [0.35, 0.02, 0.4]
+      initial_velocity: [0., 0., 0.]
+      particle_id: 3 # used as robot id
+      material: DiffAquaMuscle
+      particle_info:
+        p_rho_0: 1.e+3
+        E_0: 1.e+4
+      semantic_id: 3
+  CUSTOM:
+    randomize_terrain: False
+    has_matter_on_ground: False
+    matter_id: 4
+    matter_materials: [Plasticine]
+    matter_thickness: 0.02
+    matter_sample_density: 8
+    matter_semantic_id: 3
+    matter_youngs_modulus: 1.e+5
+RENDERER:
+  type: ggui
+  GGUI:
+    ambient_light: [0.5, 0.5, 0.5]
+    camera_lookat: [0.5, 0.05, 0.5]
+    camera_position: [0.15, 0.3, 0.15]
+    particle_radius: 0.002
+    particle_coloring_mode: actuation
+    ground_surface_cmap: textures/ground.png
+    offscreen_rendering: False
+    save_to_video: False

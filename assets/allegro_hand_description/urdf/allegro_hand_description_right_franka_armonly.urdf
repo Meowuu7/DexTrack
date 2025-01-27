@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<!--
+  The file is converted from allegro_hand_description_right.xacro from the
+  unofficial ROS package of Allegro Hand (https://github.com/felixduvallet/
+  allegro-hand-ros/tree/master/allegro_hand_description). The conversion is
+  applied using the ROS package xacro to convert into urdf files. The model
+  files (.obj files and .mtl files) are converted from the .STL files from the
+  same source. The physical parameters of the model in the cited unofficial
+  fork of the Allegro hand have non-physical values. More precisely, many of
+  the inertia matrices are not SPD. Therefore we recomputed all the inertia
+  matrices for this URDF model in Drake. These values are estimated from the
+  provided geometry and using a constant density approximation on each
+  component. We used the best available value of mass available to us. Joint
+  damping values are estimated based on the expected angular velocity of each
+  joint and using a typical load of about 200 gr being held by the hand. This
+  allows us to estimate a typical torque at the joints which, together with a
+  nominal value of angular velocity, allows us to estimate a reasonable
+  magnitude for joint damping. It is worth noting that the unofficial version
+  of these files were providing non-physical values as much as 300 times
+  larger. The effort limits of the joints are justified to 0.7 Nm according to
+  the manufacturer's specs (http://www.simlab.co.kr/Allegro-Hand.htm#
+  Specifications). The collision geometry for link_13 (thumb base) has been
+  omitted in this version. It frequently led to meaningless collisions with
+  other hand geometries but its omission is justified because it is small
+  enough that its removal is unlikely to cause us to miss meaningful
+  collisions.
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="allegro_hand_right_armonly">
+  <link name="panda_link0">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link0.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link0.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <link name="panda_link1">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link1.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint1" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="0 0 0" xyz="0 0 0.333"/>
+    <parent link="panda_link0"/>
+    <child link="panda_link1"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
+  </joint>
+  <link name="panda_link2">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link2.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link2.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint2" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628"/>
+    <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
+    <parent link="panda_link1"/>
+    <child link="panda_link2"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-1.7628" upper="1.7628" velocity="2.1750"/>
+  </joint>
+  <link name="panda_link3">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link3.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link3.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint3" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="1.57079632679 0 0" xyz="0 -0.316 0"/>
+    <parent link="panda_link2"/>
+    <child link="panda_link3"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
+  </joint>
+  <link name="panda_link4">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link4.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link4.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint4" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.0698"/>
+    <origin rpy="1.57079632679 0 0" xyz="0.0825 0 0"/>
+    <parent link="panda_link3"/>
+    <child link="panda_link4"/>
+    <axis xyz="0 0 1"/>    
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-3.0718" upper="-0.0698" velocity="2.1750"/>
+    <!-- something is weird with this joint limit config
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-3.0" upper="0.087" velocity="2.1750"/>  -->
+  </joint>
+  <link name="panda_link5">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link5.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link5.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint5" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="-1.57079632679 0 0" xyz="-0.0825 0.384 0"/>
+    <parent link="panda_link4"/>
+    <child link="panda_link5"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
+  </joint>
+  <link name="panda_link6">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link6.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link6.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint6" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/>
+    <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+    <parent link="panda_link5"/>
+    <child link="panda_link6"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
+    <!-- <dynamics damping="10.0"/>
+    <limit effort="12" lower="-0.0873" upper="3.0" velocity="2.6100"/> -->
+  </joint>
+  <link name="panda_link7">
+    <visual>
+      <origin rpy="1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/link7.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/link7.obj"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+  <joint name="panda_joint7" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="1.57079632679 0 0" xyz="0.088 0 0"/>
+    <parent link="panda_link6"/>
+    <child link="panda_link7"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
+  </joint>
+  
+  <link name="panda_link8"/>
+  <joint name="panda_joint8" type="fixed">
+    <!-- <origin rpy="0 0 -0.785" xyz="0 0 0.107"/> -->
+    <origin rpy="0 0 0" xyz="0 0 0.107"/>
+    <parent link="panda_link7"/>
+    <child link="panda_link8"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <!-- Removing this joint seems to help with some stability things -->
+ 
+   <link name="part_studio_link">
+    <visual>
+      <origin rpy="-1.571 0 0"/>
+      <geometry>
+        <!-- <mesh filename="../franka_description/meshes/visual/Part Studio 1.obj"/> -->
+        <mesh filename="../franka_description/meshes/visual/mount_v6.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.571 0 0"/>
+      <geometry>
+        <!-- <mesh filename="../franka_description/meshes/collision/Part Studio 1.obj"/> -->
+        <mesh filename="../franka_description/meshes/collision/mount_v6.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+
+  <joint name="part_studio_joint" type="fixed">
+    <!--
+    <parent link="panda_link8"/>
+    -->
+    <parent link="panda_link7"/>
+    <child link="part_studio_link"/>
+    <!-- <origin rpy="0 0 1.571" xyz="-0.02 0.0 0.107"/> -->
+    
+    <origin rpy="0 0 3.141592" xyz="0 -0.02 0.107"/>
+   
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <origin rpy="-1.571 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/visual/realsense-d405.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.571 0 0"/>
+      <geometry>
+        <mesh filename="../franka_description/meshes/collision/realsense-d405.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+    
+        
+    </collision>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="part_studio_link"/>
+    <child link="camera_link"/>
+    <origin rpy="-0.5 0 3.141592" xyz="-0.03 -0.05 0.055"/>
+  </joint>
+
+
+
+</robot>

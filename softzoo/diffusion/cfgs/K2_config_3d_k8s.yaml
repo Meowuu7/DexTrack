@@ -1,0 +1,330 @@
+# save_dir: /data/xueyi/softzoo_diffusion
+# save_dir: /data/xueyi/uni_manip/exp
+# save_dir: /cephfs/xueyi/uni_manip/tds_diffusion_exp
+# save_dir: /data/xueyi/uni_manip/tds_diffusion_exp
+save_dir: /cephfs/yilaa/uni_manip/tds_diffusion_exp
+
+# eval_during_traini
+seed: 42
+
+
+debug: False
+
+exp_tag: allegro_lotsballs_allinst_
+
+
+
+model:
+
+  # model_arch: "transformer_v2"
+  model_arch: "transformer_v3"
+
+  n_layers: 7
+  n_layers_act: 7
+  input_dims:
+    X: 2
+    E: 1
+    y: 1
+  hidden_mlp_dims: 
+    X: 128
+    E: 128
+    y: 128
+  hidden_dims:
+    dx: 256
+    de: 256
+    dy: 256
+    n_head: 4
+    dim_ffX: 256
+    dim_ffE: 256
+  output_dims:
+    X: 2
+    E: 1
+    y: 1
+  
+  ### for the act model ###
+  input_dims_act:
+    X: 630
+    y: 1
+  hidden_mlp_dims_act:
+    X: 4096
+    y: 1024
+  output_dims_act:
+    X: 630
+
+  ### for pcd with acts ###
+  n_layers_pc: 7
+  input_dims_pc:
+    pos: 2
+    X: 2
+    feat: 20
+  hidden_mlp_dims_pc: 
+    X: 1024
+    feat: 1024
+    t: 256
+  output_dims_pc:
+    X: 2
+    feat: 20
+
+  ### for pcd with segs ###
+  n_layers_segs: 7
+  input_dims_segs:
+    pos: 2 
+    segs: 21
+  hidden_mlp_dims_segs:
+    X: 1024
+    segs: 1024
+    t: 256
+  output_dims_segs:
+    X: 2
+    segs: 21
+
+  ### for 3d cd with acts ###
+  n_layers_3d_pc: 7
+  input_dims_3d_pc:
+    pos: 3
+    X: 3
+    feat: 900
+  hidden_mlp_dims_3d_pc: 
+    X: 1024
+    feat: 2048
+    t: 256
+  output_dims_3d_pc:
+    X: 3
+    feat: 900
+  
+
+diffusion:
+  noise_schedule: linear
+  sigma_small: True
+  lambda_vel: 0.0
+  lambda_rcxyz: 0.0
+  lambda_fc: 0.0
+  # denoising_stra: 
+  # inter_optim: 
+
+dataset:
+  canonicalize_features: False 
+  dataset_type: uni_manip
+  num_frames: 10
+  # data_folder: /data/xueyi/softzoo/data/uni_manip_2d_data
+  # data_folder: /data2/xueyi/uni_manip/data
+  # data_folder: /data/xueyi/softzoo/expv4
+  # data_folder: /data/xueyi/softzoo
+  data_folder: /data/xueyi/softzoo
+
+dataset_act:
+  # data_folder: /data2/xueyi/uni_manip/data
+  # data_folder: /data/xueyi/softzoo/exp
+  # data_folder: /data2/xueyi/uni_manip/exp_v2/exp
+  # data_folder: /data/xueyi/softzoo/expv4
+  data_folder: /data/xueyi/softzoo
+
+dataset_3d_pc: # dataset 3d pc #
+
+  scale_clip_data: False
+
+  sim_platform: 'pybullet'
+  # tracking_save_info_fn: "/cephfs/xueyi/data/GRAB_Tracking_PK/data"
+  tracking_save_info_fn: "/cephfs/xueyi/data/GRAB_Tracking_PK_reduced/data"
+
+  data_statistics_info_fn: ''
+
+  forcasting_window_size: 30
+  history_window_size: 30
+
+  # all_clips_inst: F # all clips inst #
+  nn_stages: 5
+
+  # data_tag: v5
+  # data_tag: v6
+  data_tag: v7
+  
+  # ### the all clips setting ###
+  # all_clips_inst: True # all clips inst #
+  # ### the single inst setting #### data tag ## 
+  # # single_inst: True
+  # single_inst: False
+
+  ### the all clips setting ###
+  # all_clips_inst: True
+  # single_inst: True
+  
+  
+  
+  statistics_info_fn: None
+
+  # # ### the all clips setting ###
+  all_clips_inst: True
+  single_inst: False
+
+  multi_inst: False
+
+  # specified_hand_type: allegro_flat_fivefin_yscaled_finscaled ## 
+  specified_hand_type: allegro ## 
+
+  specified_object_type: lotsballs
+
+  # specified_hand_type: allegro_flat_fivefin_yscaled ## 
+
+  # specified_hand_type: allegro_flat_fivefin ## 
+  # specified_hand_type:  None
+
+  ### previous ###
+  # data_folder: /data/xueyi/uni_manip
+
+  # use_static_first_frame: True
+  use_static_first_frame: False
+  ### save_info_v6, transformer_v3 ###
+  data_folder: /cephfs/xueyi/uni_manip
+  obj_type_to_kinematics_traj_dict_fn: ''
+  canonicalize_obj_pts: False
+
+
+# # 
+task:
+  dt: 1e-1
+  nn_timesteps: 10
+  use_target_data: True
+  sample_wconstraints: True
+
+sampling: 
+  # sampling: False
+  sampling: False
+  use_t: 200
+  # use_shadow_test_data: False
+
+
+  
+
+  target_grab_inst_tag: ''
+  target_grab_inst_opt_fn: ''
+
+  use_shadow_test_data: False
+
+  specified_test_subfolder: None
+
+  # use_shadow_test_data: True
+  shadow_test_data_fn : ''
+  # shadow_test_data_fn: /cephfs/yilaa/uni_manip/tds_exp_2/allegro_bottle_5_pds_allegro_flat_fivefin_yscaled_finscaled__ctlfreq_10_taskstage5_objtype_box_objm0.2_objsxyz_0.02_0.02_0.382_objinitxyz_0.2_0.2_0.2_objgoalxyz_0.2_0.5_0.37_objgoalrot_0.1_0_0_objgoalrot2_0.1_0_0_tar_/inverse_optimized_qs_test_for_matching_nf_300_dense_3.npy
+
+
+training:
+  # load_excuted_optimized_res, excuted_inst_tag_to_optimized_res
+
+  inv_forecasting_freq: 1
+  text_feature_version: 'v1'
+  # use_clip_glb_features = cfg.training.use_clip_glb_features
+  #   clip_feat_dim = cfg.training.clip_feat_dim
+    
+  use_clip_glb_features: False
+  clip_feat_dim: 512
+
+  load_excuted_optimized_res: False
+
+  excuted_inst_tag_to_optimized_res: ''
+
+  w_masked_future_cond: False
+
+  st_ed_state_cond: False
+  
+  centralize_info: False 
+
+  glb_feat_per_skip: 1
+
+  inv_kine_freq: 1
+
+  ##### Contact diffusions #####
+  diff_contact_sequence: False
+  
+
+  ##### Conditions #####
+  partial_hand_info: False
+  partial_obj_info: False
+  partial_obj_pos_info : False
+  
+  hist_cond_partial_hand_info: False
+  hist_cond_partial_obj_info: False
+  hist_cond_partial_obj_pos_info: False
+  
+  w_history_window_index: False
+  w_glb_traj_feat_cond: False
+  debug: False
+  use_taco_data: False 
+
+  kine_diff_version: 'v1'
+
+  glb_rot_use_quat: False
+
+  exp_additional_tag: ''
+
+  task_inherit_info_fn: '/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_OPTFR_v2/statistics/child_task_to_fa_task.npy'
+  use_kine_obj_pos_canonicalization: False
+
+  ### about the taco data ###
+  taco_interped_fr_grab_tag: 'ori_grab_s2_phone_call_1'
+  taco_interped_data_sv_additional_tag: 'v2'
+
+  task_cond: False
+
+  sub_task_cond_type: 'full'
+
+  slicing_ws: 30
+  history_ws: 30
+  slicing_data: False
+
+  cond_diff_allparams: False 
+
+  succ_rew_threshold: 50.0
+  
+  # grab_inst_tag_to_optimized_res_fn: '/cephfs/yilaa/uni_manip/tds_rl_exp/logs_PPO/statistics/grab_inst_tag_to_opt_res_merged.npy'
+  # grab_inst_tag_to_optimized_res_fn: '/cephfs/yilaa/uni_manip/tds_rl_exp_ctlfreq_10_new/logs_PPO/statistics/task_setting_to_optimized_res.npy'
+
+  grab_inst_tag_to_opt_stat_fn: ''
+  grab_inst_tag_to_optimized_res_fn:  '/cephfs/xueyi/uni_manip/tds_rl_exp_ctlfreq_10_rew_v2new_pkretar_/logs_PPO/statistics/task_setting_to_optimized_res.npy'
+  taco_inst_tag_to_optimized_res_fn: ''
+ 
+  task_cond_type: 'future'
+
+  kine_diff: False
+
+  tracking_ctl_diff: False 
+
+  use_jointspace_seq: False 
+  # use_jointspace_seq: True
+
+  concat_two_dims: True
+
+  AE_Diff: False
+  train_AE: False
+  train_Diff: False
+
+  diff_task_space: False
+  diff_task_translations: False 
+
+  # batch_size: 32
+  # batch_size: 3
+  batch_size: 16
+  lr: 1e-4
+  log_interval: 10
+  save_interval: 20000
+  resume_checkpoint: False
+  weight_decay: 5e-5
+  # lr_anneal_steps: 5000000
+  # num_steps: 5000000
+  lr_anneal_steps: 10000000
+  num_steps: 10000000
+
+  setting: regular_training
+  # setting: trajectory_translations
+
+  specified_statistics_info_fn: /cephfs/yilaa/uni_manip/tds_exp_2/allegro_lotsballs_save_info_v6_statistics.npy
+  specified_sampled_particle_idxes_fn: ./assets/allegro_sampled_particle_idxes_new.npy
+
+  # resume pahs
+  # resume_checkpoint_graph: /data2/xueyi/uni_manip/exp/test_scalev2_saved_mlpnet_/model000383000.pt
+  # resumd_checkooit_act: /data2/xueyi/uni_manip/exp/test_scalev3_/model000200000.pt
+  # resume_checkpoint_pc: "/data/xueyi/uni_manip/tds_diffusion_exp/test_v2_/model000065000.pt"
+  resume_checkpoint_pc: ""
+  # resume_checkpoint_pc: "/data/xueyi/uni_manip/tds_diffusion_exp/test_v2_new_/model000001000.pt"
+
+eval_during_training: False  

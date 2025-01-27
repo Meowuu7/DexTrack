@@ -1,0 +1,28 @@
+{
+    "robots": [
+        {
+            "name": "Allegro hand - left",
+            "type": "end effector",
+            "manufacturer": "Wonik Robotics",
+            "xacro-generated": false,
+            "urdf": [
+                "urdf/allegro_hand_description_left.urdf"
+            ],
+            "variant": null,
+            "source-link": "https://github.com/RobotLocomotion/drake/tree/a037acf09ae797fb1d4ea850dd847337a98b7f26/manipulation/models/allegro_hand_description",
+            "id": 0
+        },
+        {
+            "name": "Allegro hand - right",
+            "type": "end effector",
+            "manufacturer": "Wonik Robotics",
+            "xacro-generated": false,
+            "urdf": [
+                "urdf/allegro_hand_description_right.urdf"
+            ],
+            "variant": null,
+            "source-link": "https://github.com/RobotLocomotion/drake/tree/a037acf09ae797fb1d4ea850dd847337a98b7f26/manipulation/models/allegro_hand_description",
+            "id": 1
+        }
+    ]
+}

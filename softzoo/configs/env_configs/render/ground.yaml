@@ -1,0 +1,80 @@
+SIMULATOR:
+  dim: 3
+  gravity: [0., -3.8, 0.]
+  default_dt: 5.e-4
+  quality: 1.
+  padding: [28, 3, 28]
+  needs_grad: False
+  use_checkpointing: False
+  max_substeps_local: 2
+  max_substeps: 999999 # set to a super large number
+  max_num_particles: 300000
+  use_dynamic_field: False
+  checkpoint_cache_device: torch_cpu
+  base_active_materials: []
+  max_actuation: 15
+ENVIRONMENT:
+  objective: move_forward
+  objective_config:
+    reward_mode: per_step_velocity
+    forward_direction: [1., 0., 0.]
+    max_episode_steps: 200
+  ITEMS:
+    # Terrain
+    - type: Static.BoundingBox # World boundary
+      semantic_id: 0 # static obstacle
+    - type: Static.Terrain
+      surface: Surface.Slip
+      semantic_id: 0 # static obstacle
+      friction: 0.5
+      min_height: 0.05
+      max_height: 0.1
+  # Environment-specific
+  use_renderer: False
+  actuation_strength: 0.3
+  observation_space: [time, com]
+  design_space: pbr
+  design_space_config:
+    n_actuators: 15
+    initial_principle_direction: [1., 0., 0.]
+    p_rho_lower_bound_mul: 0.1
+    base_shape:
+      type: Primitive.Box
+      size: [0.15, 0.08, 0.1]
+      sample_density: 48
+      initial_position: [0.4, 0.00, 0.4]
+      initial_velocity: [0., 0., 0.]
+      material: DiffAquaMuscle
+      particle_id: 3 # used as robot id
+      particle_info:
+        p_rho_0: 1.e+3
+        E_0: 1.e+4
+      semantic_id: 3
+  CUSTOM:
+    randomize_terrain: False
+    has_matter_on_ground: False
+    matter_id: 4
+    matter_materials: []
+    matter_thickness: 0.02
+    matter_sample_density: 8
+    matter_semantic_id: 4
+    matter_youngs_modulus: 1.e+5
+    matter_padding: [32, 3, 32]
+RENDERER:
+  type: gl
+  GL:
+    res: [640, 640]
+    camera_position: [0.6, 0.3, 0.05]
+    camera_lookat: [0.5, 0.05, 0.5]
+    camera_fov: 50
+    light_position: [0.7, 1.5, 0.3]
+    light_lookat: [0.4, 0.0, 0.4]
+    light_fov: 50
+    tile_texture: True
+    ground_surface_cmap: textures/ground.png
+    ground_surface_brightness_increase: 0
+    background_brightness_increase: -90
+    bodies_info:
+      DiffAquaMuscle:
+        particle_color: [0.76470588, 0.68235294, 0.61764706, 1.0]
+        particle_radius: 0.006

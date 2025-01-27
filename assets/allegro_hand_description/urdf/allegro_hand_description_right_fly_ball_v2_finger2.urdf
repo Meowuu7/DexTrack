@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<!--
+  The file is converted from allegro_hand_description_right.xacro from the
+  unofficial ROS package of Allegro Hand (https://github.com/felixduvallet/
+  allegro-hand-ros/tree/master/allegro_hand_description). The conversion is
+  applied using the ROS package xacro to convert into urdf files. The model
+  files (.obj files and .mtl files) are converted from the .STL files from the
+  same source. The physical parameters of the model in the cited unofficial
+  fork of the Allegro hand have non-physical values. More precisely, many of
+  the inertia matrices are not SPD. Therefore we recomputed all the inertia
+  matrices for this URDF model in Drake. These values are estimated from the
+  provided geometry and using a constant density approximation on each
+  component. We used the best available value of mass available to us. Joint
+  damping values are estimated based on the expected angular velocity of each
+  joint and using a typical load of about 200 gr being held by the hand. This
+  allows us to estimate a typical torque at the joints which, together with a
+  nominal value of angular velocity, allows us to estimate a reasonable
+  magnitude for joint damping. It is worth noting that the unofficial version
+  of these files were providing non-physical values as much as 300 times
+  larger. The effort limits of the joints are justified to 0.7 Nm according to
+  the manufacturer's specs (http://www.simlab.co.kr/Allegro-Hand.htm#
+  Specifications). The collision geometry for link_13 (thumb base) has been
+  omitted in this version. It frequently led to meaningless collisions with
+  other hand geometries but its omission is justified because it is small
+  enough that its removal is unlikely to cause us to miss meaningful
+  collisions.
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="allegro_hand_right_finger1">
+  <!-- Base link -->
+  <link name="hand_root">
+    <origin xyz="0 0 0"/>
+  </link>
+
+  <link name="link_palm_x">
+      <inertial>
+          <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+          <mass value="0.00000"/>
+          <inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+      </inertial>
+  </link>
+
+  <link name="link_palm_y">
+      <inertial>
+          <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+          <mass value="0.00000"/>
+          <inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+      </inertial>
+  </link>
+
+  <link name="link_palm_z">
+      <inertial>
+          <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+          <mass value="0.00000"/>
+          <inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+      </inertial>
+  </link>
+
+  <link name="link_palm_rx">
+      <inertial>
+          <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+          <mass value="0.00000"/>
+          <inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+      </inertial>
+  </link>
+  <link name="link_palm_ry">
+      <inertial>
+          <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+          <mass value="0.00000"/>
+          <inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+      </inertial>
+  </link>
+
+
+  <joint name="WRJ0x" type="prismatic">
+      <parent link="hand_root"/>
+      <child link="link_palm_x"/>
+      <!-- <origin xyz="0.0 0.0 0.0"/> -->
+      <!-- <origin xyz="0 0 0.095"/> -->
+      <origin xyz="0 0 0"/>
+      <!-- <origin rpy="0.0 0 0" xyz="0 0.0435 -0.001542"/> -->
+      <!-- <origin rpy="-0.08726646255 0 0" xyz="0 0.0435 -0.001542"/> -->
+      <axis xyz="1 0 0"/>
+      <limit effort="100.0" lower="-2" upper="2" />
+      <dynamics damping="10.0" friction="0.0001"/>
+  </joint>
+
+  <joint name="WRJ0y" type="prismatic">
+      <parent link="link_palm_x"/>
+      <child link="link_palm_y"/>
+      <origin xyz="0.0 0.0 0.0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="100.0" lower="-2" upper="2" />
+      <dynamics damping="10.0" friction="0.0001"/>
+  </joint>
+
+
+  <joint name="WRJ0z" type="prismatic">
+      <parent link="link_palm_y"/>
+      <child link="link_palm_z"/>
+      <origin xyz="0.0 0.0 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="100.0" lower="-2" upper="2"/>
+      <dynamics damping="10.0" friction="0.0001"/>
+  </joint>
+
+  <joint name="WRJ0rx" type="revolute">
+      <parent link="link_palm_z"/>
+      <child link="link_palm_rx"/>
+      <origin xyz="0.0 0.0 0.0"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="1000" lower="-3.14" upper="3.14" />
+
+      <dynamics   damping="1.0" friction="0.0001"/>
+  </joint>
+
+
+  <joint name="WRJ0ry" type="revolute">
+      <parent link="link_palm_rx"/>
+      <child link="link_palm_ry"/>
+      <origin xyz="0.0 0.0 0.0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="1000" lower="-3.14" upper="3.14"  />
+
+      <dynamics   damping="1.0" friction="0.0001"/>
+  </joint>
+
+  <!-- <joint name="WRJ0rz" type="revolute">
+      <parent link="link_palm_ry"/>
+      <child link="palm_link"/>
+      <origin xyz="0 0 0.0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1000" lower="-3.14" upper="3.14"  />
+      <dynamics   damping="1.0" friction="0.0001"/>
+  </joint> -->
+<!-- 
+  <joint name="root_to_base" type="fixed">
+    <parent link="hand_root"/>
+    <child link="palm_link"/>
+    <origin xyz="0 0 0.095"/>
+  </joint> -->
+
+  
+
+
+  <!-- [LINK 0, 4, 8] -->
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/link_0.0.obj"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <!-- <box size="0.0196 0.0275 0.0164"/> -->
+         <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0082"/>
+    </collision>
+    <inertial>
+      <mass value="0.0119"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="1.95377e-06" ixy="3.03372e-09" ixz="8.92323e-08" iyy="1.17908e-06" iyz="-3.7069e-08" izz="1.49673e-06"/>
+    </inertial>
+  </link>
+  <joint name="joint_4" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="0.7" lower="-0.47" upper="0.47" velocity="7"/>
+    <parent link="link_palm_ry"/>
+    <child link="link_4"/>
+    <origin rpy="0.0 0 0" xyz="0 0 0.0007"/>
+    <dynamics damping="1.5e-2" friction="10"/>
+  </joint>
+  <transmission name="joint_4_trans" type="transmission_interface/SimpleTransmission">
+    <actuator name="joint_4_motor"/>
+    <joint name="joint_4"/>
+    <mechanicalReduction>1</mechanicalReduction>
+    <motorTorqueConstant>1</motorTorqueConstant>
+  </transmission>
+  <!-- [LINK 1, 5, 9] -->
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/link_1.0.obj"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <!-- <collision>
+      <geometry>
+        <box size="0.0196 0.0275 0.054"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.027"/>
+    </collision> -->
+
+    <collision>
+      <geometry>
+         <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0135"/>
+    </collision>
+    <collision>
+      <geometry>
+         <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0405"/>
+    </collision>
+
+    <inertial>
+      <mass value="0.065"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="7.19218e-05" ixy="0" ixz="0" iyy="7.4377e-05" iyz="7.32186e-07" izz="5.40622e-06"/>
+    </inertial>
+  </link>
+  <joint name="joint_5" type="revolute">
+    <limit effort="0.7" lower="-0.196" upper="1.61" velocity="7"/>
+    <axis xyz="0 1 0"/>
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0 0.0164"/>
+    <dynamics damping="1.5e-2" friction="5"/>
+  </joint>
+  <transmission name="joint_5_trans" type="transmission_interface/SimpleTransmission">
+    <actuator name="joint_5_motor"/>
+    <joint name="joint_5"/>
+    <mechanicalReduction>1</mechanicalReduction>
+    <motorTorqueConstant>1</motorTorqueConstant>
+  </transmission>
+  <!-- [LINK 2, 6, 10]-->
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/link_2.0.obj"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <geometry>
+        <box size="0.0196 0.0275 0.0384"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0192"/>
+    </collision> -->
+
+    <collision>
+      <geometry>
+         <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0096"/>
+    </collision>
+
+    <collision>
+      <geometry>
+         <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0288"/>
+    </collision>
+
+    <inertial>
+      <mass value="0.0355"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="3.16925e-05" ixy="1.07094e-09" ixz="-4.91273e-09" iyy="3.10516e-05" iyz="3.87549e-08" izz="3.20319e-06"/>
+    </inertial>
+  </link>
+  <joint name="joint_6" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="0.7" lower="-0.174" upper="1.709" velocity="7"/>
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0 0 0.054"/>
+    <dynamics damping="1.5e-2" friction="10"/>
+  </joint>
+  <transmission name="joint_6_trans" type="transmission_interface/SimpleTransmission">
+    <actuator name="joint_6_motor"/>
+    <joint name="joint_6"/>
+    <mechanicalReduction>1</mechanicalReduction>
+    <motorTorqueConstant>1</motorTorqueConstant>
+  </transmission>
+  <!-- [LINK 3, 7, 11] -->
+  <link name="link_7">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/link_3.0.obj"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <!-- <collision>
+      <geometry>
+        <box size="0.0196 0.0275 0.0267"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.01335"/>
+    </collision> -->
+    <collision>
+      <geometry>
+          <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.006675"/>
+    </collision>
+    <collision>
+      <geometry>
+          <sphere radius="0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.020025"/>
+    </collision>
+    <inertial>
+      <mass value="0.0096"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="2.13975e-06" ixy="1.59554e-09" ixz="-7.47528e-09" iyy="1.52036e-06" iyz="-9.89336e-09" izz="1.20271e-06"/>
+    </inertial>
+  </link>
+  <joint name="joint_7" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="0.7" lower="-0.227" upper="1.618" velocity="7"/>
+    <parent link="link_6"/>
+    <child link="link_7"/>
+    <origin xyz="0 0 0.0384"/>
+    <dynamics damping="1.5e-2" friction="12"/>
+  </joint>
+  <transmission name="joint_7_trans" type="transmission_interface/SimpleTransmission">
+    <actuator name="joint_7_motor"/>
+    <joint name="joint_7"/>
+    <mechanicalReduction>1</mechanicalReduction>
+    <motorTorqueConstant>1</motorTorqueConstant>
+  </transmission>
+  <!-- [FINGER TIP] -->
+  <link name="link_7_tip">
+    <visual>
+      <geometry>
+        <mesh filename="../meshes/link_3.0_tip.obj"/>
+      </geometry>
+      <material name="white">
+        <color rgba=".9 .9 .9 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.012"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0168"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="1.19599e-05" ixy="0" ixz="0" iyy="1.19598e-05" iyz="0" izz="1.10345e-06"/>
+    </inertial>
+  </link>
+  <joint name="joint_7_tip" type="fixed">
+    <parent link="link_7"/>
+    <child link="link_7_tip"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0267"/>
+  </joint>
+
+
+
+</robot>

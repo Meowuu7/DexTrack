@@ -1,0 +1,180 @@
+params:
+  seed: ${...seed}
+
+  algo:
+    # name: a2c_continuous
+    name: a2c_continuous_supervised
+
+  model:
+    name: continuous_a2c_logstd
+
+  network:
+    name: actor_critic
+    separate: False
+
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: None
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: 0
+        fixed_sigma: True
+
+    mlp:
+      # units: [512, 200, 100]
+      units: [1024, 512, 256, 128] # largenet
+      # units: [1024, 2048, 1024, 512, 256, 128] # largenetv2
+      # units: [2048, 1024, 512, 256, 128] # largenetv3
+      # units: [4096, 2048, 1024, 512, 256, 128]
+      # units: [8192, 4096, 2048, 1024, 512, 256, 128]
+      activation: elu
+      d2rl: False
+
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+  load_checkpoint: ${if:${...checkpoint},True,False} # flag which sets whether to load the checkpoint
+  load_path: ${...checkpoint} # path to the checkpoint to load
+
+
+  config:
+
+    forecasting_obs_with_original_obs: False
+
+    test_inst_tag: ''
+    add_obj_features: False
+
+    traj_idx_to_experience_sv_folder: ''
+    history_chunking_obs_version: 'v1'
+    load_chunking_experiences_from_real: False
+
+    use_transformer_model: False
+
+    ##### Hierarchical model test setting #####
+    switch_between_models: False
+    switch_to_trans_model_frame_after: 310
+    switch_to_trans_model_ckpt_fn: ''
+    ##### Hierarchical model test setting #####
+
+    history_length: 5
+
+    target_inst_tag_list_fn: ''
+    teacher_subj_idx: 2
+
+    ##### action chunking #####
+    action_chunking: False
+    action_chunking_frames: 1
+    bc_relative_targets: False
+    action_chunking_skip_frames: 1
+
+    distill_via_bc: False
+
+    load_chunking_experiences_v2: False
+    ##### action chunking #####
+
+    save_experiences_via_ts: False
+
+    simreal_modeling: False
+    # demonstration tuning model #
+    demonstration_tuning_model: False
+    demonstration_tuning_model_freq: 1
+    distill_delta_targets: False
+    record_for_distill_to_ctlv2: False
+
+    preload_all_saved_exp_buffers: False
+
+    load_experiences_maxx_ts: 600
+
+    bc_style_training: False
+
+    use_no_obj_pose: False
+
+    #### teacher student model training setting ####
+    train_student_model: False
+    ts_teacher_model_obs_dim: 731
+    ts_teacher_model_weights_fn: ''
+    #### teacher student model training setting ####
+    dagger_style_training: False
+    rollout_student_model: True
+    rollout_teacher_model: False
+
+    #### Mask mimicing training ####
+    masked_mimic_training: False 
+    masked_mimic_teacher_model_path: ''
+    #### Mask mimicing training ####
+
+
+    maxx_inst_nn: 1000000
+
+    use_world_model: False
+    train_controller: False
+    train_forecasting_model: True
+    forecasting_model_weight_fn: ''
+
+    forecasting_obs_dim: 797
+    forecasting_act_dim: 29
+    forecasting_nn_frames: 10
+    # forecasting nn frames ##
+    # 
+
+    w_franka: False
+    use_teacher_model: False
+    teacher_model_path: ''
+    teacher_index_to_weights: ''
+    grab_obj_type_to_opt_res_fn: ''
+    taco_obj_type_to_opt_res_fn: ''
+    supervised_loss_coef: 0.0005
+    pure_supervised_training: False
+    single_instance_tag: '' # single  # single instance tag # # s1 apple eat #
+    obj_type_to_optimized_res_fn: ''
+    train_dir: './runs'
+    log_path: './runs'
+    training_mode: 'regular'
+    record_experiences: False
+    name: ${resolve_default:Humanoid,${....experiment}}
+    preload_experiences_tf: False
+    preload_experiences_path: None
+
+    single_instance_training: False
+    single_instance_state_based_train: False 
+
+    full_experiment_name: ${.name}
+    env_name: rlgpu
+    multi_gpu: ${....multi_gpu}
+    mixed_precision: True
+    normalize_input: True
+    normalize_value: True
+    value_bootstrap: True
+    num_actors: ${....task.env.numEnvs}
+    reward_shaper:
+      scale_value: 0.01
+    normalize_advantage: True
+    gamma: 0.99
+    tau: 0.95
+    learning_rate: 5e-4
+    lr_schedule: adaptive
+    kl_threshold: 0.008
+    score_to_win: 20000
+    max_epochs: ${resolve_default:1000,${....max_iterations}}
+    save_best_after: 50
+    save_frequency: 200 # 50 # robot # get the best model after 50 epochs
+    print_stats: True
+    grad_norm: 1.0
+    entropy_coef: 0.0
+    truncate_grads: True
+    ppo: True
+    e_clip: 0.2
+    horizon_length: 32
+    # minibatch_size: 32768
+    minibatch_size: 1
+    # minibatch_size_per_env: 32
+    mini_epochs: 5
+    critic_coef: 4
+    clip_value: True
+    seq_len: 4
+    bounds_loss_coef: 0.0001

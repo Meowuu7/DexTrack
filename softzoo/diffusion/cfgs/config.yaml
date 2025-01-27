@@ -1,0 +1,84 @@
+# save_dir: /data/xueyi/softzoo_diffusion
+save_dir: /data2/xueyi/uni_manip/exp
+
+# eval_during_traini
+seed: 42
+
+# exp_tag: test_scalev2_saved_ #  test_scalev2_
+# exp_tag: test_scalev2_saved_mlpnet_ #  test_scalev2_
+exp_tag: test_scalev3_
+
+model:
+  n_layers: 7
+  n_layers_act: 7
+  input_dims:
+    X: 2
+    E: 1
+    y: 1
+  hidden_mlp_dims: 
+    X: 128
+    E: 128
+    y: 128
+  hidden_dims:
+    dx: 256
+    de: 256
+    dy: 256
+    n_head: 4
+    dim_ffX: 256
+    dim_ffE: 256
+  output_dims:
+    X: 2
+    E: 1
+    y: 1
+  
+  ### for the act model ###
+  input_dims_act:
+    X: 630
+    y: 1
+  hidden_mlp_dims_act:
+    X: 4096
+    y: 1024
+  output_dims_act:
+    X: 630
+
+diffusion:
+  noise_schedule: linear
+  sigma_small: True
+  lambda_vel: 0.0
+  lambda_rcxyz: 0.0
+  lambda_fc: 0.0
+  # denoising_stra: 
+  # inter_optim: 
+
+dataset:
+  dataset_type: uni_manip
+  num_frames: 10
+  # data_folder: /data/xueyi/softzoo/data/uni_manip_2d_data
+  data_folder: /data2/xueyi/uni_manip/data
+
+dataset_act:
+  # data_folder: /data2/xueyi/uni_manip/data
+  # data_folder: /data/xueyi/softzoo/exp
+  data_folder: /data2/xueyi/uni_manip/exp_v2/exp
+
+task:
+  dt: 1e-1
+  nn_timesteps: 10
+  use_target_data: True ## use the target data ##
+  sample_wconstraints: True
+  # use_t: 
+
+training:
+  batch_size: 32
+  lr: 1e-4
+  log_interval: 10
+  save_interval: 1000
+  resume_checkpoint: False
+  weight_decay: 5e-5
+  lr_anneal_steps: 5000000
+  num_steps: 5000000
+  # resume pahs
+  # resume_checkpoint_graph: /data2/xueyi/uni_manip/exp/test_scalev2_saved_mlpnet_/model000383000.pt
+  # resumd_checkooit_act: /data2/xueyi/uni_manip/exp/test_scalev3_/model000200000.pt
+
+eval_during_training: False  
