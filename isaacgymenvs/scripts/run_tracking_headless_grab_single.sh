@@ -1533,6 +1533,9 @@ export minibatch_size=20000
 
 
 ##### single instnace training setting #####
+export tracking_info_st_tag='passive_active_info_'
+export tracking_save_info_fn='./data/GRAB_Tracking_PK_reduced_300/data'
+export tracking_data_sv_root='./data/GRAB_Tracking_PK_reduced_300/data'
 export subj_nm=''
 export generalist_tune_all_instnaces=False
 # export data_inst_flag='ori_grab_s2_duck_inspect_1_nf_300' 
@@ -1557,7 +1560,7 @@ export log_path=./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new
 
 
 
-export st_idx=4
+export st_idx=0
 
 
 
