@@ -1550,8 +1550,8 @@ export single_instance_training=True # the learning model would not print additi
 export numEnvs=22000
 export minibatch_size=22000
 
-export numEnvs=10000
-export minibatch_size=10000
+# export numEnvs=10000
+# export minibatch_size=10000
 
 export maxx_inst_nn=1
 export single_instance_state_based_train=True
