@@ -749,9 +749,9 @@ class AllegroHandTrackingGeneralist(BaseTask):
         
         
         self.tot_grab_inst_tag_to_opt_res = {}
-        for cur_fn in self.grab_inst_tag_to_optimized_res_fn:
-            cur_opt_res = np.load(cur_fn, allow_pickle=True).item()
-            self.tot_grab_inst_tag_to_opt_res.update(cur_opt_res)
+        # for cur_fn in self.grab_inst_tag_to_optimized_res_fn:
+        #     cur_opt_res = np.load(cur_fn, allow_pickle=True).item()
+        #     self.tot_grab_inst_tag_to_opt_res.update(cur_opt_res)
         self.grab_inst_tag_to_opt_res = self.tot_grab_inst_tag_to_opt_res
         
         
@@ -1417,7 +1417,8 @@ class AllegroHandTrackingGeneralist(BaseTask):
         
         self.mocap_sv_info_fn = '/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_apple_lift.npy'
         if not os.path.exists(self.mocap_sv_info_fn):
-            self.mocap_sv_info_fn = './data/GRAB_Tracking_PK_OFFSET_Reduced/data/passive_active_info_ori_grab_s2_apple_lift_nf_300.npy'
+            # self.mocap_sv_info_fn = './data/GRAB_Tracking_PK_OFFSET_Reduced/data/passive_active_info_ori_grab_s2_apple_lift_nf_300.npy'
+            self.mocap_sv_info_fn = './data/GRAB_Tracking_PK_reduced_300/data/passive_active_info_ori_grab_s2_apple_lift_nf_300.npy'
         # if self.dataset_type == 'taco':
         #     self.mocap_sv_info_fn = '/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_taco_s2_apple_lift.npy'
         self._load_mocap_info()

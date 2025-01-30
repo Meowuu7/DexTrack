@@ -1525,38 +1525,47 @@ export minibatch_size=25000
 # export minibatch_size=50000
 
 
-export target_inst_tag_list_fn=/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_obj_duck.npy
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
-export numEnvs=20000
-export minibatch_size=20000
-
-
-
-##### single instnace training setting #####
 export tracking_info_st_tag='passive_active_info_'
 export tracking_save_info_fn='./data/GRAB_Tracking_PK_reduced_300/data'
 export tracking_data_sv_root='./data/GRAB_Tracking_PK_reduced_300/data'
-export subj_nm=''
 export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
 export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'
+
+
+
+export subj_idx=2
+export subj_nm=s${subj_idx}
+export single_instance_training=False
 export generalist_tune_all_instnaces=False
-export data_inst_flag='ori_grab_s2_duck_inspect_1_nf_300' 
-# export data_inst_flag='ori_grab_s2_camera_takepicture_2_nf_300' 
-# export data_inst_flag='ori_grab_s2_apple_eat_1_nf_300' 
-# export data_inst_flag='ori_grab_s2_cubesmall_inspect_1_nf_300' 
-export target_inst_tag_list_fn=''
-export test_inst_tag=${data_inst_flag}
-export single_instance_training=True # the learning model would not print additional infos in this setting
-export numEnvs=22000
-export minibatch_size=22000
+export maxx_inst_nn=10000
+export single_instance_state_based_train=False
+export target_inst_tag_list_fn=../assets/inst_tag_list_obj_${subj_nm}.npy
+export log_path=./logs/isaacgym_rl_allegro_${subj_nm}
+export numEnvs=40000
+export minibatch_size=40000
 
-export numEnvs=10000
-export minibatch_size=10000
 
-export maxx_inst_nn=1
-export single_instance_state_based_train=True
-export log_path=./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
-##### single instnace training setting #####
+
+# ##### single instnace training setting #####
+# export subj_nm=''
+# export generalist_tune_all_instnaces=False
+# export data_inst_flag='ori_grab_s2_duck_inspect_1_nf_300' 
+# # export data_inst_flag='ori_grab_s2_camera_takepicture_2_nf_300' 
+# # export data_inst_flag='ori_grab_s2_apple_eat_1_nf_300' 
+# # export data_inst_flag='ori_grab_s2_cubesmall_inspect_1_nf_300' 
+# export target_inst_tag_list_fn=''
+# export test_inst_tag=${data_inst_flag}
+# export single_instance_training=True # the learning model would not print additional infos in this setting
+# export numEnvs=22000
+# export minibatch_size=22000
+# export numEnvs=10000
+# export minibatch_size=10000
+# export maxx_inst_nn=1
+# export single_instance_state_based_train=True
+# export log_path=./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
+# ##### single instnace training setting #####
+
+
 
 #### bash scripts ####
 # export maxx_inst_nn=5
@@ -1569,7 +1578,7 @@ export st_idx=0
 
 
 
-# bash scripts/run_tracking_headless_grab_single.sh
+# bash scripts/run_tracking_headless_grab_multiple.sh
 
 
 
