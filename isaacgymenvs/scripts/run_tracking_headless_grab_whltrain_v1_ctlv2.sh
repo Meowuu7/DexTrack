@@ -1587,9 +1587,10 @@ export dofSpeedScale=6
 export controlFrequencyInv=3
 
 export maxx_inst_nn=1
-export pure_test_inst_tag="ori_grab_s9_hammer_use_2"
+# export pure_test_inst_tag="ori_grab_s9_hammer_use_2"
 # export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
 # export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
+export pure_test_inst_tag="ori_grab_s1_flute_play_1"
 export test_inst_tag=${pure_test_inst_tag}_nf_300
 
 export glb_trans_vel_scale=0.6024
