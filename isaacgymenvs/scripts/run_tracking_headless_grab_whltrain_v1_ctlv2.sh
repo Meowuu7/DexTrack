@@ -1521,6 +1521,9 @@ export minibatch_size=11000
 export numEnvs=25000
 export minibatch_size=25000
 
+export numEnvs=40000
+export minibatch_size=40000
+
 # export numEnvs=50000
 # export minibatch_size=50000
 
@@ -1704,9 +1707,6 @@ export tracking_save_info_fn='./data/GRAB_Tracking_PK_reduced_300/data'
 export tracking_data_sv_root='./data/GRAB_Tracking_PK_reduced_300/data'
 export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
 export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'
-
-
-##### should try the reorientation reward scheduling, and the local coordinate system modeling #####
 
 
 
