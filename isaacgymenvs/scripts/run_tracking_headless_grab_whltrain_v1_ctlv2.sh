@@ -1586,6 +1586,7 @@ export controlFrequencyInv=3
 export maxx_inst_nn=1
 export pure_test_inst_tag="ori_grab_s9_hammer_use_2"
 # export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
+# export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
 export test_inst_tag=${pure_test_inst_tag}_nf_300
 
 export glb_trans_vel_scale=0.6024
@@ -1597,6 +1598,7 @@ export hand_qpos_rew_coef=0.00
 export w_finger_pos_rew=False
 #### reward system v1 --- without the rigid body positional reward ####
 
+export single_instance_state_based_train=True 
 
 export more_allegro_stiffness=True
 
@@ -1660,7 +1662,7 @@ export multiple_kine_source_trajs_fn=''
 
 
 
-export use_local_canonical_state=True
+# export use_local_canonical_state=True
 
 
 ######## Common orientation reward settings ########
