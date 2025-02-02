@@ -1055,10 +1055,10 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 
                 
                 
-                test_taco_tag = 'taco_20231024_'
-                if self.hand_type != 'leap' and self.train_on_all_trajs:
-                    if test_taco_tag in cur_grab_obj_type:
-                        continue
+                # test_taco_tag = 'taco_20231024_'
+                # if self.hand_type != 'leap' and self.train_on_all_trajs:
+                #     if test_taco_tag in cur_grab_obj_type:
+                #         continue
                 if cur_grab_obj_type in taco_fobid_data_tags:
                     continue
                     
@@ -6368,14 +6368,14 @@ class AllegroHandTrackingGeneralist(BaseTask):
 
         
         
-        if self.dataset_type == 'taco':
-            progress_buf_indexes = torch.where(self.progress_buf >= self.hand_palm_world_poses.size(0), self.hand_palm_world_poses.size(0) - 1 + torch.zeros_like(self.progress_buf), self.progress_buf)
-            # self.gt_hand_palm_pos, self.gt_hand_thumb_pos, self.gt_hand_index_pos, self.gt_hand_middle_pos, self.gt_hand_ring_pos #
-            self.gt_hand_palm_pos = self.hand_palm_world_poses[progress_buf_indexes]
-            self.gt_hand_thumb_pos = self.thumb_tip_world_poses[progress_buf_indexes]
-            self.gt_hand_index_pos = self.index_tip_world_poses[progress_buf_indexes]
-            self.gt_hand_middle_pos = self.middle_tip_world_poses[progress_buf_indexes]
-            self.gt_hand_ring_pos = self.ring_tip_world_poses[progress_buf_indexes]
+        # if self.dataset_type == 'taco':
+        #     progress_buf_indexes = torch.where(self.progress_buf >= self.hand_palm_world_poses.size(0), self.hand_palm_world_poses.size(0) - 1 + torch.zeros_like(self.progress_buf), self.progress_buf)
+        #     # self.gt_hand_palm_pos, self.gt_hand_thumb_pos, self.gt_hand_index_pos, self.gt_hand_middle_pos, self.gt_hand_ring_pos #
+        #     self.gt_hand_palm_pos = self.hand_palm_world_poses[progress_buf_indexes]
+        #     self.gt_hand_thumb_pos = self.thumb_tip_world_poses[progress_buf_indexes]
+        #     self.gt_hand_index_pos = self.index_tip_world_poses[progress_buf_indexes]
+        #     self.gt_hand_middle_pos = self.middle_tip_world_poses[progress_buf_indexes]
+        #     self.gt_hand_ring_pos = self.ring_tip_world_poses[progress_buf_indexes]
             
         
         ##### get the history obs ######
