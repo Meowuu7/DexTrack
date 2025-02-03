@@ -43,3 +43,11 @@ isaacgymenvs/runs*/*
 isaacgymenvs/isaacgym_rl_exp_*
 
 
+isaacgymenvs/scripts_bak/*
+isaacgymenvs/scripts_new/*
+isaacgymenvs/scripts_bak
+isaacgymenvs/scripts_new
+
+isaacgymenvs/scripts/*_local.sh
+
+
