@@ -2,6 +2,49 @@
 
 [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
 
+## Getting Started
+
+### Installation
+
+Create a vritual environment with python 3.8.0:
+```bash
+conda create -n dextrack python=3.8.0
+```
+
+Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then
+follow the installation instructions in the documentation.
+```bash
+cd isaacgym/python
+pip install -e .
+```
+
+Install `torch_cluster`:
+```bash
+cd DexTrack/whls
+pip install torch_cluster-1.6.3+pt24cu121-cp38-cp38-linux_x86_64.whl
+```
+
+Install other dependencies:
+```bash
+pip install rl_games transforms3d matplotlib omegaconf hydra-core trimesh
+```
+
+### Data
+
+Download the retargeted data from link xxxx 
+
+We've also included code for kinematic retargeting in this repo. Please refer to []() for detailed usage. 
+
+TODO : upload and add the data downloading link
+
+## Dexterous Manipulation Tracking
+
+
+The repo is originally developed using simulated Allegro hand (a fly hand with 6 global translational and rotational DoFs). For sim-to-real purpose, (TODO rephrase this part)
+
+(TODO: v1 control strategy )
+We've developed two types of control strategies (action spaces) 
+
 
 ### About this repository
 
