@@ -1,4 +1,4 @@
-# Isaac Gym Benchmark Environments
+# DexTrack: Dexterous Manipulations Tracking
 
 [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
 
@@ -38,6 +38,57 @@ We've also included code for kinematic retargeting in this repo. Please refer to
 TODO : upload and add the data downloading link
 
 ## Dexterous Manipulation Tracking
+
+
+This repo contains RL environments for dexterous manipulation tracking with a simulated fly Allegro hand (an Allegro hand with 6 global translational and rotational DoFs). We support two types of control strategies (action spaces):
+- Cumulated residual positional targets with kinematics bias; 
+- Relative positional targets. 
+The original DexTrack's implementation uses the first action space. 
+
+DexTrack include two levels of trackings. 
+- Single trajectory tracking. The goal is training a trajectory-specific tracking policy to track a single manipulation trajectory. 
+- Multiple trajectories tracking for a generalizable and versatile tracker. The goal is training a single tracking policy that is able to track multiple manipulation trajectories, and has the ability to generalize to unobserved sequences. 
+In the following, we will illustrate the training and evaluation processes for these two settings.
+
+Please make sure you are running these commands in the folder `DexTrack/isaacgymenvs`. 
+
+### Sincle trajectory tracking
+
+To train a single trajectory tracker for a sequence retargeted from the GRAB dataset using the `cumulative residual` action space, run the following code:
+```bash
+bash scripts/run_tracking_headless_grab_single.sh <GPU_ID> <SEQ_NAME>
+```
+Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NA<E>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`. 
+
+After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. Please note that the evaluation code is not running in a headless mode, indicating that you need a display. 
+```bash
+
+```
+
+
+Below, we give several examples. 
+
+
+
+To track the `cubesmall_inspect` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_cubesmall_inspect_1`, please run:
+```bash
+bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_cubesmall_inspect_1
+```
+This sequence can be tracked pretty well using quite short time. We can reach a reward more than `150` at epoch `50` using `22000` parallel environments. 
+
+
+To track the `duck_inspect` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_duck_inspect_1`, please run:
+```bash
+bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_duck_inspect_1
+```
+This sequence can also be tracked pretty well after training for a short time. We can reach a reward more than `150` at epoch `100` using `22000` parallel environments. 
+
+
+
+
+
+
+
 
 
 The repo is originally developed using simulated Allegro hand (a fly hand with 6 global translational and rotational DoFs). For sim-to-real purpose, (TODO rephrase this part)
