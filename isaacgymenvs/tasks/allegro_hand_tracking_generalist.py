@@ -4,9 +4,9 @@
 # and any modifications thereto.  Any use, reproduction, disclosure or
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
-from unittest import TextTestRunner
-import xxlimited
-from matplotlib.pyplot import axis
+# from unittest import TextTestRunner
+# import xxlimited
+# from matplotlib.pyplot import axis
 import numpy as np
 import os
 import os.path as osp
@@ -16,20 +16,20 @@ from pyparsing import And
 import torch
 
 from utils.torch_jit_utils import *
-from utils.data_info import plane2euler
+# from utils.data_info import plane2euler
 # from tasks.hand_base.base_task import BaseTask
 import operator
 
-TOREAL = os.environ.get("toreal")
+# TOREAL = os.environ.get("toreal")
 
-print(f"toreal: {TOREAL}")
+# print(f"toreal: {TOREAL}")
 
-if TOREAL:
+# if TOREAL:
     
-    # from isaacgymenvs.tasks.vec_task_toreal import VecTask as BaseTask
-    from isaacgymenvs.tasks.vec_task_toreal_v1 import VecTask as BaseTask
-else:
-    from isaacgymenvs.tasks.vec_task import VecTask as BaseTask
+#     # from isaacgymenvs.tasks.vec_task_toreal import VecTask as BaseTask
+#     from isaacgymenvs.tasks.vec_task_toreal_v1 import VecTask as BaseTask
+# else:
+from isaacgymenvs.tasks.vec_task import VecTask as BaseTask
 
 # from isaacgymenvs.tasks.vec_task import VecTask as BaseTask
 
@@ -538,7 +538,7 @@ class AllegroHandTrackingGeneralist(BaseTask):
         
         self.obs_simplified = self.cfg['env'].get('obs_simplified', False) 
         self.w_traj_modifications = self.cfg['env'].get('w_traj_modifications', False)
-        self.to_real = True if TOREAL else False
+        self.to_real = False # True if TOREAL else False
         
         
         

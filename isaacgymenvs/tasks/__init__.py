@@ -27,28 +27,19 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from .ant import Ant
-from .humanoid_amp import HumanoidAMP
-from .shadow_hand import ShadowHand
-from .shadow_hand_grasp_v2 import ShadowHandGrasp
-from .shadow_hand_manip import ShadowHandGrasp as ShadowHandManip
-from .humanoid_amp_base import HumanoidAMPBase
-from .fullbody import FullBody
-from .fullbody_static import FullBodyStatic
-from .moving_arm import MovingArm
-from .fullbody_amp import FullBodyAMP
-from .allegro_hand_grasp import AllegroHandGrasp
-from .allegro_hand_tracking import AllegroHandTracking
-from .allegro_hand_tracking_w_diffusion import AllegroHandTrackingDiff
-from .allegro_hand_tracking_vision import AllegroHandTrackingVision
+# from .humanoid_amp import HumanoidAMP
+# from .shadow_hand import ShadowHand
+# from .shadow_hand_grasp_v2 import ShadowHandGrasp
+# from .shadow_hand_manip import ShadowHandGrasp as ShadowHandManip
+# from .humanoid_amp_base import HumanoidAMPBase
+# from .fullbody import FullBody
+# from .fullbody_static import FullBodyStatic
+# from .moving_arm import MovingArm
+# from .fullbody_amp import FullBodyAMP
+# from .allegro_hand_grasp import AllegroHandGrasp
+# from .allegro_hand_tracking import AllegroHandTracking
+# from .allegro_hand_tracking_w_diffusion import AllegroHandTrackingDiff
 from .allegro_hand_tracking_generalist import AllegroHandTrackingGeneralist
-from .allegro_hand_tracking_play import AllegroHandTrackingPlay
-# AllegroHandTrackingPlayDemo
-from .allegro_hand_tracking_play_demo import AllegroHandTrackingPlayDemo
-from .allegro_hand_tracking_generalist_deploy import AllegroHandTrackingGeneralistDeploy
-# AllegroHandTrackingGeneralistWForecasting
-from .allegro_hand_tracking_generalist_wforecast import AllegroHandTrackingGeneralistWForecasting
-from .allegro_hand_tracking_generalist_chunking import AllegroHandTrackingGeneralist as AllegroHandTrackingGeneralistChunking
-# from .allegro_hand_tracking_generalist_v2 import AllegroHandTrackingGeneralistV2 # as AllegroHandTrackingGeneralistV2
 
 
 
@@ -56,24 +47,24 @@ from .allegro_hand_tracking_generalist_chunking import AllegroHandTrackingGenera
 isaacgym_task_map = {
     "Ant": Ant,
     # "Humanoid": Humanoid,
-    "HumanoidAMP": HumanoidAMP,
-    "HumanoidAMPBase": HumanoidAMPBase,
-    "ShadowHand": ShadowHand,
-    "ShadowHandGrasp": ShadowHandGrasp,
-    "ShadowHandManip": ShadowHandManip,
-    "FullBody": FullBody,
-    "FullBodyStatic":FullBodyStatic,
-    "MovingArm":MovingArm,
-    "FullBodyAMP": FullBodyAMP,
-    "AllegroHandGrasp": AllegroHandGrasp,
-    "AllegroHandTracking": AllegroHandTracking,
-    "AllegroHandTrackingDiff": AllegroHandTrackingDiff,
-    "AllegroHandTrackingVision": AllegroHandTrackingVision,
+    # "HumanoidAMP": HumanoidAMP,
+    # "HumanoidAMPBase": HumanoidAMPBase,
+    # "ShadowHand": ShadowHand,
+    # "ShadowHandGrasp": ShadowHandGrasp,
+    # "ShadowHandManip": ShadowHandManip,
+    # "FullBody": FullBody,
+    # "FullBodyStatic":FullBodyStatic,
+    # "MovingArm":MovingArm,
+    # "FullBodyAMP": FullBodyAMP,
+    # "AllegroHandGrasp": AllegroHandGrasp,
+    # "AllegroHandTracking": AllegroHandTracking,
+    # "AllegroHandTrackingDiff": AllegroHandTrackingDiff,
+    # "AllegroHandTrackingVision": AllegroHandTrackingVision,
     "AllegroHandTrackingGeneralist": AllegroHandTrackingGeneralist,
-    'AllegroHandTrackingPlay': AllegroHandTrackingPlay,
-    'AllegroHandTrackingPlayDemo': AllegroHandTrackingPlayDemo,
-    'AllegroHandTrackingGeneralistDeploy': AllegroHandTrackingGeneralistDeploy,
-    'AllegroHandTrackingGeneralistWForecasting': AllegroHandTrackingGeneralistWForecasting,
-    'AllegroHandTrackingGeneralistChunking': AllegroHandTrackingGeneralistChunking,
+    # 'AllegroHandTrackingPlay': AllegroHandTrackingPlay,
+    # 'AllegroHandTrackingPlayDemo': AllegroHandTrackingPlayDemo,
+    # 'AllegroHandTrackingGeneralistDeploy': AllegroHandTrackingGeneralistDeploy,
+    # 'AllegroHandTrackingGeneralistWForecasting': AllegroHandTrackingGeneralistWForecasting,
+    # 'AllegroHandTrackingGeneralistChunking': AllegroHandTrackingGeneralistChunking,
     # 'AllegroHandTrackingGeneralistV2': AllegroHandTrackingGeneralistV2,
 }

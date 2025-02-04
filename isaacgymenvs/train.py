@@ -79,10 +79,8 @@ def setup_seed(seed):
     # # torch.use_deterministic_algorithms(True, warn_only=True)
 
 
-# setup_seed(666)
 
-# 
-# 
+
 def preprocess_train_config(cfg, config_dict): # config dict #
     """
     Adding common configuration parameters to the rl_games train config.
@@ -372,40 +370,3 @@ def launch_rlg_hydra(cfg: DictConfig):
 if __name__ == "__main__":
     launch_rlg_hydra()
 
-
-
-# python train.py task=AllegroHandGrasp train=HumanoidPPO sim_device='cuda:0' rl_device='cuda:0'  capture_video=True force_render=True headless=False  
-
-##### train using the prev_state control mode #####
-# python train.py task=AllegroHandGrasp train=HumanoidPPO sim_device='cuda:0' rl_device='cuda:0'  capture_video=True force_render=True headless=False   task.env.numEnvs=1024 train.params.config.minibatch_size=1024  task.env.useRelativeControl=True train.params.config.max_epochs=10000 
-
-
-# NOTE: goal_cond=False, w_obj_ornt=False
-# checkpoint=runs/Humanoid_02-14-52-59/nn/Humanoid.pth
-
-##### train using the prev_state control mode #####
-# CUDA_VISIBLE_DEVICES=2 python train.py task=AllegroHandGrasp train=HumanoidPPO sim_device='cuda:0' rl_device='cuda:0'  capture_video=False force_render=False headless=True   task.env.numEnvs=10240 train.params.config.minibatch_size=10240  task.env.useRelativeControl=True train.params.config.max_epochs=10000 task.env.w_obj_ornt=True  task.env.goal_cond=True 
-
-
-
-# NOTE: tracking 
-##### train using the prev_state control mode #####
-# CUDA_VISIBLE_DEVICES=7 python train.py task=AllegroHandTracking train=HumanoidPPO sim_device='cuda:0' rl_device='cuda:0'  capture_video=False force_render=False headless=True   task.env.numEnvs=10240 train.params.config.minibatch_size=10240  task.env.useRelativeControl=True train.params.config.max_epochs=10000 task.env.mocap_sv_info_fn='../assets/retar_data/passive_active_info_ori_grab_s2_headphones_lift_pkretar.npy' checkpoint=runs/Humanoid_03-09-34-46/nn/Humanoid.pth task.env.goal_cond=True 
-
-
-# NOTE: tracking -- capture video
-# python train.py task=AllegroHandTracking train=HumanoidPPO sim_device='cuda:0' rl_device='cuda:0'  capture_video=True force_render=True headless=False   task.env.numEnvs=1024 train.params.config.minibatch_size=1024  task.env.useRelativeControl=True train.params.config.max_epochs=10000 task.env.mocap_sv_info_fn='../assets/retar_data/passive_active_info_ori_grab_s2_headphones_lift_pkretar.npy' checkpoint=runs/Humanoid_03-09-34-46/nn/Humanoid.pth
-
-
-# task.env.w_obj_ornt=True  task.env.goal_cond=True 
-
-
-# 
-# task.env.w_obj_ornt=True # TODO: add this one
-# checkpoint=runs/Humanoid_02-11-50-17/nn/last_Humanoid_ep_1000_rew__-91.1_.pth
-# 
-# checkpoint=runs/Humanoid_02-10-48-18/nn/Humanoid.pth
-
-
-
-# python train.py task=AllegroHandGrasp train=HumanoidPPO sim_device='cuda:4' rl_device='cuda:4'  capture_video=False force_render=False headless=False   task.env.numEnvs=1024 train.params.config.minibatch_size=1024 task.env.useRelativeControl=True
