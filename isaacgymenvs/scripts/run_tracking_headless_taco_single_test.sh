@@ -1517,6 +1517,8 @@ export max_epochs=10000
 
 GPUS=$1
 TRAJ=$2
+CKPT=$3
+
 
 ##### single instnace training setting #####
 export tracking_info_st_tag='passive_active_info_'
@@ -1610,25 +1612,16 @@ export rew_version=7
 
 
 
-# ##### sampling code #####
-# export checkpoint='./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2/tracking_ori_grab_s2_hammer_use_2_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-11-14-57/nn/tracking_ori_grab_s2_hammer_use_2_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
 
-# export preset_multi_traj_index=51
-# # export record_experiences=True
-# export record_experiences=False
-# # export save_experiences_via_ts=True
-# export test=True
-# export numEnvs=100  
-# export minibatch_size=100
-# # export numEnvs=10000
-# # export minibatch_size=10000
-# # export st_idx=4
-# ##### sampling code #####
+##### sampling code #####
+export checkpoint=${CKPT}
+export test=True
+export numEnvs=100  
+export minibatch_size=100
+export headless=True # False
+##### sampling code #####
 
 
-#### bash scripts ####
-# export maxx_inst_nn=5
-# export maxx_inst_nn=2
 
 
 
@@ -1639,7 +1632,7 @@ export st_idx=${GPUS}
 
 
 
-# bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231104_186
+# bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231104_169
 
 
 

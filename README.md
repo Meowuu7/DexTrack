@@ -37,7 +37,7 @@ We've also included code for kinematic retargeting in this repo. Please refer to
 
 TODO : upload and add the data downloading link
 
-## Dexterous Manipulation Tracking
+## Dexterous Manipulation Tracking - Usage
 
 
 This repo contains RL environments for dexterous manipulation tracking with a simulated fly Allegro hand (an Allegro hand with 6 global translational and rotational DoFs). We support two types of control strategies (action spaces):
@@ -58,17 +58,38 @@ To train a single trajectory tracker for a sequence retargeted from the GRAB dat
 ```bash
 bash scripts/run_tracking_headless_grab_single.sh <GPU_ID> <SEQ_NAME>
 ```
-Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NA<E>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`. 
+Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NAME>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`. 
 
 After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. Please note that the evaluation code is not running in a headless mode (you need a display).
 ```bash
 bash scripts/run_tracking_headless_grab_single_test.sh <GPU_ID> <SEQ_NAME> <CKPT>
 ```
 
+For sequences retargeted from TACO dataset, to track a trajectory with tag `<TAG>` using the `cumulative residual` action space, run the following code:
+```bash
+bash scripts/run_tracking_headless_taco_single.sh <GPU_ID> <TAG>
+```
+Similarly, after you've obtained a satisfactory checkpoint, run the following code to evaluate it. 
+```bash
+bash scripts/run_tracking_headless_taco_single_test.sh <GPU_ID> <TAG> <CKPT>
+```
+
+
 
 Below, we give several examples. 
 
+These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
 
+
+|   |    Cube (GRAB)       |       Duck (GRAB)         |     Shovel  (TACO)        |      
+| :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
+| Kinematic References  |     ![](assets/static/cubesmall_inspect_kines.gif)        |       ![](assets/static/duck_inspect_kines.gif)         |      ![](assets/static/taco_1_kines.gif)         |   
+| Tracking Result | ![](assets/static/cubesmall_inspect_tracked.gif) | ![](assets/static/duck_inspect_tracked.gif) | ![](assets/static/taco_1_tracked.gif) |
+
+Please refer to the following instructions to reproduce the above tracking examples.
+
+
+***Case 1: Cubesmall inspect***
 
 To track the `cubesmall_inspect` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_cubesmall_inspect_1`, please run:
 ```bash
@@ -81,6 +102,7 @@ Our pre-trained weights can be downloaded form [](). Following instructions stat
 bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_cubesmall_inspect_1 ./ckpts/s2_cubesmall_inspect_ckpt.pth
 ```
 
+***Case 2: Duck inspect***
 
 To track the `duck_inspect` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_duck_inspect_1`, please run:
 ```bash
@@ -92,6 +114,18 @@ Similarly, our pretrained policy for this sequence can be evaluated using the fo
 ```bash
 bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/s2_duck_inspect_ckpt.pth
 ```
+
+***Case 3: Tool-using sequence (shovel) from TACO***
+
+To track the tool using sequence from TACO dataset tagged with `taco_20231104_169` on `GPU 0`, run the following code
+```bash
+bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231104_169
+```
+In our test, we can get nice result after 300 epochs training. To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231104_169 ./ckpts/taco_1_ckpt.pth
+```
+
 
 
 
