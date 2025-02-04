@@ -1569,7 +1569,7 @@ export test_inst_tag=${TRAJ}
 
 # export data_inst_flag=${test_inst_tag}
 
-export sv_info_during_training=True
+export sv_info_during_training=False # True
 
 export single_instance_state_based_train=True
 export numEnvs=22000

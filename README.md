@@ -94,10 +94,10 @@ Below, we give several examples.
 These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
 
 
-|   |    Cube       |       Duck          |     Shovel        |      
+|   |    Cube       |       Duck          |     Flute        |      
 | :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
-| Kinematic References  |     ![](assets/static/cubesmall_inspect_kines.gif)        |       ![](assets/static/duck_inspect_kines.gif)         |      ![](assets/static/taco_1_kines.gif)         |   
-| Tracking Result | ![](assets/static/cubesmall_inspect_tracked.gif) | ![](assets/static/duck_inspect_tracked.gif) | ![](assets/static/taco_1_tracked.gif) |
+| Kinematic References  |     ![](assets/static/cubesmall_inspect_kines.gif)        |       ![](assets/static/duck_inspect_kines.gif)         |      ![](assets/static/flute_pass_kines.gif)         |   
+| Tracking Result | ![](assets/static/cubesmall_inspect_tracked.gif) | ![](assets/static/duck_inspect_tracked.gif) | ![](assets/static/flute_pass_tracked.gif) |
 
 Please refer to the following instructions to reproduce the above tracking examples.
 
@@ -128,6 +128,17 @@ Similarly, our pretrained policy for this sequence can be evaluated using the fo
 bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/s2_duck_inspect_ckpt.pth
 ```
 
+
+***Case 3: Flute pass***
+
+To track the `flute_pass` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_flute_pass_1`, please run:
+```bash
+bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_flute_pass_1
+``` 
+Our pretrained policy for this sequence can be evaluated using the following command:
+```bash
+bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_flute_pass_1 ./ckpts/s2_flute_pass_ckpt.pth
+```
 
 **TACO Dataset**
 
