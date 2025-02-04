@@ -19,6 +19,7 @@ DexTrack could support the following applications:
 Create a vritual environment with python 3.8.0:
 ```bash
 conda create -n dextrack python=3.8.0
+conda activate dextrack
 ```
 
 Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then

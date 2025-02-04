@@ -619,7 +619,7 @@ export st_idx=${GPUS}
 
 
 
-# bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s3_flute_pass_1
+# bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_flute_pass_1
 
 
 
