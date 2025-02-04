@@ -1639,7 +1639,7 @@ export st_idx=${GPUS}
 
 
 
-# bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231104_186
+# bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231103_073
 
 
 

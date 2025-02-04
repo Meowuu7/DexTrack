@@ -54,7 +54,10 @@ Please make sure you are running these commands in the folder `DexTrack/isaacgym
 
 ### Sincle trajectory tracking
 
-To train a single trajectory tracker for a sequence retargeted from the GRAB dataset using the `cumulative residual` action space, run the following code:
+**GRAB Dataset**
+
+
+To train a single trajectory tracker for a sequence retargeted from the **GRAB** dataset using the `cumulative residual` action space, run the following code:
 ```bash
 bash scripts/run_tracking_headless_grab_single.sh <GPU_ID> <SEQ_NAME>
 ```
@@ -65,14 +68,14 @@ After you've obtained a checkpoint with a satisfactory reward, run the following
 bash scripts/run_tracking_headless_grab_single_test.sh <GPU_ID> <SEQ_NAME> <CKPT>
 ```
 
-For sequences retargeted from TACO dataset, to track a trajectory with tag `<TAG>` using the `cumulative residual` action space, run the following code:
+<!-- For sequences retargeted from TACO dataset, to track a trajectory with tag `<TAG>` using the `cumulative residual` action space, run the following code:
 ```bash
 bash scripts/run_tracking_headless_taco_single.sh <GPU_ID> <TAG>
 ```
 Similarly, after you've obtained a satisfactory checkpoint, run the following code to evaluate it. 
 ```bash
 bash scripts/run_tracking_headless_taco_single_test.sh <GPU_ID> <TAG> <CKPT>
-```
+``` -->
 
 
 
@@ -81,7 +84,7 @@ Below, we give several examples.
 These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
 
 
-|   |    Cube (GRAB)       |       Duck (GRAB)         |     Shovel  (TACO)        |      
+|   |    Cube       |       Duck          |     Shovel        |      
 | :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
 | Kinematic References  |     ![](assets/static/cubesmall_inspect_kines.gif)        |       ![](assets/static/duck_inspect_kines.gif)         |      ![](assets/static/taco_1_kines.gif)         |   
 | Tracking Result | ![](assets/static/cubesmall_inspect_tracked.gif) | ![](assets/static/duck_inspect_tracked.gif) | ![](assets/static/taco_1_tracked.gif) |
@@ -115,7 +118,31 @@ Similarly, our pretrained policy for this sequence can be evaluated using the fo
 bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/s2_duck_inspect_ckpt.pth
 ```
 
-***Case 3: Tool-using sequence (shovel) from TACO***
+
+**TACO Dataset**
+
+For sequences retargeted from **TACO** dataset, to track a trajectory with tag `<TAG>` using the `cumulative residual` action space, run the following code:
+```bash
+bash scripts/run_tracking_headless_taco_single.sh <GPU_ID> <TAG>
+```
+Similarly, after you've obtained a satisfactory checkpoint, run the following code to evaluate it. 
+```bash
+bash scripts/run_tracking_headless_taco_single_test.sh <GPU_ID> <TAG> <CKPT>
+```
+
+
+
+Below, we give several examples. 
+
+These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
+
+|   |    Shovel       |       Ladle         |     Soap        |      
+| :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
+| Kinematic References  |     ![](assets/static/taco_1_kines.gif)        |       ![](assets/static/taco_2_kines.gif)         |      ![](assets/static/taco_3_kines.gif)         |   
+| Tracking Result | ![](assets/static/taco_1_tracked.gif) | ![](assets/static/taco_2_tracked.gif) | ![](assets/static/taco_3_tracked.gif) |
+
+
+***Case 1: Tool-using sequence (shovel) from TACO***
 
 To track the tool using sequence from TACO dataset tagged with `taco_20231104_169` on `GPU 0`, run the following code
 ```bash
@@ -126,6 +153,29 @@ In our test, we can get nice result after 300 epochs training. To evaluate our p
 bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231104_169 ./ckpts/taco_1_ckpt.pth
 ```
 
+
+***Case 2: Tool-using sequence (ladle) from TACO***
+
+To track the tool using sequence from TACO dataset tagged with `taco_20231104_186` on `GPU 0`, run the following code
+```bash
+bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231104_186
+```
+To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231104_186 ./ckpts/taco_2_ckpt.pth
+```
+
+
+***Case 3: Tool-using sequence (soap) from TACO***
+
+To track the tool using sequence from TACO dataset tagged with `taco_20231103_073` on `GPU 0`, run the following code
+```bash
+bash scripts/run_tracking_headless_taco_single.sh 0 taco_20231103_073
+```
+To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231103_073 ./ckpts/taco_3_ckpt.pth
+```
 
 
 
