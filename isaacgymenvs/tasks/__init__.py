@@ -48,7 +48,7 @@ from .allegro_hand_tracking_generalist_deploy import AllegroHandTrackingGenerali
 # AllegroHandTrackingGeneralistWForecasting
 from .allegro_hand_tracking_generalist_wforecast import AllegroHandTrackingGeneralistWForecasting
 from .allegro_hand_tracking_generalist_chunking import AllegroHandTrackingGeneralist as AllegroHandTrackingGeneralistChunking
-from .allegro_hand_tracking_generalist_v2 import AllegroHandTrackingGeneralistV2 # as AllegroHandTrackingGeneralistV2
+# from .allegro_hand_tracking_generalist_v2 import AllegroHandTrackingGeneralistV2 # as AllegroHandTrackingGeneralistV2
 
 
 
@@ -75,5 +75,5 @@ isaacgym_task_map = {
     'AllegroHandTrackingGeneralistDeploy': AllegroHandTrackingGeneralistDeploy,
     'AllegroHandTrackingGeneralistWForecasting': AllegroHandTrackingGeneralistWForecasting,
     'AllegroHandTrackingGeneralistChunking': AllegroHandTrackingGeneralistChunking,
-    'AllegroHandTrackingGeneralistV2': AllegroHandTrackingGeneralistV2,
+    # 'AllegroHandTrackingGeneralistV2': AllegroHandTrackingGeneralistV2,
 }

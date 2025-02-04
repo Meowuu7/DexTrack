@@ -28,10 +28,10 @@ from isaacgym.gymutil import get_property_setter_map, get_property_getter_map, g
 from copy import deepcopy
 
 # the forcasting model #
-from softzoo.diffusion.diffusion.resample import create_named_schedule_sampler
-from softzoo.diffusion.models.transformer_model import Transformer_Net_PC_Seq_V3_KineDiff_AE_V3, Transformer_Net_PC_Seq_V3_KineDiff_AE_V4, Transformer_Net_PC_Seq_V3_KineDiff_AE_V6
-from softzoo.diffusion.diffusion import gaussian_diffusion_3d_pc as gd_3d_pc
-from softzoo.diffusion.diffusion.respace import space_timesteps, SpacedDiffusion3DPC # as SpacedDiffusion
+# from softzoo.diffusion.diffusion.resample import create_named_schedule_sampler
+# from softzoo.diffusion.models.transformer_model import Transformer_Net_PC_Seq_V3_KineDiff_AE_V3, Transformer_Net_PC_Seq_V3_KineDiff_AE_V4, Transformer_Net_PC_Seq_V3_KineDiff_AE_V6
+# from softzoo.diffusion.diffusion import gaussian_diffusion_3d_pc as gd_3d_pc
+# from softzoo.diffusion.diffusion.respace import space_timesteps, SpacedDiffusion3DPC # as SpacedDiffusion
 # SpacedDiffusion_OursV5
 import torch.nn as nn
 from torch.optim import AdamW
