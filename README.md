@@ -1,6 +1,6 @@
 # DexTrack: Dexterous Manipulations Tracking
 
-[Website](https://meowuu7.github.io/DexTrack/) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
+[Website](https://meowuu7.github.io/DexTrack/) | [Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://meowuu7.github.io/DexTrack/static/videos-lowres/video_7.mp4)
 
 
 Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), presenting an RL-based tracking control scheme for dexterous manipulations. It is a) an effective tool to create dexterous robot hand-object manipulation data with actions and b) a promising strategy to develop a generalizable and versatile neural controller for dexterous manipulation with a unified tracking scheme.
