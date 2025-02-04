@@ -606,7 +606,7 @@ export headless=True # False
 ##### sampling code #####
 
 
-# export single_instance_state_based_train=False
+export single_instance_state_based_train=False
 
 
 export st_idx=${GPUS}
