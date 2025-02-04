@@ -129,6 +129,26 @@ bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231104_169 ./ckp
 
 
 
+## Contact
+
+Please contact xymeow7@gmail.com or create a github issue if you have any questions.
+
+## Bibtex
+
+If you find this code useful in your research, please cite:
+
+TODO
+
+
+## Acknowledgments
+
+This code is standing on the shoulders of giants. We want to thank the following contributors that our code is based on: [IsaacGymEnvs](https://github.com/isaac-sim/IsaacGymEnvs/tree/main) and [UniDexGrasp](https://github.com/PKU-EPIC/UniDexGrasp). 
+
+
+## License
+
+See [LICENSE](LICENSE.txt).
+
 
 you can run the test code using our trained policy for this sequence using the following command:
 
