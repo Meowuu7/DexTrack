@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Dexterous Manipulation Tracking Control from Human References">
+  <meta name="keywords" content="Hand-object iteractions; Motion refinement; Inverse problems; Generative priors; Diffusion models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="video.other" />
+  <title> Towards Generalizable Neural Tracking Control for Dexterous Manipulation from Human References</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="stylesheet" href="./static/css/styles.css"> -->
+  <link rel="icon" href="./static/images/icon_2.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="assets/js/video_comparison.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+  <!-- <script src="./static/js/yall.js"></script> -->
+  <script>
+      yall(
+          {
+              observeChanges: true
+          }
+      );
+  </script>
+  <!-- <script src="./static/js/scripts.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+  <style>
+    .horizontal_line {
+        width: 90%;
+        height: 5px;
+        border-top: 5px dotted black;
+        line-height: 80%;
+    }
+
+    .line {
+        border-bottom: 1px solid rgb(172, 170, 170);
+        margin-top: 1px;
+        margin-left: 130px;
+        width: 80%;
+    }
+</style>
+</head>
+<body>
+<!-- <div> -->
+  <!-- <br>
+  <br>
+  <br> -->
+<!-- </div> -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <!-- <img src="./static/images/icon-3.png" alt="logo" style="width: 78px; height: 78px; margin-right: -0px; margin-bottom: -10px;"> -->
+            <!-- <img src="./static/images/icon-2-new.png" alt="logo" style="width: 78px; height: 78px; margin-right: -0px; margin-bottom: -10px;"> -->
+            <img src="./static/images/icon_2.png" alt="logo" style="width: 60px; height: 78px; margin-right: -3px; margin-bottom: -10px;">
+            <span style="color: orange; font-weight:bold">Dex</span><span style="color: rgb(200, 144, 252); font-weight:bold">Track</span>
+            <!-- <img src="./static/images/icon-2-new.png" alt="logo" style="width: 78px; height: 78px; margin-right: -0px; margin-bottom: -10px;"> -->
+          </h1>
+          <h2 class="title is-1 publication-title">
+            Towards Generalizable Neural <span style="color: rgb(181, 108, 249)">Track</span>ing Control for <span style="color: orange">Dex</span>terous Manipulation <br> from Human References
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Author(s)
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span style="font-weight:bold">Paper under double-blind review</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/pdfs/DexTrack.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="static/videos-lowres/video_7.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="static/others/Supp-Website.zip"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database" aria-hidden="true"></i>
+                  </span>
+                  <span>Supp</span>
+                </a>
+              </span> -->
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" class="lazy" poster="static/images/teaser-3.png"  autoplay muted loop height="100%">
+        <source data-src="static/videos-lowres/demo_video_7(1).mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our tracking controller can adeptly control a dexterous robot hand to accomplish various challenging manipulations involving <span style="color: rgb(146, 53, 238); font-weight:bold">new and challenging object geometries</span>, novel and difficult manipulations with <span style="color: rgb(253, 125, 212); font-weight:bold">complex object movements</span> as well as intricate and <span style="color: rgb(0, 255, 191); font-weight:bold">subtle in-hand re-orientations</span>, and is robust to <span style="color: orange; font-weight:bold">kinematics noise and out-of-domain (OOD) interactions</span> involving objects from a brand new category. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/flute_play_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/flute_play_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_9.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_10.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_11.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_12.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_13.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_14.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_17.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/taco_18.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/grab_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/grab_4.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/curri_grab_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/soap_2(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/hammer_6(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/hand_2(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/bottle_chagee_2(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!-- <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/soap_2(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/elephane_v2(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/phone_our(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/apple_2_1(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="scissors" class="lazy"  autoplay playsinline controls muted loop height="10%">
+            <source data-src="static/videos-lowres/hammer_7(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span style="color: rgb(0, 0, 0); font-weight:bold">Abstract</span></h2>
+        <div class="content has-text-justified">
+          <p>
+            We address the challenge of developing a <span style="color: orange; font-weight:bold">generalizable neural tracking controller</span> for dexterous manipulation from human references. This controller aims to manage a dexterous robot hand to manipulate diverse objects for various purposes defined by kinematic human-object interactions. Developing such a controller is complicated by the intricate contact dynamics of dexterous manipulation and the need for <span style="color: rgb(0, 255, 191); font-weight:bold">adaptivity, generalizability, and robustness</span>. Current reinforcement learning and trajectory optimization methods often fall short due to their dependence on task-specific rewards or precise system models. We introduce an approach that curates <span style="color: rgb(96, 158, 240); font-weight:bold">successful robot tracking demonstrations</span>, comprising pairs of human references and robot actions, to train a neural controller. Utilizing a data flywheel, we iteratively enhance the controller's performance and the number of successful tracking demonstrations. We exploit available tracking demonstrations and carefully integrate reinforcement learning and imitation learning to boost the controller's performance in dynamic environments. At the same time, to obtain high-quality tracking demonstrations, we individually optimize per-trajectory tracking by leveraging the learned tracking controller in a homotopy optimization method. The <span style="color: rgb(0, 255, 191); font-weight:bold">homotopy optimization</span>, mimicking chain-of-thought, aids in solving challenging trajectory tracking problems to increase demonstration diversity. We showcase our success by training a generalizable neural controller and evaluating it in both simulation and real world. Our method achieves <span style="color: rgb(40, 118, 14); font-weight:bold">over a 10% improvement</span> in success rates compared to leading baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span style="color: rgb(0, 0, 0); font-weight:bold">Video</span></h2>
+        <div class="publication-video">
+          <video class="lazy" controls muted height="100%">
+                    <source data-src="static/videos-lowres/video_7.mp4"
+                    type="video/mp4"> </source>
+          </video>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container is-full-hd is-centered">
+  <!-- <hr class="solid; " color="blue" noshade> -->
+  <!-- <hr width="100%" size="2" color="blue" noshade> -->
+  <div class="line"></div>
+</div>
+
+
+<section class="section">
+
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+
+    
+    
+
+    <div class="columns is-centered">
+
+      
+      <div class="column is-full-width">
+        <h2 class="title is-3"> Tracking Control for Dexterous Manipulation</h2>
+        We can accurately track <span style="color: orange; font-weight:bold">complex manipulations</span> involving <span style="color: rgb(253, 125, 212); font-weight:bold">rich and changing contacts</span>, <br> <span style="color: rgb(36, 143, 236); font-weight:bold">non-trivial object motions</span>, and <span style="color: rgb(30, 143, 2); font-weight:bold">intricate tool-using</span>.
+        <br>
+        <br>
+        <!-- <br> -->
+        <div style="margin-bottom: -10px;">
+        
+          </div>
+          
+          
+
+
+          <br> 
+          <p> Manipulating a thin shovel. <br> (Challenges: <span style="color: orange; font-weight:bold">thin geoemtry</span>, <span style="color: rgb(36, 143, 236); font-weight:bold">new</span> object, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction, <span style="color: orange; font-weight:bold">complex</span> object motions with <span style="color: rgb(30, 143, 2); font-weight:bold">intricate</span> in-hand re-orientation)</p>
+          <br> 
+          <div class="columns is-centered">
+
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_4_kine_1.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_4_baseline_1.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_4_1.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+
+          <br> 
+          <p> Lifting and using a flashlight. (Challenges: <span style="color: orange; font-weight:bold">thin</span> object, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_17_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_17_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_17.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+          <br> 
+          <p> Interacting with a hand model. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction,  <span style="color: orange; font-weight:bold">back-and-forth</span> object movements) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/grab_1_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/grab_1_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/grab_1.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+          
+          <br> 
+          <p>  Waving a extermely thin shovel. (Challenges: <span style="color: orange; font-weight:bold">extermely thin</span> geometry, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction, <span style="color: orange; font-weight:bold">complex</span> object movememtns) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_5_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_5_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_5.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+
+          <br> 
+          <p> Using a short shovel. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">new</span> object, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction, <span style="color: orange; font-weight:bold">complex</span> object movememtns, <span style="color: rgb(213, 97, 242); font-weight:bold">intricate</span> in-hand re-orientation) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_6_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_6_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_6.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+
+
+          
+
+
+          <br> 
+          <p> Using a large water scoop. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">new</span> object,  <span style="color: rgb(213, 97, 242); font-weight:bold">complex</span> object movememtns) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_9_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_9_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_9.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+          
+
+          <br> 
+          <p>  Using a short shovel. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">new</span> object, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction,  <span style="color: rgb(213, 97, 242); font-weight:bold">complex</span> object movememtns) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_7_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_7_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_7.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+          <!-- <br> 
+          <p> Grasping and using a flashlight. (Challenges:  <span style="color: rgb(36, 143, 236); font-weight:bold">unseen</span> manipulation sequence) </p>
+          <br> 
+          <div class="columns is-centered">
+
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_18_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+           
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_18_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <div class="column">
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_18.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div> -->
+
+          <br> 
+          <p>  Lfiting a ball. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction sequence, <span style="color: orange; font-weight:bold">difficult</span> object with round surface that is hard to grasp) </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/grab_4_kine_1.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/grab_4_baseline_1.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/grab_4_1.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+          <br> 
+          <p> Waving a short shovel. (Challenges: <span style="color: rgb(36, 143, 236); font-weight:bold">new</span> object, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction, <span style="color: rgb(213, 97, 242); font-weight:bold">subtle in-hand re-orientation</span>)  </p>
+          <br> 
+          <div class="columns is-centered">
+
+            <!-- <video class="lazy" autoplay muted loop playsinline width="100%">
+                <source data-src="static/videos-lowres/hoi4d-res-2-block-3.mp4" type="video/mp4">
+              </video> -->
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_10_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+        
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_10_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_10_1.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+
+          
+
+          
+          <br> 
+          <!-- add the challenges and unseen  -->
+
+          <p> Lifting an extermely thin object. (Challenges: <span style="color: orange; font-weight:bold">thin geoemtry</span>, <span style="color: rgb(36, 143, 236); font-weight:bold">novel</span> interaction) </p>
+          <br> 
+          <div class="columns is-centered">
+
+
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_humandemo" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_15_kine.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  Retargeted <br> Kinematic Reference
+                </p>
+              </div>
+            </div>
+        
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <video id="grab_mouse_102_isaac_v2_baseline" class="lazy" autoplay controls muted loop playsinline height="100%">
+                  <source data-src="./static/videos-lowres/taco_15_baseline.mp4"
+                          type="video/mp4">
+                </video>
+                <p>
+                  PPO <br> (tracking reward)
+                </p>
+              </div>
+            </div>
+        
+            <!-- Matting. -->
+            <div class="column">
+              <!-- <h2 class="title is-3">Matting</h2> -->
+              <div class="columns is-centered">
+                <div class="column content">
+                  <video id="grab_mouse_102_isaac_v2_ours" class="lazy" autoplay controls muted loop playsinline height="100%">
+                    <source data-src="./static/videos-lowres/taco_15.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p>
+                    Ours
+                  </p>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  
+
+  
+
+</section>
+
+
+<div class="container is-full-hd">
+  <!-- <hr class="solid"> -->
+  <div class="line"></div>
+</div>
+
+
+
+
+<section class="section">
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- <h2 class="title is-3">Could RL Benefit from the Physics Curriculum?</h2> -->
+      <h2 class="title is-3"><span style="color: rgb(38, 141, 220); font-weight:bold">Real-World</span> Evaluations</h2>
+        <!-- <p>By optimizing DGrasp-Tracking through the <span style="color: rgb(146, 53, 238); font-weight:bold">physics curriculum</span>, we can noticably enhance its performance, <br> lifting it from instances of <span style="color: rgb(156, 40, 2); font-weight:bold">failure</span> to <span style="color: rgb(9, 183, 0); font-weight:bold">near completion</span> in tracking tasks. -->
+          <!-- <p>With the learned <span style="color: rgb(243, 162, 241); font-weight:bold">homotopy path generator</span>, we can automatically plan valid optimization path for a dififuclt-to-track trajectory. By gradually solving each per-trajectory tracking problem in the path, we can finally get satisfactory results in <span style="color: rgb(146, 53, 238); font-weight:bold">originally unsolvable problems</span>. </p> -->
+            <!-- By optimizing DGrasp-Tracking through the <span style="color: rgb(146, 53, 238); font-weight:bold">physics curriculum</span>, we can noticably enhance its performance, <br> lifting it from instances of <span style="color: rgb(156, 40, 2); font-weight:bold">failure</span> to <span style="color: rgb(9, 183, 0); font-weight:bold">near completion</span> in tracking tasks. -->
+             <p>
+              We transfer <span style="color: rgb(243, 162, 241); font-weight:bold">tracking results</span> directly to the real world to assess tracking quality and also transfer the <span style="color: rgb(76, 157, 244); font-weight:bold">state-based controller</span> to evaluate its robustness to noises in the state estimator. 
+             </p>
+      </p>
+      <br>
+      <br>
+      <p></p>
+
+
+      <!-- <p>  <span style="color: rgb(213, 97, 242); font-weight:bold">Complex</span> object movements. (Tracking result) </p> -->
+      <div class="columns is-centered">
+        <!-- <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/curri_grab_2_kine.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Retargeted <br> Kinematic Reference
+            </p>
+    
+          </div>
+        </div> -->
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_soap_1_1(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/soap_2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <p>  <span style="color: orange; font-weight:bold">Difficult object</span> that is hard to lift up. (Tracking result) </p> -->
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_apple(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/apple_2_1(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <p>  <span style="color: rgb(213, 97, 242); font-weight:bold">Complex</span> object movements. (Tracking result) </p> -->
+      <div class="columns is-centered">
+        <!-- <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/curri_grab_5_kine.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Retargeted <br> Kinematic Reference
+            </p>
+    
+          </div>
+        </div> -->
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_hand(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/hand_2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_elephant_2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/elephane_v2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_bottle_chagee(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/bottle_chagee_2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="columns is-centered"></div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/baseline_elephant(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                PPO <br> (tracking reward)
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/elephane_v2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="container is-full-hd">
+        <!-- <hr class="solid"> -->
+        <div class="line"></div>
+      </div>
+
+      <!-- <br> -->
+      <br>
+      <!-- <p>
+        Additional Results
+      </p> -->
+
+      <h3 class="title is-3">Additional Results</h3>
+
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/phone_our(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Using a phone (Ours).
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/hammer_6(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Grasping and lifting a hammer (Ours).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/hammer_7(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Grasping and lifting a hammer (Ours).
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/bottle_grasp_1(1).mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Grasping a bottle firmly (Ours). 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <h3 class="title is-3">Failure Cases</h3>
+
+      <div class="columns is-centered">
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="failure_real_drop_1" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/failure_drop_1(1).mp4"
+                        type="video/mp4">
+              </video>
+              <!-- <p>
+                Using a phone (Ours).
+              </p> -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/failure_drop_2(1).mp4"
+                        type="video/mp4">
+              </video>
+              <!-- <p>
+                Grasping and lifting a hammer (Ours).
+              </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<div class="container is-full-hd">
+  <!-- <hr class="solid"> -->
+  <div class="line"></div>
+</div>
+
+<section class="section">
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- <h2 class="title is-3">Could RL Benefit from the Physics Curriculum?</h2> -->
+      <h2 class="title is-3">Effectiveness of the <span style="color: rgb(243, 162, 241); font-weight:bold">Homotopy Optimization Scheme</span></h2>
+        <!-- <p>By optimizing DGrasp-Tracking through the <span style="color: rgb(146, 53, 238); font-weight:bold">physics curriculum</span>, we can noticably enhance its performance, <br> lifting it from instances of <span style="color: rgb(156, 40, 2); font-weight:bold">failure</span> to <span style="color: rgb(9, 183, 0); font-weight:bold">near completion</span> in tracking tasks. -->
+          <p>With the learned <span style="color: rgb(243, 162, 241); font-weight:bold">homotopy path generator</span>, we can automatically plan valid optimization path for a dififuclt-to-track trajectory. By gradually solving each per-trajectory tracking problem in the path, we can finally get satisfactory results in <span style="color: rgb(146, 53, 238); font-weight:bold">originally unsolvable problems</span>. </p>
+            <!-- By optimizing DGrasp-Tracking through the <span style="color: rgb(146, 53, 238); font-weight:bold">physics curriculum</span>, we can noticably enhance its performance, <br> lifting it from instances of <span style="color: rgb(156, 40, 2); font-weight:bold">failure</span> to <span style="color: rgb(9, 183, 0); font-weight:bold">near completion</span> in tracking tasks. -->
+      </p>
+      <br>
+      <br>
+      <p></p>
+
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/curri_grab_2_kine.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Retargeted <br> Kinematic Reference
+            </p>
+    
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_2_baseline.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/o Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_2.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/ Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/curri_grab_3_kine_2.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Retargeted <br> Kinematic Reference
+            </p>
+    
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_3_baseline_2.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/o Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_3_2.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/ Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/curri_grab_5_kine_1.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Retargeted <br> Kinematic Reference
+            </p>
+    
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ori_rl" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_5_baseline_1.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/o Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/curri_grab_5_1.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                w/ Homotopy Optimization
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+</section>
+
+
+
+
+<div class="container is-full-hd is-centered">
+  <!-- <hr class="solid; " color="blue" noshade> -->
+  <!-- <hr width="100%" size="2" color="blue" noshade> -->
+  <div class="line"></div>
+</div>
+
+
+<section class="section"></section>
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- <h2 class="title is-3">Could RL Benefit from the Physics Curriculum?</h2> -->
+      <h2 class="title is-3">Robustness towards Unreasoanble References and <br> Out-of-Distribution Interactions </h2>
+          <!-- <p>With the learned tracking <span style="color: rgb(103, 243, 98); font-weight:bold">curriculum scheduler</span>, we can automatically plan valid curriculum for a given task. By gradually solving each per-trajectory tracking problem in the curriculum, we can effecitvely get satisfactory results in <span style="color: rgb(146, 53, 238); font-weight:bold">originally unsolvable problems</span>. </p> -->
+          <!-- <p>
+            We can manage to track the whole motion trajectory and would not be affected by the large noise presented in the kinematics references containing <span style="color: rgb(146, 53, 238); font-weight:bold">unreasonable and unreachable motions</span>. 
+          </p> -->
+      </p>
+      <!-- <br>
+      <br> -->
+      <!-- <p></p> -->
+
+      <p>  Manage to track the full motion trajectory without being affected by large noise presented in the kinematics references containing <span style="color: rgb(146, 53, 238); font-weight:bold">unreasonable and unreachable motions</span> </p>
+      <br> 
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/taco_20_kine.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Kinematics References
+            </p>
+    
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/taco_20.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <br> 
+      <p> Devise a strategy to track the two-hand manipulation (holding and playing a flute) using <span style="color: rgb(146, 53, 238); font-weight:bold">a single hand</span>  </p> 
+      <br> 
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/flute_play_kine_1.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Kinematics References
+            </p>
+    
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/flute_play_1.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <br> 
+      <p> Try to track the manipulation involving the object from  <span style="color: orange; font-weight:bold">a new objec category</span> and <span style="color: rgb(146, 53, 238); font-weight:bold">unseen interaction triplets</span> </p>
+      <br> 
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/taco_23_kine.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Kinematics References
+            </p>
+    
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/taco_23.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<div class="container is-full-hd is-centered">
+  <!-- <hr class="solid; " color="blue" noshade> -->
+  <!-- <hr width="100%" size="2" color="blue" noshade> -->
+  <div class="line"></div>
+</div>
+
+
+
+<section class="section"></section>
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- <h2 class="title is-3">Could RL Benefit from the Physics Curriculum?</h2> -->
+      <h2 class="title is-3">Failure Cases</h2>
+          <!-- <p>With the learned tracking <span style="color: rgb(103, 243, 98); font-weight:bold">curriculum scheduler</span>, we can automatically plan valid curriculum for a given task. By gradually solving each per-trajectory tracking problem in the curriculum, we can effecitvely get satisfactory results in <span style="color: rgb(146, 53, 238); font-weight:bold">originally unsolvable problems</span>. </p> -->
+          <p>
+            Our method may fail to perform well in some cases where the object is from <br> <span style="color: orange; font-weight:bold">a brand new category with challenging thin geometry</span>.
+          </p>
+      </p>
+      <br>
+      <br>
+      <p></p>
+
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="rlcurri_grab_mouse_102_humandemo" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/taco_21.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Case 1
+            </p>
+    
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="rlcurri_grab_mouse_102_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/taco_22.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Case 2
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<div class="container is-full-hd is-centered">
+  <!-- <hr class="solid; " color="blue" noshade> -->
+  <!-- <hr width="100%" size="2" color="blue" noshade> -->
+  <div class="line"></div>
+</div>
+
+
+<!-- 
+<section class="section">
+
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Ablation Study</h2>
+      <p>We conduct various ablation studies to validate the effectiveness of crucial designs in our method. 
+      </p>
+      <br>
+      <br>
+      <p></p>
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video id="ablation_stapler_humandeom" class="lazy" autoplay controls muted loop playsinline height="50%">
+              <source data-src="./static/videos-lowres/ablation_stapler_humandeom.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Human Demostration
+            </p>
+    
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="ablation_stapler_ours_woana" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/ablation_stapler_ours_woana.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours  w/o <br> Analytical Sim.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="ablation_stapler_humandeom_wolocalforcenn" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/ablation_stapler_humandeom_wolocalforcenn.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours  w/o <br> Local Force NN
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <video id="ablation_stapler_humandeom_ours" class="lazy" autoplay controls muted loop playsinline height="50%">
+                <source data-src="./static/videos-lowres/ablation_stapler_humandeom_ours.mp4"
+                        type="video/mp4">
+              </video>
+              <p>
+                Ours
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section> -->
+
+
+
+<br>
+<br>
+<br>
+
+<script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+<!-- <script src="/assets/js/yall.js"></script> -->
+<script>
+    yall(
+        {
+            observeChanges: true
+        }
+    );
+</script>
+<!-- <script src="/assets/js/scripts.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+    if ("IntersectionObserver" in window) {
+      var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+      lazyVideos.forEach(function(lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+</script>
+
+
+<script>
+  function change_stochastic() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_stochastic');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+
+  function change_arctic() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_arctic');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+
+  function change_hoi4d() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_hoi4d');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+
+  function change_grabbeta() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_grabbeta');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+
+  function change_grab() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_grab');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+
+  function change_appli() {
+    console.info("hhh\n");
+    const showMoreBtn = document.getElementById('showMoreBtn_appli');
+    if (showMoreBtn.innerText == 'More results') {
+      showMoreBtn.innerText = 'Hide';
+    } else {
+      showMoreBtn.innerText = 'More results';
+    }
+  };
+</script>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link"
+         href="./static/pdfs/paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link"
+         href="./static/videos/video-2.mp4">
+        <i class="fab fa-youtube"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We thank authors for their codebase.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
