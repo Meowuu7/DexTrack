@@ -3,9 +3,13 @@
 [Website](https://developer.nvidia.com/isaac-gym) | [Technical Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://sites.google.com/view/isaacgym-nvidia)
 
 
+Implementation of our work [DexTrack](), presenting an RL-based tracking control scheme for dexterous manipulations. It is a) an effective tool to create dexterous robot hand-object manipulation data with actions and b) a promising strategy to develop a generalizable and versatile neural controller for dexterous manipulation with a unified tracking scheme.
+
 https://github.com/user-attachments/assets/1222fc51-42c9-4fd2-86cf-029b9c9c24ab
 
-
+DexTrack could support the following applications:
+- Converting kinematic-only human-object manipulation trajectories to dynamics-aware dexterous robot hand action trajectories, driving the robot hand to interact with the object with the resulting states closely mimicking the corresponding kinematic references. 
+- Developing a generalizable and versatile neural controller for dexterous manipulation. Unifiying manipulaton tasks into a general *tracking control* scheme and training to track abundant trajectories with diverse *tracking commands*, DexTrack can develop a tracking controller that can solve a wide range of manipulation tasks with nice generalization ability. 
 
 
 ## Getting Started
