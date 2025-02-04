@@ -1514,23 +1514,6 @@ export max_epochs=10000
 
 
 
-export numEnvs=11000
-export minibatch_size=11000
-
-
-export numEnvs=25000
-export minibatch_size=25000
-
-# export numEnvs=50000
-# export minibatch_size=50000
-
-
-export target_inst_tag_list_fn=/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_obj_duck.npy
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
-export numEnvs=20000
-export minibatch_size=20000
-
-
 
 GPUS=$1
 
@@ -1654,7 +1637,7 @@ export st_idx=${GPUS}
 
 
 
-# bash scripts/run_tracking_headless_grab_single.sh
+# bash scripts/run_tracking_headless_taco_single.sh 0
 
 
 

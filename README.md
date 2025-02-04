@@ -60,9 +60,9 @@ bash scripts/run_tracking_headless_grab_single.sh <GPU_ID> <SEQ_NAME>
 ```
 Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NA<E>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`. 
 
-After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. Please note that the evaluation code is not running in a headless mode, indicating that you need a display. 
+After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. Please note that the evaluation code is not running in a headless mode (you need a display).
 ```bash
-
+bash scripts/run_tracking_headless_grab_single_test.sh <GPU_ID> <SEQ_NAME> <CKPT>
 ```
 
 
@@ -76,12 +76,28 @@ bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_cubesmall_inspec
 ```
 This sequence can be tracked pretty well using quite short time. We can reach a reward more than `150` at epoch `50` using `22000` parallel environments. 
 
+Our pre-trained weights can be downloaded form [](). Following instructions stated above and extract these files in the folder `./ckpts`, you can run the test code using our trained policy for this sequence using the following command:
+```bash
+bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_cubesmall_inspect_1 ./ckpts/s2_cubesmall_inspect_ckpt.pth
+```
+
 
 To track the `duck_inspect` trajectory from subject `s2` on `GPU 0`, whose corresponding sequence name is `ori_grab_s2_duck_inspect_1`, please run:
 ```bash
 bash scripts/run_tracking_headless_grab_single.sh 0 ori_grab_s2_duck_inspect_1
 ```
 This sequence can also be tracked pretty well after training for a short time. We can reach a reward more than `150` at epoch `100` using `22000` parallel environments. 
+
+Similarly, our pretrained policy for this sequence can be evaluated using the following command:
+```bash
+bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/s2_duck_inspect_ckpt.pth
+```
+
+
+
+
+you can run the test code using our trained policy for this sequence using the following command:
+
 
 
 
