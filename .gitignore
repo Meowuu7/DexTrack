@@ -49,5 +49,6 @@ isaacgymenvs/scripts_bak
 isaacgymenvs/scripts_new
 
 isaacgymenvs/scripts/*_local.sh
+isaacgymenvs/scripts/_*
 
 

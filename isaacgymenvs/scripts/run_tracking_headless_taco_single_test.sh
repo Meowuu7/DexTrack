@@ -1518,6 +1518,7 @@ export max_epochs=10000
 GPUS=$1
 TRAJ=$2
 CKPT=$3
+HEADKESS=$4
 
 
 ##### single instnace training setting #####
@@ -1552,8 +1553,10 @@ export log_path=./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new
 
 
 #### fly hand, allegro, TACO settings ####
-export tracking_save_info_fn='/cephfs/yilaa/data/TACO_Tracking_PK/data'
-export tracking_data_sv_root='/cephfs/yilaa/data/TACO_Tracking_PK/data'
+# export tracking_save_info_fn='/cephfs/yilaa/data/TACO_Tracking_PK/data'
+# export tracking_data_sv_root='/cephfs/yilaa/data/TACO_Tracking_PK/data'
+export tracking_save_info_fn='data/TACO_Tracking_PK_reduced/data'
+export tracking_data_sv_root='data/TACO_Tracking_PK_reduced/data'
 # export tracking_info_st_tag='leap_passive_active_info_ori_grab_'
 export tracking_info_st_tag='passive_active_info_ori_grab_'
 
@@ -1618,7 +1621,7 @@ export checkpoint=${CKPT}
 export test=True
 export numEnvs=100  
 export minibatch_size=100
-export headless=True # False
+export headless=${HEADKESS} # True # False
 ##### sampling code #####
 
 

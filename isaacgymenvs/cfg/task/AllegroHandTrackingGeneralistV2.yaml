@@ -37,6 +37,8 @@ env:
   randomize_reset_frame: False
   add_forece_obs: False
 
+  teacher_model_w_vel_obs: False
+
   load_chunking_experiences_v2: False
   history_chunking_obs_version: 'v1'
 

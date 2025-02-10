@@ -1,11 +1,4 @@
 
-
-export numEnvs=10240
-export minibatch_size=10240
-
-export numEnvs=8000
-export minibatch_size=8000
-
 export mocap_sv_info_fn='../assets/retar_data/passive_active_info_ori_grab_s2_headphones_lift_pkretar.npy'
 
 export test=False
@@ -29,27 +22,7 @@ export object_name='ori_grab_s2_train_lift'
 export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_train_lift.npy'
 
 
-# export object_name='ori_grab_s2_camera_pass_1'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_camera_pass_1.npy'
 
-
-# export object_name='ori_grab_s2_mug_pass_1'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_mug_pass_1.npy'
-
-
-# export object_name='ori_grab_s2_hand_inspect_1'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_hand_inspect_1.npy'
-
-# export object_name='ori_grab_s2_flashlight_on_2'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_flashlight_on_2.npy'
-
-# export object_name='ori_grab_s2_headphones_lift'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_headphones_lift.npy'
-
-# # /cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_phone_pass_1.npy
-
-# export object_name='ori_grab_s2_phone_pass_1'
-# export mocap_sv_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK/data/passive_active_info_ori_grab_s2_phone_pass_1.npy'
 
 export use_kinematics_bias=False
 
@@ -369,92 +342,14 @@ export tracking_data_sv_root="/cephfs/xueyi/data/GRAB_Tracking_PK/data"
 export num_frames=150
 # export num_frames=300
 
-##### #####
-export data_inst_flag=''
-export data_inst_flag='ori_grab_s8_apple_lift'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_30_taskcond_history_future_v4_/samples_ep_0_batch_0_merged.npy'
-
-export data_inst_flag='ori_grab_s8_banana_eat_1'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_30_taskcond_history_future_v4_/samples_ep_0_batch_0_merged.npy'
-
-export data_inst_flag='ori_grab_s8_banana_peel_1'
-# export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_30_taskcond_history_future_v4_/samples_ep_0_batch_0_merged.npy'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_5_taskcond_history_future_v4_/samples_ep_0_batch_0_merged.npy'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_2_taskcond_history_future_v4_/samples_ep_0_batch_0_merged.npy'
 
 
-export data_inst_flag='ori_grab_s8_apple_lift'
-# export data_inst_flag='ori_grab_s8_apple_eat_1'
-# export pre_optimized_traj='runs/tracking_ori_grab_s8_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__23-18-20-08/ts_to_hand_obj_obs_reset_1.npy'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_apple_eat_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__23-20-35-13/ts_to_hand_obj_obs_reset_1.npy'
-
-
-export data_inst_flag='ori_grab_s8_toothpaste_pass_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_toothpaste_pass_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-18-14-23/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s8_mouse_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_mouse_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-18-13-31/ts_to_hand_obj_obs_reset_2.npy'
-
-
-export data_inst_flag='ori_grab_s8_hand_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_hand_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-18-12-00/ts_to_hand_obj_obs_reset_2.npy'
-
-
-export data_inst_flag='ori_grab_s8_duck_inspect_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_duck_inspect_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-18-11-09/ts_to_hand_obj_obs_reset_2.npy'
-
-
-export data_inst_flag='ori_grab_s8_apple_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-18-09-14/ts_to_hand_obj_obs_reset_2.npy'
-
-
-export data_inst_flag='ori_grab_s9_toothpaste_pass_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_toothpaste_pass_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-19-58-03/ts_to_hand_obj_obs_reset_1.npy'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_eval_v2/tracking_ori_grab_s2_toothpaste_squeeze_1_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_20-00-30-56/ts_to_hand_obj_obs_reset_1.npy'
-
-
-export data_inst_flag='ori_grab_s10_hand_inspect_1'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_eval_v2/tracking_ori_grab_s7_hand_inspect_1_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_20-14-09-43/ts_to_hand_obj_obs_reset_1.npy'
-
-
-export data_inst_flag='ori_grab_s8_hammer_lift'
-export pre_optimized_traj='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_task_ctl_diff_wscale_rew_v2_new_s2_AE_Diff_trainAE_trainDiff_taskcond_isaac_slicing_30_histws_30_step_1_taskcond_history_future_v4_w_tacograbinterp_/samples_ep_0_batch_0_merged.npy'
-
-
-export data_inst_flag='ori_grab_s2_toothpaste_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s2_toothpaste_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__24-23-23-23/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s10_hand_inspect_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s2_hand_inspect_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-01-44-54/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s10_hammer_use_2'
-export pre_optimized_traj='runs/tracking_ori_grab_s10_hammer_use_2_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-01-53-17/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s2_hand_inspect_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s2_hand_inspect_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-16-25-34/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s2_apple_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-15-50-22/ts_to_hand_obj_obs_reset_1.npy'
-
-export data_inst_flag='ori_grab_s8_apple_lift'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-18-33-30/ts_to_hand_obj_obs_reset_1.npy'
-
-
-export data_inst_flag='ori_grab_s8_duck_inspect_1'
-export pre_optimized_traj='runs/tracking_ori_grab_s8_duck_inspect_1_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__25-19-00-27/ts_to_hand_obj_obs_reset_1.npy'
-
-
-export data_inst_flag='ori_grab_s2_apple_lift' 
-export pre_optimized_traj='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__28-10-05-24/ts_to_hand_obj_obs_reset_1.npy'
-export pre_optimized_traj='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__28-09-21-17/ts_to_hand_obj_obs_reset_1.npy'
 export pre_optimized_traj='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500_trans_0.5_rot_0.5_goalcond_False_kinebais_wdelta_rewhandpos_dist__28-19-23-38/ts_to_hand_obj_obs_reset_1.npy'
 
 export hand_type='allegro'
 
 
 
-# 
-#### hand type ####
 
 ####### experiments for leap ########
 # export hand_type='leap'
@@ -544,37 +439,8 @@ export obj_type_to_base_traj_fn=''
 export grab_inst_tag_to_optimized_res_fn="/root/diffsim/softzoo/softzoo/diffusion/assets/data_inst_tag_to_optimized_res.npy"
 export taco_inst_tag_to_optimized_res_fn=""
 
-##### Generalist regular training settings --- settings for training the generalist ######
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_31-19-38-44/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_31-19-38-44/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_31-21-05-45/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_31-20-34-27/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # superivsed training weights #
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_31-22-09-35/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-03-11-08/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'   # supervised training weights; hand training only # 
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-03-33-32/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # supervised training weights; hand and obj training together #
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-13-30-52/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # supervised training weights; hand only 
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-13-29-28/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # supervised training weights; hand & obj; 200 instances #
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-17-16-22/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-18-36-16/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_01-22-12-14/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # the 1000 supervised learning results #
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-02-23-55/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth' # 
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-12-34-06/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-21-33-40/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-21-53-00/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-22-35-57/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint=''
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-22-43-19/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-22-57-44/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export max_epochs=5000 # 
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_02-23-22-45/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint=''
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_03-01-40-22/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_03-00-42-45/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_03-10-43-11/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint=''
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_03-14-42-40/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-export checkpoint='runs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_03-15-30-13/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-##### Generalist regular training settings --- settings for training the generalist ######
+
+
 
 
 
@@ -760,8 +626,6 @@ export only_training_on_succ_samples=False
 export customize_global_damping=False
 
 
-
-
 # export maxx_inst_nn=200
 # export num_frames=150
 # export strict_maxx_nn_ts=185
@@ -774,79 +638,6 @@ export customize_global_damping=False
 # export tracking_save_info_fn='/cephfs/xueyi/data/TACO_Tracking_PK_LEAP/data'
 # export tracking_data_sv_root='/cephfs/xueyi/data/TACO_Tracking_PK_LEAP/data'
 ##### only trained on TACO settings; interpfr_60_interpfr2_60_nntrans_40; all trajs #####
-
-
-
-
-# #### only trained on GRAB settings #####
-# export maxx_inst_nn=0
-# export maxx_inst_nn=2
-# export maxx_inst_nn=10000
-# export supervised_loss_coef=0.0000
-# export checkpoint=''
-# # export grab_obj_type_to_opt_res_fn=""
-# export grab_obj_type_to_opt_res_fn='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab/statistics/obj_type_to_optimized_res_s1_s10.npy'
-# # export taco_obj_type_to_opt_res_fn="/cephfs/xueyi/uni_manip/isaacgym_rl_exp_taco_grab_interpseq_interpfr_60_interpfr2_60_nntrans_40/statistics/obj_type_to_optimized_res_beta.npy"
-# export taco_obj_type_to_opt_res_fn=""
-# # export grab_inst_tag_to_optimized_res_fn=""
-# export grab_inst_tag_to_optimized_res_fn="/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_eval_v2/statistics/data_inst_tag_to_optimized_res.npy"
-# # export taco_inst_tag_to_optimized_res_fn='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_taco_grab_interpseq_interpfr_60_interpfr2_60_nntrans_40_eval/statistics/data_inst_tag_to_optimized_res.npy'
-# export taco_inst_tag_to_optimized_res_fn=""
-# export object_type_to_latent_feature_fn="/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_kine_diff_AE_Diff_trainAE_vnewv2_wtacodata_samples_/obj_type_to_obj_feat.npy"
-# export inst_tag_to_latent_feature_fn='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_kine_diff_AE_Diff_trainAE_vnewv2_wtacodata_samples_/inst_tag_to_obj_feat.npy'
-# export supervised_loss_coef=0.001
-# export use_strict_maxx_nn_ts=True
-# # export use_strict_maxx_nn_ts=False
-# # export strict_maxx_nn_ts=200
-# # export strict_maxx_nn_ts=150
-# export strict_maxx_nn_ts=185
-# # /cephfs/xueyi/data/TACO_Tracking_PK/data/passive_active_info_ori_grab_s2_phone_call_1_interped_taco_20230919_053_v2_interpfr_60_interpfr2_60_nntrans_40.npy
-# # export taco_interped_data_sv_additional_tag=''
-# export taco_interped_data_sv_additional_tag='interpfr_60_interpfr2_60_nntrans_40'
-# ### on 123 machie ###
-# # export checkpoint='./runs_taco_grab_trajs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_10-17-48-25/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# # export use_local_canonical_state=True
-# # export checkpoint=''
-# # # export grab_obj_type_to_opt_res_fn=""
-# # export grab_obj_type_to_opt_res_fn='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab/statistics/obj_type_to_optimized_res_s1_s10.npy'
-# # # export taco_obj_type_to_opt_res_fn="/cephfs/xueyi/uni_manip/isaacgym_rl_exp_taco_grab_interpseq_interpfr_60_interpfr2_60_nntrans_40/statistics/obj_type_to_optimized_res_beta.npy"
-# # export taco_obj_type_to_opt_res_fn=""
-# # # export grab_inst_tag_to_optimized_res_fn=""
-# # export grab_inst_tag_to_optimized_res_fn="/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_eval_v2/statistics/data_inst_tag_to_optimized_res.npy"
-# # # export taco_inst_tag_to_optimized_res_fn='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_taco_grab_interpseq_interpfr_60_interpfr2_60_nntrans_40_eval/statistics/data_inst_tag_to_optimized_res.npy'
-# # export taco_inst_tag_to_optimized_res_fn=""
-# # export object_type_to_latent_feature_fn="/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_kine_diff_AE_Diff_trainAE_vnewv2_wtacodata_samples_/obj_type_to_obj_feat.npy"
-# # export inst_tag_to_latent_feature_fn='/cephfs/xueyi/uni_manip/tds_diffusion_exp/allegro_tracking_kine_diff_AE_Diff_trainAE_vnewv2_wtacodata_samples_/inst_tag_to_obj_feat.npy'
-# # export supervised_loss_coef=0.001
-# # export use_strict_maxx_nn_ts=True
-# # # export use_strict_maxx_nn_ts=False
-# # # export strict_maxx_nn_ts=200
-# # # export strict_maxx_nn_ts=150
-# # export strict_maxx_nn_ts=185
-# # # /cephfs/xueyi/data/TACO_Tracking_PK/data/passive_active_info_ori_grab_s2_phone_call_1_interped_taco_20230919_053_v2_interpfr_60_interpfr2_60_nntrans_40.npy
-# # # export taco_interped_data_sv_additional_tag=''
-# # export taco_interped_data_sv_additional_tag='interpfr_60_interpfr2_60_nntrans_40'
-# # ### on 123 machie ###
-# # # export checkpoint='./runs_taco_grab_trajs/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_10-17-48-25/nn/tracking_ori_grab_s2_apple_lift_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export use_local_canonical_state=True
-# export checkpoint=''
-# export supervised_loss_coef=0.000
-# export supervised_loss_coef=0.0005
-# # export bound_loss_coef=0.01
-# export rew_grab_thres=100.0
-# export rew_taco_thres=200.0
-# export rew_grab_thres=50.0
-# ##### only trained on succ trajectories setting -- only such samples #######
-# export only_training_on_succ_samples=False
-# ##### only trained on succ trajectories setting -- only such samples #######
-# export rew_smoothness_coef=0.0001
-
-# # # rew_thres_with_selected_insts, selected_inst_idxes_dict # 
-# export rew_grab_thres=100.0
-# export rew_thres_with_selected_insts=True
-# export rew_smoothness_coef=0.001
-# export selected_inst_idxes_dict='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_generalist_direct_samples_grab_gene_v11/statistics/selected_obj_types_idxes.npy'
-
 
 
 
@@ -1047,22 +838,6 @@ export supervised_loss_coef=0.0000
 
 
 
-###### Downsample settings #######
-# export dt=0.00833  
-# export controlFrequencyInv=2
-
-# export dt=0.0166
-# export controlFrequencyInv=1
-# export controlFrequencyInv=2
-# export supervised_loss_coef=0.0
-# # export supervised_loss_coef=0.001
-# # export supervised_loss_coef=0.005
-# # export maxx_inst_nn=10
-# # export strict_maxx_nn_ts=151
-# export downsample=True
-# export target_inst_tag_list_fn=''
-###### Downsample settings #######
-
 
 ###### Teacher model training setting ######
 export teacher_subj_idx=9
@@ -1079,52 +854,6 @@ export target_inst_tag_list_fn=/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_
 
 
 
-# ###### Teacher-student model setting #######
-# export use_teacher_model=True
-# export teacher_model_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_s10/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_10-04-17-19/nn/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export teacher_model_inst_tags_fn='/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_s9.npy'
-# export supervised_loss_coef=0.0000
-# export supervised_loss_coef=0.0005
-# export supervised_loss_coef=0.1
-# # export teacher_index_to_weights='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_wegights_v2.npy'
-# # export teacher_index_to_inst_tags='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_inst_tags_v2.npy'
-# export teacher_index_to_weights='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_wegights_v3.npy'
-# export teacher_index_to_inst_tags='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_inst_tags_v3.npy'
-# export teacher_index_to_weights='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_wegights_v4.npy'
-# export teacher_index_to_inst_tags='/root/diffsim/IsaacGymEnvs2/assets/teacher_idx_to_inst_tags_v4.npy'
-# # export good_inst_opt_res="/root/diffsim/IsaacGymEnvs2/assets/good_inst_opt_res.npy"
-# export good_inst_opt_res=''
-# # export maxx_inst_nn=10
-# # export checkpoint='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s10/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_10-17-24-40/nn/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint=''
-# export supervised_loss_coef=0.0000
-# export supervised_loss_coef=0.0001
-# export supervised_loss_coef=0.0005
-# # export supervised_loss_coef=0.0000
-# # export inst_tag_to_latent_feature_fn=''
-# ###### Teacher-student model setting #######
-
-
-
-###### With franka setting #######
-# export w_franka=True
-# export tracking_save_info_fn='/cephfs/xueyi/data/GRAB_Tracking_PK_W_Franka_v2/data'
-# export tracking_data_sv_root='/cephfs/xueyi/data/GRAB_Tracking_PK_W_Franka_v2/data'
-# ###### With franka setting #######
-
-
-###### Use history observation setting ######
-# export use_history_obs=True
-# export history_length=5
-# # export maxx_inst_nn=10
-###### Use history observation setting ######
-
-
-
-###### Early terminate config ######
-# export early_terminate=True
-###### Early terminate config ######
-
 
 ###### Sim parameters #######
 export dt=0.05
@@ -1139,10 +868,6 @@ export substeps=2
 ###### Sim parameters #######
 
 
-###### Resume setting #######
-# export checkpoint='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_sup0d0001_/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_17-00-30-56/nn/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export checkpoint=''
-###### Resume setting #######
 
 
 ###### Whether to use the instnace latent features #######
@@ -1401,152 +1126,189 @@ export max_epochs=10000
 
 
 
-#### teacher-student training ####
-# export log_path='./isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s1_supcoef_0.01'
-# export max_epochs=100000
 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d001_s2tos8_'
-# export max_epochs=100000
+##### v2 control ######
+export glb_trans_vel_scale=0.5
+export glb_rot_vel_scale=0.5
+export dofSpeedScale=1
+export controlFrequencyInv=3
 
-# # 
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d005_s2tos8_'
-# # export max_epochs=100000
+export glb_trans_vel_scale=0.5
+export glb_rot_vel_scale=0.5
+export dofSpeedScale=1
+export dofSpeedScale=10
+export controlFrequencyInv=1
+##### v2 control ######
 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_'
-# export max_epochs=100000
+export glb_trans_vel_scale=1
+export glb_rot_vel_scale=1
+export dofSpeedScale=10
 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s9_wfuturews5freq5_'
-# export max_epochs=100000
-
-
-# # 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondv2_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondfreq_'
-# export max_epochs=100000
-# # 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondv3condpartialhand_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d005_s2tos10_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_wfuturews5freq5_sup0d005_s2tos10_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_handfirstfr_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_nhandfirstfr_'
-# export max_epochs=100000
-#### teacher-student training ####
+export glb_trans_vel_scale=0.5
+export glb_rot_vel_scale=10
+export dofSpeedScale=10
 
 
-##### Subject training #####
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s2_'
-# export max_epochs=1000000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws4_s2_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_freq5_ws5_s10_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_distill_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_distilltest_'
-# export max_epochs=100000
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s3_'
-# # export max_epochs=100000
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s5_'
-# # export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s8_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s10_'
-# # export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_contactcond_distll_'
-# export max_epochs=100000
-##### Subject training #####
+##### whether to use kinematics bias #####
+export not_use_kine_bias=True
+##### whether to use kinematics bias #####
 
+##### v2 observations ######
+export use_local_canonical_state=False
+##### v2 observations ######
 
+### v2 observations and the model distributions ###
 
-########## Forcasting model training ############
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_v4forcasting_nhist_nbias_glbtraj_singletraj_sn_toursesmall_forefreq10_inst3'
-# export max_epochs=1000000
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_v4forcasting_nhist_nbias_glbtraj_singletraj_sn_toursesmall_widx_forefreq60_inst3'
-# export max_epochs=10000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_nhist_nbias_glbtraj_singletraj_sn_toursesmall_widx_forefreq60_inst1_train_diff'
-# export max_epochs=10000
-########## Forcasting model training ############
+# export rollout_teacher_model=True
+# export rollout_student_model=False
 
 
 
 
-########## Impedance control ############
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_impedance_'
-# export max_epochs=100000
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nimpedance_'
-# export max_epochs=100000
-########## Impedance control ############
+GPUS=$1
+TRAJ=$2
+CKPT=$3
+HEADKESS=$4
 
 
 
+export glb_trans_vel_scale=1.0
+export glb_rot_vel_scale=1.0
+export dofSpeedScale=10
+export controlFrequencyInv=3
+
+export glb_trans_vel_scale=1.0
+export glb_rot_vel_scale=1.0
+export dofSpeedScale=6
+export controlFrequencyInv=3
 
 
-#### teacher-student training ####
-# export log_path='./isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_wfranka'
-# export max_epochs=10000
-#### teacher-student training ####
+export glb_trans_vel_scale=0.625
+export glb_rot_vel_scale=0.625
+export dofSpeedScale=6
+export controlFrequencyInv=3
+
+export maxx_inst_nn=1
+# export pure_test_inst_tag="ori_grab_s9_hammer_use_2"
+# export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
+# export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
+# export pure_test_inst_tag="ori_grab_s1_flute_play_1"
+export pure_test_inst_tag=${TRAJ}
+export test_inst_tag=${pure_test_inst_tag}_nf_300
+
+export glb_trans_vel_scale=0.6024
+export glb_rot_vel_scale=0.6024
+export dofSpeedScale=6
+
+#### reward system v1 --- without the rigid body positional reward ####
+export hand_qpos_rew_coef=0.00
+export w_finger_pos_rew=False
+#### reward system v1 --- without the rigid body positional reward ####
+
+export single_instance_state_based_train=True 
+
+export more_allegro_stiffness=True
 
 
-
-#### leap hand model training ####
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_'
-# export max_epochs=10000
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_s1_'
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_s2_'
-# export max_epochs=10000
-#### leap hand model training ####
+# ##### v2 observations ######
+# export use_local_canonical_state=True
+# ##### v2 observations ######
 
 
-
-
-
-export numEnvs=11000
-export minibatch_size=11000
-
-
-export numEnvs=25000
-export minibatch_size=25000
-
-# export numEnvs=50000
-# export minibatch_size=50000
-
-
-export target_inst_tag_list_fn=/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_obj_duck.npy
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
-export numEnvs=20000
-export minibatch_size=20000
-
-
-#### bash scripts ####
-# export maxx_inst_nn=5
-# export maxx_inst_nn=2
-
-
-
-
-export st_idx=0
+export log_path=./logs/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s${teacher_subj_idx}_v3goal_v2
 
 
 
-# bash scripts/run_tracking_headless_grab_whltrain_v1_local.sh
+# ####### generalist training setting #######
+# export test_inst_tag=''
+# export maxx_inst_nn=1000
+# export generalist_tune_all_instnaces=False
+# export single_instance_training=False
+# export single_instance_state_based_train=False 
+# export target_inst_tag_list_fn="/root/diffsim/IsaacGymEnvs2/assets/inst_tag_list_obj_duck.npy"
+# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_v3goal_v2
+# ####### generalist training setting #######
+
+
+export use_multiple_kine_source_trajs=False
+export multi_traj_use_joint_order_in_sim=True
+export multiple_kine_source_trajs_fn=''
 
 
 
 
-CUDA_VISIBLE_DEVICES=${cuda_idx} python train_pool.py --additional_tag=${additional_tag} --hand_type=${hand_type} --numEnvs=${numEnvs} --minibatch_size=${minibatch_size} --goal_cond=${goal_cond}  --test=${test} --use_relative_control=${use_relative_control} --use_kinematics_bias=${use_kinematics_bias} --w_obj_ornt=${w_obj_ornt} --obs_type=${obs_type} --separate_stages=${separate_stages} --rigid_obj_density=${rigid_obj_density}  --kinematics_only=${kinematics_only} --use_fingertips=${use_fingertips}  --use_kinematics_bias_wdelta=${use_kinematics_bias_wdelta} --hand_pose_guidance_glb_trans_coef=${hand_pose_guidance_glb_trans_coef} --hand_pose_guidance_glb_rot_coef=${hand_pose_guidance_glb_rot_coef} --hand_pose_guidance_fingerpose_coef=${hand_pose_guidance_fingerpose_coef} --dt=${dt} --glb_trans_vel_scale=${glb_trans_vel_scale} --glb_rot_vel_scale=${glb_rot_vel_scale} --rew_finger_obj_dist_coef=${rew_finger_obj_dist_coef} --rew_delta_hand_pose_coef=${rew_delta_hand_pose_coef} ${debug} --nn_gpus=${nn_gpus} --num_frames=${num_frames} --tracking_data_sv_root=${tracking_data_sv_root} --subj_nm=${subj_nm}  --st_idx=${st_idx} --dofSpeedScale=${dofSpeedScale} --use_twostage_rew=${use_twostage_rew} --episodeLength=${episodeLength} --data_inst_flag=${data_inst_flag} --pre_optimized_traj=${pre_optimized_traj} --use_generalist_policy=${use_generalist_policy} --use_hand_actions_rew=${use_hand_actions_rew} --supervised_training=${supervised_training} --checkpoint=${checkpoint} --max_epochs=${max_epochs} --training_mode=${training_mode} --test_inst_tag=${test_inst_tag} --test_optimized_res=${test_optimized_res} --preload_experiences_tf=${preload_experiences_tf} --preload_experiences_path=${preload_experiences_path} --single_instance_training=${single_instance_training} --generalist_tune_all_instnaces=${generalist_tune_all_instnaces} --obj_type_to_pre_optimized_traj=${obj_type_to_pre_optimized_traj} --pre_load_trajectories=${pre_load_trajectories} --sampleds_with_object_code_fn=${sampleds_with_object_code_fn} --log_path=${log_path} --grab_inst_tag_to_optimized_res_fn=${grab_inst_tag_to_optimized_res_fn} --taco_inst_tag_to_optimized_res_fn=${taco_inst_tag_to_optimized_res_fn} --single_instance_tag=${single_instance_tag} --obj_type_to_optimized_res_fn=${obj_type_to_optimized_res_fn} --supervised_loss_coef=${supervised_loss_coef} --pure_supervised_training=${pure_supervised_training} --inst_tag_to_latent_feature_fn=${inst_tag_to_latent_feature_fn} --object_type_to_latent_feature_fn=${object_type_to_latent_feature_fn} --grab_obj_type_to_opt_res_fn=${grab_obj_type_to_opt_res_fn} --taco_obj_type_to_opt_res_fn=${taco_obj_type_to_opt_res_fn}  --maxx_inst_nn=${maxx_inst_nn} --tracking_save_info_fn=${tracking_save_info_fn} --tracking_info_st_tag=${tracking_info_st_tag} --only_training_on_succ_samples=${only_training_on_succ_samples} --rew_filter=${rew_filter} --rew_low_threshold=${rew_low_threshold} --use_strict_maxx_nn_ts=${use_strict_maxx_nn_ts} --taco_interped_data_sv_additional_tag=${taco_interped_data_sv_additional_tag} --strict_maxx_nn_ts=${strict_maxx_nn_ts} --grab_train_test_setting=${grab_train_test_setting} --checkpoint=${checkpoint} --use_local_canonical_state=${use_local_canonical_state} --bound_loss_coef=${bound_loss_coef} --rew_grab_thres=${rew_grab_thres} --rew_taco_thres=${rew_taco_thres} --dataset_type=${dataset_type} --rew_smoothness_coef=${rew_smoothness_coef} --use_base_traj=${use_base_traj} --obj_type_to_base_traj_fn=${obj_type_to_base_traj_fn} --rew_thres_with_selected_insts=${rew_thres_with_selected_insts} --selected_inst_idxes_dict=${selected_inst_idxes_dict} --customize_damping=${customize_damping} --customize_global_damping=${customize_global_damping} --train_on_all_trajs=${train_on_all_trajs} --eval_split_trajs=${eval_split_trajs} --single_instance_state_based_train=${single_instance_state_based_train} --controlFrequencyInv=${controlFrequencyInv} --downsample=${downsample} --target_inst_tag_list_fn=${target_inst_tag_list_fn} --use_teacher_model=${use_teacher_model} --teacher_model_path=${teacher_model_path} --teacher_model_inst_tags_fn=${teacher_model_inst_tags_fn} --teacher_index_to_weights=${teacher_index_to_weights} --teacher_index_to_inst_tags=${teacher_index_to_inst_tags} --use_history_obs=${use_history_obs} --history_length=${history_length} --good_inst_opt_res=${good_inst_opt_res} --w_franka=${w_franka}  --early_terminate=${early_terminate} --substeps=${substeps} --use_forcasting_model=${use_forcasting_model} --forcasting_model_weights=${forcasting_model_weights} --forcasting_model_n_layers=${forcasting_model_n_layers} --w_glb_traj_feat_cond=${w_glb_traj_feat_cond} --use_window_future_selection=${use_window_future_selection} --forcasting_inv_freq=${forcasting_inv_freq} --forcasting_history_ws=${forcasting_history_ws} --sv_info_during_training=${sv_info_during_training} --impedance_stiffness_low=${impedance_stiffness_low} --impedance_stiffness_high=${impedance_stiffness_high} --w_impedance_bias_control=${w_impedance_bias_control} --w_obj_latent_features=${w_obj_latent_features} --net_type=${net_type} --history_freq=${history_freq} --use_future_obs=${use_future_obs} --w_history_window_index=${w_history_window_index} --randomize_conditions=${randomize_conditions} --w_inst_latent_features=${w_inst_latent_features} --masked_mimic_training=${masked_mimic_training} --masked_mimic_teacher_model_path=${masked_mimic_teacher_model_path} --forcasting_model_training=${forcasting_model_training} --forcasting_model_lr=${forcasting_model_lr} --forcasting_model_weight_decay=${forcasting_model_weight_decay} --randomize_condition_type=${randomize_condition_type} --add_contact_conditions=${add_contact_conditions} --contact_info_sv_root=${contact_info_sv_root} --st_ed_state_cond=${st_ed_state_cond} --forcasting_diffusion_model=${forcasting_diffusion_model} --random_shift_cond=${random_shift_cond} --random_shift_cond_freq=${random_shift_cond_freq} --maxx_inv_cond_freq=${maxx_inv_cond_freq} --only_use_hand_first_frame=${only_use_hand_first_frame} --comput_reward_traj_hand_qpos=${comput_reward_traj_hand_qpos} --use_future_ref_as_obs_goal=${use_future_ref_as_obs_goal} --include_obj_rot_in_obs=${include_obj_rot_in_obs}
+# export use_local_canonical_state=True
+
+
+######## Common orientation reward settings ########
+# export checkpoint='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_duck_ctlv2_fulltopartial_multtraj_all_/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.6024_rot_0.6024_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_06-19-01-14/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.6024_rot_0.6024_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_1600_rew_94.105156.pth'
+export checkpoint=''
+export w_obj_ornt=False
+export include_obj_rot_in_obs=False
+# #### Version 3 orientation reward scheduling ####
+export schedule_ornt_rew_coef=False
+# export lowest_ornt_rew_coef=0.03
+# export highest_ornt_rew_coef=0.99
+export lowest_ornt_rew_coef=0.03
+export highest_ornt_rew_coef=2.0
+# export ornt_rew_coef_warm_starting_steps=10
+# export ornt_rew_coef_increasing_steps=200
+export ornt_rew_coef_warm_starting_steps=100
+export ornt_rew_coef_increasing_steps=1000
+# # #### Version 3 orientation reward scheduling ####
+# export hand_glb_mult_factor_scaling_coef=0.00001
+# export hand_glb_mult_scaling_progress_after=120
+# export compute_hand_rew_buf_threshold=120
+# # export compute_hand_rew_buf_threshold=500
+######## Common orientation reward settings ########
+
+
+
+# ######### activate the reorientation setting #########
+# export w_obj_ornt=True
+# export include_obj_rot_in_obs=True
+# export schedule_ornt_rew_coef=True
+# export rew_version=7
+# ######### activate the reorientation setting #########
+
+
+
+
+export tracking_info_st_tag='passive_active_info_'
+export tracking_save_info_fn='./data/GRAB_Tracking_PK_reduced_300/data'
+export tracking_data_sv_root='./data/GRAB_Tracking_PK_reduced_300/data'
+export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
+export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'
+
+
+
+
+
+
+##### sampling code #####
+export checkpoint=${CKPT}
+export test=True
+export numEnvs=100  
+export minibatch_size=100
+export headless=${HEADKESS} # True # False
+##### sampling code #####
+
+
+
+
+
+export st_idx=${GPUS}
+
+
+
+
+# bash scripts/run_tracking_headless_grab_single_test_ctlv2.sh 0 'ori_grab_s2_duck_inspect_1' ./xxx
+
+
+
+
+CUDA_VISIBLE_DEVICES=${cuda_idx} python train_pool_2.py --additional_tag=${additional_tag} --hand_type=${hand_type} --numEnvs=${numEnvs} --minibatch_size=${minibatch_size} --goal_cond=${goal_cond}  --test=${test} --use_relative_control=${use_relative_control} --use_kinematics_bias=${use_kinematics_bias} --w_obj_ornt=${w_obj_ornt} --obs_type=${obs_type} --separate_stages=${separate_stages} --rigid_obj_density=${rigid_obj_density}  --kinematics_only=${kinematics_only} --use_fingertips=${use_fingertips}  --use_kinematics_bias_wdelta=${use_kinematics_bias_wdelta} --hand_pose_guidance_glb_trans_coef=${hand_pose_guidance_glb_trans_coef} --hand_pose_guidance_glb_rot_coef=${hand_pose_guidance_glb_rot_coef} --hand_pose_guidance_fingerpose_coef=${hand_pose_guidance_fingerpose_coef} --dt=${dt} --glb_trans_vel_scale=${glb_trans_vel_scale} --glb_rot_vel_scale=${glb_rot_vel_scale} --rew_finger_obj_dist_coef=${rew_finger_obj_dist_coef} --rew_delta_hand_pose_coef=${rew_delta_hand_pose_coef} ${debug} --nn_gpus=${nn_gpus} --num_frames=${num_frames} --tracking_data_sv_root=${tracking_data_sv_root} --subj_nm=${subj_nm}  --st_idx=${st_idx} --dofSpeedScale=${dofSpeedScale} --use_twostage_rew=${use_twostage_rew} --episodeLength=${episodeLength} --data_inst_flag=${data_inst_flag} --pre_optimized_traj=${pre_optimized_traj} --use_generalist_policy=${use_generalist_policy} --use_hand_actions_rew=${use_hand_actions_rew} --supervised_training=${supervised_training} --checkpoint=${checkpoint} --max_epochs=${max_epochs} --training_mode=${training_mode} --test_inst_tag=${test_inst_tag} --test_optimized_res=${test_optimized_res} --preload_experiences_tf=${preload_experiences_tf} --preload_experiences_path=${preload_experiences_path} --single_instance_training=${single_instance_training} --generalist_tune_all_instnaces=${generalist_tune_all_instnaces} --obj_type_to_pre_optimized_traj=${obj_type_to_pre_optimized_traj} --pre_load_trajectories=${pre_load_trajectories} --sampleds_with_object_code_fn=${sampleds_with_object_code_fn} --log_path=${log_path} --grab_inst_tag_to_optimized_res_fn=${grab_inst_tag_to_optimized_res_fn} --taco_inst_tag_to_optimized_res_fn=${taco_inst_tag_to_optimized_res_fn} --single_instance_tag=${single_instance_tag} --obj_type_to_optimized_res_fn=${obj_type_to_optimized_res_fn} --supervised_loss_coef=${supervised_loss_coef} --pure_supervised_training=${pure_supervised_training} --inst_tag_to_latent_feature_fn=${inst_tag_to_latent_feature_fn} --object_type_to_latent_feature_fn=${object_type_to_latent_feature_fn} --grab_obj_type_to_opt_res_fn=${grab_obj_type_to_opt_res_fn} --taco_obj_type_to_opt_res_fn=${taco_obj_type_to_opt_res_fn}  --maxx_inst_nn=${maxx_inst_nn} --tracking_save_info_fn=${tracking_save_info_fn} --tracking_info_st_tag=${tracking_info_st_tag} --only_training_on_succ_samples=${only_training_on_succ_samples} --rew_filter=${rew_filter} --rew_low_threshold=${rew_low_threshold} --use_strict_maxx_nn_ts=${use_strict_maxx_nn_ts} --taco_interped_data_sv_additional_tag=${taco_interped_data_sv_additional_tag} --strict_maxx_nn_ts=${strict_maxx_nn_ts} --grab_train_test_setting=${grab_train_test_setting} --checkpoint=${checkpoint} --use_local_canonical_state=${use_local_canonical_state} --bound_loss_coef=${bound_loss_coef} --rew_grab_thres=${rew_grab_thres} --rew_taco_thres=${rew_taco_thres} --dataset_type=${dataset_type} --rew_smoothness_coef=${rew_smoothness_coef} --use_base_traj=${use_base_traj} --obj_type_to_base_traj_fn=${obj_type_to_base_traj_fn} --rew_thres_with_selected_insts=${rew_thres_with_selected_insts} --selected_inst_idxes_dict=${selected_inst_idxes_dict} --customize_damping=${customize_damping} --customize_global_damping=${customize_global_damping} --train_on_all_trajs=${train_on_all_trajs} --eval_split_trajs=${eval_split_trajs} --single_instance_state_based_train=${single_instance_state_based_train} --controlFrequencyInv=${controlFrequencyInv} --downsample=${downsample} --target_inst_tag_list_fn=${target_inst_tag_list_fn} --use_teacher_model=${use_teacher_model} --teacher_model_path=${teacher_model_path} --teacher_model_inst_tags_fn=${teacher_model_inst_tags_fn} --teacher_index_to_weights=${teacher_index_to_weights} --teacher_index_to_inst_tags=${teacher_index_to_inst_tags} --use_history_obs=${use_history_obs} --history_length=${history_length} --good_inst_opt_res=${good_inst_opt_res} --w_franka=${w_franka}  --early_terminate=${early_terminate} --substeps=${substeps} --use_forcasting_model=${use_forcasting_model} --forcasting_model_weights=${forcasting_model_weights} --forcasting_model_n_layers=${forcasting_model_n_layers} --w_glb_traj_feat_cond=${w_glb_traj_feat_cond} --use_window_future_selection=${use_window_future_selection} --forcasting_inv_freq=${forcasting_inv_freq} --forcasting_history_ws=${forcasting_history_ws} --sv_info_during_training=${sv_info_during_training} --impedance_stiffness_low=${impedance_stiffness_low} --impedance_stiffness_high=${impedance_stiffness_high} --w_impedance_bias_control=${w_impedance_bias_control} --w_obj_latent_features=${w_obj_latent_features} --net_type=${net_type} --history_freq=${history_freq} --use_future_obs=${use_future_obs} --w_history_window_index=${w_history_window_index} --randomize_conditions=${randomize_conditions} --w_inst_latent_features=${w_inst_latent_features} --masked_mimic_training=${masked_mimic_training} --masked_mimic_teacher_model_path=${masked_mimic_teacher_model_path} --forcasting_model_training=${forcasting_model_training} --forcasting_model_lr=${forcasting_model_lr} --forcasting_model_weight_decay=${forcasting_model_weight_decay} --randomize_condition_type=${randomize_condition_type} --add_contact_conditions=${add_contact_conditions} --contact_info_sv_root=${contact_info_sv_root} --st_ed_state_cond=${st_ed_state_cond} --forcasting_diffusion_model=${forcasting_diffusion_model} --random_shift_cond=${random_shift_cond} --random_shift_cond_freq=${random_shift_cond_freq} --maxx_inv_cond_freq=${maxx_inv_cond_freq} --only_use_hand_first_frame=${only_use_hand_first_frame} --comput_reward_traj_hand_qpos=${comput_reward_traj_hand_qpos} --use_future_ref_as_obs_goal=${use_future_ref_as_obs_goal} --include_obj_rot_in_obs=${include_obj_rot_in_obs} --not_use_kine_bias=${not_use_kine_bias} --w_finger_pos_rew=${w_finger_pos_rew} --hand_qpos_rew_coef=${hand_qpos_rew_coef} --more_allegro_stiffness=${more_allegro_stiffness} --use_multiple_kine_source_trajs=${use_multiple_kine_source_trajs} --multiple_kine_source_trajs_fn=${multiple_kine_source_trajs_fn} --multi_traj_use_joint_order_in_sim=${multi_traj_use_joint_order_in_sim} --include_obj_rot_in_obs=${include_obj_rot_in_obs} --schedule_ornt_rew_coef=${schedule_ornt_rew_coef} --lowest_ornt_rew_coef=${lowest_ornt_rew_coef} --highest_ornt_rew_coef=${highest_ornt_rew_coef} --ornt_rew_coef_warm_starting_steps=${ornt_rew_coef_warm_starting_steps} --ornt_rew_coef_increasing_steps=${ornt_rew_coef_increasing_steps} 
+
+#  --rollout_student_model=${rollout_student_model} --rollout_teacher_model=${rollout_teacher_model}
  
 

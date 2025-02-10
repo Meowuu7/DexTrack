@@ -776,11 +776,14 @@ class AllegroHandTrackingGeneralist(BaseTask):
                     continue
                 
                 cur_grab_mesh_fn = cur_grab_inst_tag.split("_nf_")[0]
-                cur_grab_mesh_fn = os.path.join("/root/diffsim/UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", cur_grab_mesh_fn)
-                if not os.path.exists(cur_grab_mesh_fn):
-                    cur_grab_mesh_fn = os.path.join("../../UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", cur_grab_mesh_fn)
-                    if not os.path.exists(cur_grab_mesh_fn):
-                        continue
+                
+                # cur_grab_mesh_fn = os.path.join("/root/diffsim/UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", cur_grab_mesh_fn)
+                # if not os.path.exists(cur_grab_mesh_fn):
+                #     cur_grab_mesh_fn = os.path.join("../../UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", cur_grab_mesh_fn)
+                #     if not os.path.exists(cur_grab_mesh_fn):
+                #         continue
+                    
+                cur_grab_mesh_fn = os.path.join("../assets/datasetv4.1/sem", cur_grab_mesh_fn)
                 
                 tot_grab_inst_tags.append(cur_grab_inst_tag)
             return tot_grab_inst_tags
@@ -3035,10 +3038,12 @@ class AllegroHandTrackingGeneralist(BaseTask):
             obj_trans = cur_kine_data['object_transl'][:maxx_ws] # nn_ts x 3
             obj_ornt = cur_kine_data['object_rot_quat'][:maxx_ws] # nn_ts x 4
             
-            # then segment the data_inst_tag to get the mesh file name #
-            self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
-            if not os.path.exists(self.grab_obj_mesh_sv_folder):
-                self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+            # # then segment the data_inst_tag to get the mesh file name #
+            # self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+            # if not os.path.exists(self.grab_obj_mesh_sv_folder):
+            #     self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                
+            self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
             grab_mesh_fn = f"{pure_cur_object_type}.obj"
             grab_mesh_fn = os.path.join(self.grab_obj_mesh_sv_folder, grab_mesh_fn)
             
@@ -3126,10 +3131,11 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 obj_trans = traj_kine_info_data['object_transl'][:maxx_ws] # nn_ts x 3 
                 obj_ornt = traj_kine_info_data['object_rot_quat'][:maxx_ws] # nn_ts x 4
                 
-                # then segment the data_inst_tag to get the mesh file name #
-                self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
-                if not os.path.exists(self.grab_obj_mesh_sv_folder):
-                    self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                # # then segment the data_inst_tag to get the mesh file name #
+                # self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                # if not os.path.exists(self.grab_obj_mesh_sv_folder):
+                #     self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
                 pure_obj_type = obj_type.split("_nf_")[0]
                 
                 grab_mesh_fn = f"{pure_obj_type}.obj"
@@ -3219,7 +3225,8 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 obj_ornt = traj_kine_info_data['object_rot_quat'][:maxx_ws] # nn_ts x 4
                 
                 # then segment the data_inst_tag to get the mesh file name #
-                self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                # self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
                 grab_mesh_fn = f"{obj_type}.obj"
                 grab_mesh_fn = os.path.join(self.grab_obj_mesh_sv_folder, grab_mesh_fn)
                 
@@ -4468,11 +4475,13 @@ class AllegroHandTrackingGeneralist(BaseTask):
 
         self.grasp_data = {}
         assets_path = '../assets'
-        assets_path = "/home/xueyi/diffsim/UniDexGrasp/dexgrasp_policy/assets"
-        if not os.path.exists(assets_path):
-            assets_path = "/root/diffsim/UniDexGrasp/dexgrasp_policy/assets"
-        if not os.path.exists(assets_path):
-            assets_path = "../../UniDexGrasp/dexgrasp_policy/assets"
+        
+        # assets_path = "/home/xueyi/diffsim/UniDexGrasp/dexgrasp_policy/assets"
+        # if not os.path.exists(assets_path):
+        #     assets_path = "/root/diffsim/UniDexGrasp/dexgrasp_policy/assets"
+        # if not os.path.exists(assets_path):
+        #     assets_path = "../../UniDexGrasp/dexgrasp_policy/assets"
+            
         dataset_root_path = osp.join(assets_path, 'datasetv4.1')
         
         

@@ -503,6 +503,7 @@ export use_future_ref_as_obs_goal=True
 GPUS=$1
 TRAJ=$2
 CKPT=$3
+HEADKESS=$4
 
 
 ##### single instnace training setting #####
@@ -602,7 +603,7 @@ export checkpoint=${CKPT}
 export test=True
 export numEnvs=100  
 export minibatch_size=100
-export headless=True # False
+export headless=${HEADKESS} #  True # False
 ##### sampling code #####
 
 
