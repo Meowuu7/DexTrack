@@ -3,7 +3,9 @@
 [Website](https://meowuu7.github.io/DexTrack/) | [Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://meowuu7.github.io/DexTrack/static/videos-lowres/video_7.mp4)
 
 
-Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), presenting an RL-based tracking control scheme for dexterous manipulations. It is a) an effective tool to create dexterous robot hand-object manipulation data with actions and b) a promising strategy to develop a generalizable and versatile neural controller for dexterous manipulation with a unified tracking scheme.
+Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), capable of serving as an effective tool to 1) create dexterous robot hand-object manipulation demonstrations by mimicking kinematic referecnces, and 2) develop a versatile tracking controller that can accomplish diverse manipulation tasks.
+<!-- .  Track 1) can serve as an effective tool to create dexterous robot hand-object manipulation demonstrations (with actions) and 2) is also a promising way to develop a tracking controller capable of accomplishing diverse manipulation tasks.  -->
+ <!-- presenting an RL-based tracking control scheme for dexterous manipulations. It is a) an effective tool to create dexterous robot hand-object manipulation data with actions and b) a promising strategy to develop a generalizable and versatile neural controller for dexterous manipulation with a unified tracking scheme. -->
 
 <!-- https://github.com/user-attachments/assets/1222fc51-42c9-4fd2-86cf-029b9c9c24ab  -->
 
@@ -13,11 +15,13 @@ Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), pres
 https://github.com/user-attachments/assets/13ddaac9-7098-435d-8b52-7517e1e95419
 
 
+<!-- 
 
+DexTrack supports the following applications:
+- Converting kinematic-only human-object manipulation trajectories into dynamics-aware robot hand action trajectories, enabling the robot to interact with the object while closely mimicking the corresponding kinematic states.
 
-DexTrack could support the following applications:
 - Converting kinematic-only human-object manipulation trajectories to dynamics-aware dexterous robot hand action trajectories, driving the robot hand to interact with the object with the resulting states closely mimicking the corresponding kinematic references. 
-- Developing a generalizable and versatile neural controller for dexterous manipulation. Unifiying manipulaton tasks into a general *tracking control* scheme and training to track abundant trajectories with diverse *tracking commands*, DexTrack can develop a tracking controller that can solve a wide range of manipulation tasks with nice generalization ability. 
+- Developing a generalizable and versatile neural controller for dexterous manipulation. Unifiying manipulaton tasks into a general *tracking control* scheme and training to track abundant trajectories with diverse *tracking commands*, DexTrack can develop a tracking controller that can solve a wide range of manipulation tasks with nice generalization ability.  -->
 
 
 ## Getting Started
@@ -30,8 +34,9 @@ conda create -n dextrack python=3.8.0
 conda activate dextrack
 ```
 
-Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym), then
-follow the installation instructions in the documentation.
+Download the Isaac Gym Preview 4 release from the [website](https://developer.nvidia.com/isaac-gym). 
+<!-- then -->
+<!-- follow the installation instructions in the documentation. -->
 ```bash
 cd isaacgym/python
 pip install -e .
@@ -59,20 +64,29 @@ Download part two of object files from [this link](https://1drv.ms/u/c/c746413ba
 <!-- We've also included code for kinematic retargeting in this repo. Please refer to []() for detailed usage.  -->
 
 
-## Dexterous Manipulation Tracking - Usage
+## Usage
+
+<!-- Dexterous Manipulation Tracking - Usage -->
 
 
-This repo contains RL environments for dexterous manipulation tracking with a simulated fly Allegro hand (an Allegro hand with 6 global translational and rotational DoFs). We support two types of control strategies (action spaces):
+This repository includes RL environments, along with the training and evaluation procedures, for the dexterous manipulation tracking problem using a simulated fly Allegro hand (6 global translational and rotational DoFs). Two control strategies (action spaces) are implemented:
+- Cumulated residual positional targets with kinematic bias; 
+- Relative positional targets. 
+The original implementation uses the first action space. 
+
+ <!-- with a simulated fly Allegro hand (an Allegro hand with 6 global translational and rotational DoFs). We support two types of control strategies (action spaces):
 - Cumulated residual positional targets with kinematics bias; 
 - Relative positional targets. 
-The original DexTrack's implementation uses the first action space. 
+The original DexTrack's implementation uses the first action space.  -->
 
-DexTrack include two levels of trackings. 
-- Single trajectory tracking. The goal is training a trajectory-specific tracking policy to track a single manipulation trajectory. 
-- Multiple trajectories tracking for a generalizable and versatile tracker. The goal is training a single tracking policy that is able to track multiple manipulation trajectories, and has the ability to generalize to unobserved sequences. 
-In the following, we will illustrate the training and evaluation processes for these two settings.
+DexTrack include two levels of tracking: 
+- **Single trajectory tracking:** The goal is to train a trajectory-specific policy to follow a single manipulation trajectory.
+- **Multiple trajectories tracking:** The goal is to train a generalizable tracking policy capable of mimicking multiple manipulation trajectories and generalizing to unseen sequences.
+<!-- for a generalizable and versatile tracker. The goal is training a single tracking policy that is able to track multiple manipulation trajectories, and has the ability to generalize to unobserved sequences.  -->
+<!-- In the following, we will illustrate the training and evaluation processes for these two settings. -->
+Below, we will outline the training and evaluation processes for both settings.
 
-Please make sure you are running these commands in the folder `DexTrack/isaacgymenvs`. 
+Please ensure that you are running these commands in the `DexTrack/isaacgymenvs` folder. 
 
 ### Sincle trajectory tracking
 
@@ -83,15 +97,19 @@ To train a single trajectory tracker for a sequence retargeted from the **GRAB**
 ```bash
 bash scripts/run_tracking_headless_grab_single.sh <GPU_ID> <SEQ_NAME>
 ```
-Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NAME>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`. 
+Please replace `<GPU_ID>` with the index of the GPU you wish to use. Only single-GPU training is supported. For other arguments, replace `<SEQ_NAME>` with the name of the sequence you wish to track. Checkpoints will be saved in the `./logs` folder.
 
-After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. You need a display if setting `HEADLESS` to `False`. 
+<!-- Please replace `<GPU_ID>` with the index of the card you wish to run the code on. We only support single gpu training. Similarly, `<SEQ_NAME>` should be replaced by the name of the sequence you wish to track. Checkpoints will be saved in the folder `./logs`.  -->
+
+Once you have obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. A display is required if `HEADLESS` is set to `False`.
+<!-- After you've obtained a checkpoint with a satisfactory reward, run the following code to evaluate it. You need a display if setting `HEADLESS` to `False`.  -->
 <!-- Please note that the evaluation code is not running in a headless mode (you need a display). -->
 ```bash
 bash scripts/run_tracking_headless_grab_single_test.sh <GPU_ID> <SEQ_NAME> <CKPT> <HEADLESS>
 ```
 
-To train a single trajectory tracker for a sequence retargeted from the **GRAB** dataset using the `relative positional` action space, run the following code:
+<!-- To train a single trajectory tracker for a sequence retargeted from the **GRAB** dataset using the `relative positional` action space, run the following code: -->
+To train a single-trajectory tracker for a sequence retargeted from the **GRAB** dataset using the `relative positional` action space, run the following code:
 ```bash
 bash scripts/run_tracking_headless_grab_single_ctlv2.sh <GPU_ID> <SEQ_NAME>
 ```
@@ -112,9 +130,12 @@ bash scripts/run_tracking_headless_taco_single_test.sh <GPU_ID> <TAG> <CKPT>
 
 
 
-Below, we give several examples. 
+Below, we provide several examples. 
 
-These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
+The following videos illustrate their corresponding input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that can be achieved. 
+
+<!-- These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve.  -->
+
 
 
 |   |    Cube       |       Duck          |     Flute        |      
@@ -177,9 +198,9 @@ bash scripts/run_tracking_headless_taco_single_test.sh <GPU_ID> <TAG> <CKPT> <HE
 
 
 
-Below, we give several examples. 
+Below, we provide several examples. 
 
-These are their input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that we can achieve. 
+The following videos illustrate their corresponding input (kinematic references retargeted from human-object manipulation trajectories) and output (tracking results) that can be achieved. 
 
 |   |    Shovel       |       Ladle         |     Soap        |      
 | :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
