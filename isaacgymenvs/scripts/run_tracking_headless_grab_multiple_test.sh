@@ -706,6 +706,8 @@ export single_instance_state_based_train=False
 export log_path=./logs/isaacgym_rl_allegro_multiple
 
 
+
+
 export subj_nm=''
 export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
 export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'

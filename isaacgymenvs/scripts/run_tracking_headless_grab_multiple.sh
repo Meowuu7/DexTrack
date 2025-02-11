@@ -710,7 +710,7 @@ export minibatch_size=40000
 
 
 
-
+# numEnvs #
 
 export st_idx=${GPUS}
 

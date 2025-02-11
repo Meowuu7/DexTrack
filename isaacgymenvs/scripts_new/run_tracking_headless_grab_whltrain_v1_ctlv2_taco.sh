@@ -92,7 +92,7 @@ export w_obj_ornt=True
 ### hand inspect sequence with the object ornt reward ###
 
 
-# kinematics_only # 
+
 
 
 ### Object task setting ###

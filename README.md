@@ -88,9 +88,10 @@ Below, we will outline the training and evaluation processes for both settings.
 
 Please ensure that you are running these commands in the `DexTrack/isaacgymenvs` folder. 
 
-### Sincle trajectory tracking
+### Sincle trajectory tracking (fly Allegro hand)
 
 **GRAB Dataset**
+
 
 
 To train a single trajectory tracker for a sequence retargeted from the **GRAB** dataset using the `cumulative residual` action space, run the following code:
@@ -185,6 +186,8 @@ bash scripts/run_tracking_headless_grab_single_test.sh 0 ori_grab_s2_flute_pass_
 ```
 
 
+
+
 **TACO Dataset**
 
 For sequences retargeted from **TACO** dataset, to track a trajectory with tag `<TAG>` using the `cumulative residual` action space, run the following code:
@@ -245,12 +248,14 @@ bash scripts/run_tracking_headless_taco_single_test.sh 0 taco_20231103_073 ./ckp
 
 
 
-### Multiple trajectories tracking
+
+
+### Multiple trajectory tracking (fly Allegro hand)
 
 **GRAB Dataset**
 
 
-To train a multiple trajectories tracker for a sequence retargeted from the **GRAB** dataset using the `cumulative residual` action space, run the following code:
+To train a multiple trajectories tracker for sequences retargeted from the **GRAB** dataset using the `cumulative residual` action space, run the following code:
 ```bash
 bash scripts/run_tracking_headless_grab_multiple.sh <GPU_ID> <SUBJ_NM> <SEQ_TAG_LIST>
 ```
@@ -278,6 +283,96 @@ Running the following command for evaluation:
 bash scripts/run_tracking_headless_grab_multiple_test_ctlv2.sh <GPU_ID> <TAG> <CKPT> <HEADLESS> 
 ```
 
+### Single trajectory tracking (Leap hand with Franka arm)
+
+
+To train a tracking policy for a sequence retargeted from the **GRAB** dataset using the `relative positional` action space, run the following code:
+```bash
+bash scripts/run_tracking_headless_grab_single_wfranka.sh <GPU_ID> <TAG>
+```
+For testing: 
+```bash
+ bash scripts/run_tracking_headless_grab_single_wfranka_test.sh <GPU_ID> <TAG> <CKPT> <HEADLESS>
+```
+
+In additional to trajectories contained in the original GRAB dataset, we've synthesized more trajectories with in-hand reorientations. Please refer to `data/modified_kinematics_data_leap_wfranka_v15urdf` for their kinematic motions (the in-hand reorienntation stage contains only object motion variations with hand pose fixed). To train a tracking policy for a synthesized trajectory, run the following code:
+```bash
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh <GPU_ID> <TAG> <SAMPLE_ID>
+```
+`<SAMPLE_ID>` should be replaced by a integer ranging from `0` to `99`. 
+For test:
+```bash
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh <GPU_ID> <TAG> <SAMPLE_ID> <CKPT> <HEADLESS>
+```
+
+Below, we give several examples. 
+
+Their corresponding input and output are illustrated in the following videos: 
+
+|   |    Elephant       |       Hammer         |     Watch        |      
+| :----------------------: | :----------------------: | :---------------------: | :---------------------: | 
+| Kinematic References  |     ![](assets/static/elephant_inspect_kines.gif)        |       ![](assets/static/hammer_rt_kines.gif)         |      ![](assets/static/watch_set_kines.gif)         |   
+| Tracking Result | ![](assets/static/elephant_inspect_tracked.gif) | ![](assets/static/hammer_rt_tracked.gif) | ![](assets/static/watch_set_tracked.gif) |
+
+
+***Case 1: Elephant ***
+
+For training, run the following code
+```bash
+bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 s2_elephant_inspect_1
+```
+To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s2_elephant_inspect_1 ./ckpts/elephant_inspect_wfranka_ckpt.pth True
+```
+
+
+***Case 2: Hammer ***
+
+For training, run the following code
+```bash
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 s2_hammer_use_2 6
+```
+To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 s2_hammer_use_2 6 ./ckpts/hammer_reorient_sample_6_ckpt.pth True
+```
+
+
+
+***Case 3: Watch ***
+
+For training, run the following code
+```bash
+bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 s1_watch_set_2
+```
+To evaluate our pretrained policy, run the following comamnd:
+```bash
+bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s1_watch_set_2 ./ckpts/watch_set_ckpt.pth
+```
+
+
+
+
+### Multiple trajectories tracking (Leap with Franka arm)
+
+Similar to the fly hand setting, run the following command to train a tracking controller for sequences retargeted from the `GRAB` dataset:
+```bash
+bash scripts/run_tracking_headless_grab_multiple_wfranka.sh <GPU_ID> <SEQ_TAG_LIST>
+```
+For evaluation:
+```bash
+bash scripts/run_tracking_headless_grab_multiple_wfranka_test.sh <GPU_ID> <TAG> <CKPT> <HEADLESS>
+```
+
+We've included pre-trained checkpoints for `s2` `s4` and `s6` in the `./ckpts` folder (`leap_franka_grab_s${idx}_ckpt.pth`). 
+
+
+**Notice**: In addition to the single and multiple trajectory tracking processes included above, DexTrack incorporates two key components that make the specialist-generalist iterative training framework work: 1) homotopy optimization for enhancing single trajectory tracking (applicable only to policies using the `cumulative residual` action space), and 2) a combination of IL and RL to improve the generalist tracker. However, these components require significant human effort and cannot easily be condensed into a single script. Besides, the corresponding code and scripts are too messy to be cleaned within an acceptable time frame. As a result, we do not currently plan to release them publicly.
+
+
+<!-- Since these two parts require too much human effort 
+and can hardly be summarized into a single script,  -->
 
 
 ## Contact
