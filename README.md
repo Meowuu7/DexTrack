@@ -315,7 +315,7 @@ Their corresponding input and output are illustrated in the following videos:
 | Tracking Result | ![](assets/static/elephant_inspect_tracked.gif) | ![](assets/static/hammer_rt_tracked.gif) | ![](assets/static/watch_set_tracked.gif) |
 
 
-***Case 1: Elephant ***
+***Case 1: Elephant***
 
 For training, run the following code
 ```bash
@@ -327,7 +327,7 @@ bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s2_elephant_ins
 ```
 
 
-***Case 2: Hammer ***
+***Case 2: Hammer***
 
 For training, run the following code
 ```bash
@@ -340,7 +340,7 @@ bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 s2_hammer_us
 
 
 
-***Case 3: Watch ***
+***Case 3: Watch***
 
 For training, run the following code
 ```bash
