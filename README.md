@@ -283,7 +283,7 @@ Running the following command for evaluation:
 bash scripts/run_tracking_headless_grab_multiple_test_ctlv2.sh <GPU_ID> <TAG> <CKPT> <HEADLESS> 
 ```
 
-### Single trajectory tracking (Leap hand with Franka arm)
+### Single trajectory tracking (LEAP hand with Franka arm)
 
 
 To train a tracking policy for a sequence retargeted from the **GRAB** dataset using the `relative positional` action space, run the following code:
@@ -354,7 +354,7 @@ bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s1_watch_set_2 
 
 
 
-### Multiple trajectories tracking (Leap with Franka arm)
+### Multiple trajectories tracking (LEAP with Franka arm)
 
 Similar to the fly hand setting, run the following command to train a tracking controller for sequences retargeted from the `GRAB` dataset:
 ```bash
