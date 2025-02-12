@@ -1,4 +1,4 @@
-# DexTrack: Dexterous Manipulations Tracking
+# DexTrack: Dexterous Manipulation Tracking
 
 [Website](https://meowuu7.github.io/DexTrack/)  | [Videos](https://youtu.be/zru1Z-DaiWE)  | [OpenReview](https://openreview.net/forum?id=ajSmXqgS24&noteId=SBH6txdWH9) | [arXiv (coming soon)]()
 
