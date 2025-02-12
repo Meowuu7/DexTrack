@@ -1,6 +1,6 @@
 # DexTrack: Dexterous Manipulations Tracking
 
-[Website](https://meowuu7.github.io/DexTrack/) | [Paper](https://arxiv.org/abs/2108.10470) | [Videos](https://meowuu7.github.io/DexTrack/static/videos-lowres/video_7.mp4)
+[Website](https://meowuu7.github.io/DexTrack/)  | [Videos](https://youtu.be/zru1Z-DaiWE)  | [OpenReview](https://openreview.net/forum?id=ajSmXqgS24&noteId=SBH6txdWH9) | [arXiv (coming soon)]()
 
 
 Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), capable of serving as an effective tool to 1) create dexterous robot hand-object manipulation demonstrations by mimicking kinematic referecnces, and 2) develop a versatile tracking controller that can accomplish diverse manipulation tasks.
