@@ -55,3 +55,4 @@ isaacgymenvs/data/*.zip
 isaacgymenvs/data/*
 
 isaacgymenvs/ckpts/*
+_setup.py
