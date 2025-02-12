@@ -50,16 +50,19 @@ pip install torch_cluster-1.6.3+pt24cu121-cp38-cp38-linux_x86_64.whl
 
 Install other dependencies:
 ```bash
-pip install rl_games transforms3d matplotlib omegaconf hydra-core trimesh
+pip install rl_games transforms3d matplotlib omegaconf hydra-core trimesh mujoco tqdm
 ```
 
 ### Data
 
 Download the retargeted data from [this link](https://1drv.ms/f/c/c746413ba7b58f04/EmTCrn1XSShNn34d3mTr7b4BBk1W4yqJxjY1y3WN0KRm3A?e=dxXnuT). Extract `.zip` files in the folder `isaacgymenvs/data`. 
 
-Download part one of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/EVEQ8nNWsnROk5swNPIcqR8Bfq6eb716MFJTbkMneJEvew?e=1JbI7k). Extract this file in the folder `assets`. 
+Download the first part of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/EVEQ8nNWsnROk5swNPIcqR8Bfq6eb716MFJTbkMneJEvew?e=1JbI7k). Extract this file in the folder `assets`. 
 
-Download part two of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/Ed7YUar7_0lAvf9B8YQCZC0BEuaSr_5oSO65qR18RwBNvw?e=QC48Nn).  Extract this file in the folder `assets/rsc`. 
+Download the second part of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/Ed7YUar7_0lAvf9B8YQCZC0BEuaSr_5oSO65qR18RwBNvw?e=QC48Nn).  Extract this file in the folder `assets/rsc`. 
+
+
+(Optional) Download checkpoints from [this link](https://1drv.ms/u/c/c746413ba7b58f04/ERogbFMZSPZFs7tFY2Lz3iMBRbwt6PphW4qsqFDhhCTwuQ?e=O2Yep8). Extract it in the folder `./ckpts`. 
 
 <!-- We've also included code for kinematic retargeting in this repo. Please refer to []() for detailed usage.  -->
 
@@ -69,7 +72,10 @@ Download part two of object files from [this link](https://1drv.ms/u/c/c746413ba
 <!-- Dexterous Manipulation Tracking - Usage -->
 
 
-This repository includes RL environments, along with the training and evaluation procedures, for the dexterous manipulation tracking problem using a simulated fly Allegro hand (6 global translational and rotational DoFs). Two control strategies (action spaces) are implemented:
+This repository includes RL environments, along with the training and evaluation procedures, for the dexterous manipulation tracking problem.
+ <!-- using a simulated fly Allegro hand (6 global translational and rotational DoFs).  -->
+We support 1) a fly Allegro hand (an Allegro hand with 6 global translational and rotational DoFs) and 2) a LEAP hand mounted on a Franka Panda arm.
+Two control strategies (action spaces) are implemented:
 - Cumulated residual positional targets with kinematic bias; 
 - Relative positional targets. 
 The original implementation uses the first action space. 
@@ -319,11 +325,11 @@ Their corresponding input and output are illustrated in the following videos:
 
 For training, run the following code
 ```bash
-bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 s2_elephant_inspect_1
+bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 ori_grab_s2_elephant_inspect_1
 ```
 To evaluate our pretrained policy, run the following comamnd:
 ```bash
-bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s2_elephant_inspect_1 ./ckpts/elephant_inspect_wfranka_ckpt.pth True
+bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 ori_grab_s2_elephant_inspect_1 ./ckpts/elephant_inspect_wfranka_ckpt.pth False
 ```
 
 
@@ -331,11 +337,11 @@ bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s2_elephant_ins
 
 For training, run the following code
 ```bash
-bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 s2_hammer_use_2 6
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 ori_grab_s2_hammer_use_2 6
 ```
 To evaluate our pretrained policy, run the following comamnd:
 ```bash
-bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 s2_hammer_use_2 6 ./ckpts/hammer_reorient_sample_6_ckpt.pth True
+bash scripts/run_tracking_headless_grab_single_syntraj_wfranka.sh 0 ori_grab_s2_hammer_use_2 6 ./ckpts/hammer_reorient_sample_6_ckpt.pth False
 ```
 
 
@@ -348,7 +354,7 @@ bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 s1_watch_set_2
 ```
 To evaluate our pretrained policy, run the following comamnd:
 ```bash
-bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 s1_watch_set_2 ./ckpts/watch_set_ckpt.pth
+bash scripts/run_tracking_headless_grab_single_wfranka_test.sh 0 ori_grab_s1_watch_set_2 ./ckpts/watch_set_ckpt.pth False 
 ```
 
 
@@ -371,8 +377,6 @@ We've included pre-trained checkpoints for `s2` `s4` and `s6` in the `./ckpts` f
 **Notice**: In addition to the single and multiple trajectory tracking processes included above, DexTrack incorporates two key components that make the specialist-generalist iterative training framework work: 1) homotopy optimization for enhancing single trajectory tracking (applicable only to policies using the `cumulative residual` action space), and 2) a combination of IL and RL to improve the generalist tracker. However, these components require significant human effort and cannot easily be condensed into a single script. Besides, the corresponding code and scripts are too messy to be cleaned within an acceptable time frame. As a result, we do not currently plan to release them publicly.
 
 
-<!-- Since these two parts require too much human effort 
-and can hardly be summarized into a single script,  -->
 
 
 ## Contact

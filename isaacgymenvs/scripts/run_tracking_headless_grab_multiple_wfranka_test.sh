@@ -1780,24 +1780,6 @@ export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type
 
 
 
-# ######### add the ts teacher model setting #########
-# export train_student_model=True
-# export ts_teacher_model_obs_dim=731
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_rewv5_franka_ori_grab_s2_duck_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_14-12-54-28/nn/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_rewv5_franka_ori_grab_s2_duck_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_14-12-54-28/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_181.60353.pth'
-# ### apple eat 1 ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drFalsev34_rewv5_franka_ori_grab_s2_apple_eat_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_22-12-37-39/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_171.44658.pth'
-# ### Flashlight on 1 ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev35_rewv5_franka_ori_grab_s2_flashlight_on_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-02-13-33/nn/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# ### elephant ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev41_rewv5_franka_ori_grab_s2_elephant_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-01-33-26/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_800_rew_104.26583.pth'
-# ### flashlight ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev41_rewv5_franka_ori_grab_s2_flashlight_on_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-02-14-30/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_800_rew_155.61037.pth'
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_distill_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-# ######### add the ts teacher model setting #########
-
-
-
 # ######### change the arm control frequencies #########
 # export arm_stiffness=100000
 # export arm_effort=100000
@@ -2125,41 +2107,11 @@ export wo_fingertip_vel=False
 
 
 
-# export dr_version=41
-# export randomize=True
-# # elephant
-# export rand_obj_mass_lowest_range=0.2
-# export rand_obj_mass_highest_range=0.5
-# # flashlight
-# # export rand_obj_mass_lowest_range=0.5
-# # export rand_obj_mass_highest_range=1.2
-# # hammer
-# export rand_obj_mass_lowest_range=0.5
-# export rand_obj_mass_highest_range=1.2
-# export randomize_obj_init_pos=True
-# export w_traj_modifications=True
-# export obj_init_pos_rand_sigma=0.02
-# export obj_init_pos_rand_sigma=0.01
-# export randomize_obs_more=False
-# export hand_specific_randomizations=False
-# export action_specific_randomizations=False
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=True
-# # export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-
-# export test_inst_tag=${pure_test_inst_tag}_nf_300
-
-
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_ts${train_student_model}_woft${wo_fingertip_pos}_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_dr${randomize}v${dr_version}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}
 ######### Randomization settings #########
 
 
 
-# ######### tune the control frequencey #########
-# export controlFrequencyInv=6
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_dr${randomize}v${dr_version}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-# ######### tune the control frequencey #########
+
 
 
 GPUS=$1
@@ -2180,9 +2132,8 @@ export use_v2_leap_warm_urdf=True
 
 
 ####### generalist training setting #######
-export test_inst_tag=''
 # export target_subj_idx=${SUBJID}
-export maxx_inst_nn=1000
+export maxx_inst_nn=1
 export generalist_tune_all_instnaces=False
 export single_instance_training=False
 export single_instance_state_based_train=False 
@@ -2244,7 +2195,7 @@ export sv_info_during_training=True
 
 
 
-# bash scripts/run_tracking_headless_grab_multiple_wfranka_test.sh 0 s2_duck_inspect_1 ./ckpts/xxx True
+# bash scripts/run_tracking_headless_grab_multiple_wfranka_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/a True
 
 
 

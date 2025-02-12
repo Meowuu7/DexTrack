@@ -2167,65 +2167,15 @@ TRAJ=$2
 
 
 
-## mass in sim = 70g #
-# export pure_test_inst_tag="ori_grab_s2_flashlight_on_1"
-# # export pure_test_inst_tag="ori_grab_s2_flashlight_on_2"
-# # export pure_test_inst_tag="ori_grab_s2_banana_eat_1"
-# # export pure_test_inst_tag="ori_grab_s2_apple_eat_1"
-# export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
-# # export pure_test_inst_tag="ori_grab_s1_banana_peel_1"
-# # export pure_test_inst_tag="ori_grab_s2_hand_inspect_1"
-# # export pure_test_inst_tag="ori_grab_s2_apple_eat_1"
-# # export pure_test_inst_tag="ori_grab_s3_cup_drink_2"
-# # export pure_test_inst_tag="ori_grab_s3_wineglass_drink_1"
-# # export pure_test_inst_tag="ori_grab_s1_lightbulb_pass_1"
-# # export pure_test_inst_tag="ori_grab_s2_flashlight_on_1"
-# # export pure_test_inst_tag="ori_grab_s2_elephant_inspect_1"
-# export pure_test_inst_tag="ori_grab_s2_hammer_use_2"
-# # export pure_test_inst_tag="ori_grab_s1_watch_set_1"
-# export pure_test_inst_tag="ori_grab_s1_watch_set_2"
-# export pure_test_inst_tag="ori_grab_s2_cubesmall_inspect_1"
-# # export pure_test_inst_tag="ori_grab_s1_waterbottle_pass_1"
-# # export pure_test_inst_tag="ori_grab_s1_waterbottle_pour_1"
-# # export pure_test_inst_tag="ori_grab_s3_hammer_use_2"
-# # export pure_test_inst_tag="ori_grab_s1_wineglass_drink_2"
-# # export pure_test_inst_tag="ori_grab_s1_wineglass_toast_1"
-# # export pure_test_inst_tag="ori_grab_s4_wineglass_drink_2"
-# # export pure_test_inst_tag="ori_grab_s1_lightbulb_pass_1"
-# # export pure_test_inst_tag="ori_grab_s1_banana_peel_1"
-# # export pure_test_inst_tag="ori_grab_s1_mouse_pass_1"
-# # export pure_test_inst_tag="ori_grab_s1_watch_set_2"
-# # export pure_test_inst_tag="ori_grab_s3_mouse_pass_1"
-# # export pure_test_inst_tag="ori_grab_s2_elephant_inspect_1"
-# # export pure_test_inst_tag="ori_grab_s2_duck_inspect_1"
-# # export pure_test_inst_tag="ori_grab_s1_lightbulb_pass_1"
-# # export pure_test_inst_tag="ori_grab_s1_banana_peel_1"
 export pure_test_inst_tag=${TRAJ}
 
 
 
 
-# export reset_obj_mass=True
-# export obj_mass_reset=0.143
-# export recompute_inertia=True
-
-
-
-# export single_instance_state_based_train=True
-# # mass in the jreal = 143g, mass in the sim = 600g # #
-# export test_inst_tag='ori_grab_s2_elephant_inspect_1_nf_300'
-# export test_inst_tag='ori_grab_s2_duck_inspect_1_nf_300'
-# export test_inst_tag='ori_grab_s2_apple_lift_nf_300'
-# export test_inst_tag='ori_grab_s2_stapler_pass_1_nf_300'
-# export test_inst_tag='ori_grab_s2_spheremedium_pass_1_nf_300'
-# export test_inst_tag='ori_grab_s2_hammer_lift_nf_300' # hammer 
-# # mass in the real = 106g, mass in the sim = 320g # #
-# export test_inst_tag='ori_grab_s2_hand_inspect_1_nf_300'
-# export test_inst_tag='ori_grab_s2_teapot_lift_nf_300'
 export test_inst_tag=${pure_test_inst_tag}_nf_300
 
 
-export log_path=./logs/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_ts${train_student_model}_woft${wo_fingertip_pos}_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_dr${randomize}v${dr_version}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}
+export log_path=./logs/uni_manip/isaacgym_rl_exp_grab_train_multiple_wfranka
 ######### Randomization settings #########
 
 
@@ -2248,28 +2198,12 @@ export use_v2_leap_warm_urdf=True
 ####### use_v2_leap_warm_urdf setting #######
 
 
-# ####### Activate latent observations settings #######
-# export use_latent_obs=True
-# export obs_latent_dim=32 # 256
-# ####### Activate latent observations settings #######
-
-
-# export use_v2_leap_warm_urdf=False
+export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
+export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'
 
 
 
-# # ######### Schedule the hand-obj dist coef setting #########
-# # export schedule_hodist_rew_coef=True
-# # export lowest_rew_finger_obj_dist_coef=0.1
-# # export highest_rew_finger_obj_dist_coef=0.5
-# # export hodist_rew_coef_warm_starting_steps=100
-# # export hodist_rew_coef_increasing_steps=300
-# # ######### Schedule the hand-obj dist coef setting #########
 
-
-
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_ts${train_student_model}_woft${wo_fingertip_pos}_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_dr${randomize}v${dr_version}_rewv${rew_version}_franka_${test_inst_tag}_table${table_z_dim}
-# export log_path=${log_path}_reornt_hodist${schedule_hodist_rew_coef}
 
 
 # # ######### Pure training setting -- with reorientations, wo fingertip vel, w fingertip ornt #########
@@ -2324,70 +2258,10 @@ export damping_coef=20
 
 export log_path=${log_path}_wovel${wo_vel_obs}
 
-# 
-
-# #### sampling code #####
-# export checkpoint='ckpts/hammer_latent_obs_v4_difflatents.pth'
-# export checkpoint='/cephfs/yilaa/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_drFalsev34_rewv7_franka_ori_grab_s2_hammer_use_2_nf_300_table0.5_reornt_hodistFalse_wovelFalse/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_09-10-31-50/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_800_rew_-348.11395.pth'
-# export checkpoint='ckpts/hammer_latent_obs_v6_difflatents.pth'
-# # export checkpoint='ckpts/hammer_latent_obs_v5_difflatents.pth'
-# export checkpoint='/cephfs/yilaa/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_drFalsev34_rewv7_franka_ori_grab_s2_hammer_use_2_nf_300_table0.5_reornt_hodistFalse_wovelFalse/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_09-23-22-47/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_400_rew_-24.38068.pth'
-# export checkpoint='ckpts/hammer_latent_obs_v7_difflatents.pth'
-
-# export checkpoint='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev35_rewv5_franka_ori_grab_s1_banana_peel_1_nf_300_armmult2.0_table0.5_wovelFalse/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_10-16-35-49/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_180.41306.pth'
-
-# export checkpoint='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev35_rewv5_franka_ori_grab_s1_banana_peel_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_11-00-41-40/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_177.3458.pth'
-
-# export preset_multi_traj_index=31
-# # export record_experiences=True
-# export record_experiences=False
-# # export save_experiences_via_ts=True
-# export test=True
-# export numEnvs=100  
-# export minibatch_size=100
-# # export numEnvs=5000
-# # export minibatch_size=5000
-# # export numEnvs=10000
-# # export minibatch_size=10000
 
 
 
-# # ##### to real setting #####
-# # export kine_info_with_arm_sv_root=./data/modified_kinematics_data_leap_wfranka_v17urdf/GRAB_Tracking_PK_reduced_300_resampled_ori_grab_s2_hammer_use_2_v18
-# # export tracking_save_info_fn=./data/modified_kinematics_data_leap_wfranka_v17urdf/GRAB_Tracking_PK_reduced_300_resampled_ori_grab_s2_hammer_use_2_v18
-# # export tracking_data_sv_root=./data/modified_kinematics_data_leap_wfranka_v17urdf/GRAB_Tracking_PK_reduced_300_resampled_ori_grab_s2_hammer_use_2_v18
-# # export log_path='./logs'
-# # # export kine_ed_tag=".npy"
-# # export grab_inst_tag_to_optimized_res_fn='./data/statistics/data_inst_tag_to_optimized_res.npy'
-# # export object_type_to_latent_feature_fn='./data/statistics/obj_type_to_obj_feat.npy'
-# # export inst_tag_to_latent_feature_fn='./data/statistics/inst_tag_to_obj_feat.npy'
-# # export mocap_sv_info_fn='./data/GRAB_Tracking_PK_OFFSET_Reduced/data/passive_active_info_ori_grab_s2_apple_lift_nf_300.npy'
-# # export toreal=1
-# # export headless=True
-# # export closed_loop_to_real=True
-# # export numEnvs=2
-# # export minibatch_size=2
-# # ##### to real setting #####
 
-# # export st_idx=0
-# # ##### sampling code #####
-
-
-
-# ###### tuning all instances setting #######
-# export generalist_tune_all_instnaces=True
-# export log_root=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_wcustomdamping_v3goal_rewv${rew_version}_franka_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}
-# export subj_nm='s2'
-# ###### tuning all instances setting #######
-
-# TODO: 
-# headless; and also should be careful about the hand type
-
-
-
-# export glb_trans_vel_scale=1
-# export glb_rot_vel_scale=1
-# export dofSpeedScale=20
 export headless=True
 
 export st_idx=${GPUS}
@@ -2399,11 +2273,11 @@ export sv_info_during_training=True
 
 
 
-# bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 s2_elephant_inspect_1
+# bash scripts/run_tracking_headless_grab_single_wfranka.sh 0 ori_grab_s2_elephant_inspect_1
 
 
 
 
-CUDA_VISIBLE_DEVICES=${cuda_idx} python train_pool_2.py --additional_tag=${additional_tag} --hand_type=${hand_type} --numEnvs=${numEnvs} --minibatch_size=${minibatch_size} --goal_cond=${goal_cond}  --test=${test} --use_relative_control=${use_relative_control} --use_kinematics_bias=${use_kinematics_bias} --w_obj_ornt=${w_obj_ornt} --obs_type=${obs_type} --separate_stages=${separate_stages} --rigid_obj_density=${rigid_obj_density}  --kinematics_only=${kinematics_only} --use_fingertips=${use_fingertips}  --use_kinematics_bias_wdelta=${use_kinematics_bias_wdelta} --hand_pose_guidance_glb_trans_coef=${hand_pose_guidance_glb_trans_coef} --hand_pose_guidance_glb_rot_coef=${hand_pose_guidance_glb_rot_coef} --hand_pose_guidance_fingerpose_coef=${hand_pose_guidance_fingerpose_coef} --dt=${dt} --glb_trans_vel_scale=${glb_trans_vel_scale} --glb_rot_vel_scale=${glb_rot_vel_scale} --rew_finger_obj_dist_coef=${rew_finger_obj_dist_coef} --rew_delta_hand_pose_coef=${rew_delta_hand_pose_coef} ${debug} --nn_gpus=${nn_gpus} --num_frames=${num_frames} --tracking_data_sv_root=${tracking_data_sv_root} --subj_nm=${subj_nm}  --st_idx=${st_idx} --dofSpeedScale=${dofSpeedScale} --use_twostage_rew=${use_twostage_rew} --episodeLength=${episodeLength} --data_inst_flag=${data_inst_flag} --pre_optimized_traj=${pre_optimized_traj} --use_generalist_policy=${use_generalist_policy} --use_hand_actions_rew=${use_hand_actions_rew} --supervised_training=${supervised_training} --checkpoint=${checkpoint} --max_epochs=${max_epochs} --training_mode=${training_mode} --test_inst_tag=${test_inst_tag} --test_optimized_res=${test_optimized_res} --preload_experiences_tf=${preload_experiences_tf} --preload_experiences_path=${preload_experiences_path} --single_instance_training=${single_instance_training} --generalist_tune_all_instnaces=${generalist_tune_all_instnaces} --obj_type_to_pre_optimized_traj=${obj_type_to_pre_optimized_traj} --pre_load_trajectories=${pre_load_trajectories} --sampleds_with_object_code_fn=${sampleds_with_object_code_fn} --log_path=${log_path} --grab_inst_tag_to_optimized_res_fn=${grab_inst_tag_to_optimized_res_fn} --taco_inst_tag_to_optimized_res_fn=${taco_inst_tag_to_optimized_res_fn} --single_instance_tag=${single_instance_tag} --obj_type_to_optimized_res_fn=${obj_type_to_optimized_res_fn} --supervised_loss_coef=${supervised_loss_coef} --pure_supervised_training=${pure_supervised_training} --inst_tag_to_latent_feature_fn=${inst_tag_to_latent_feature_fn} --object_type_to_latent_feature_fn=${object_type_to_latent_feature_fn} --grab_obj_type_to_opt_res_fn=${grab_obj_type_to_opt_res_fn} --taco_obj_type_to_opt_res_fn=${taco_obj_type_to_opt_res_fn}  --maxx_inst_nn=${maxx_inst_nn} --tracking_save_info_fn=${tracking_save_info_fn} --tracking_info_st_tag=${tracking_info_st_tag} --only_training_on_succ_samples=${only_training_on_succ_samples} --rew_filter=${rew_filter} --rew_low_threshold=${rew_low_threshold} --use_strict_maxx_nn_ts=${use_strict_maxx_nn_ts} --taco_interped_data_sv_additional_tag=${taco_interped_data_sv_additional_tag} --strict_maxx_nn_ts=${strict_maxx_nn_ts} --grab_train_test_setting=${grab_train_test_setting} --checkpoint=${checkpoint} --use_local_canonical_state=${use_local_canonical_state} --bound_loss_coef=${bound_loss_coef} --rew_grab_thres=${rew_grab_thres} --rew_taco_thres=${rew_taco_thres} --dataset_type=${dataset_type} --rew_smoothness_coef=${rew_smoothness_coef} --use_base_traj=${use_base_traj} --obj_type_to_base_traj_fn=${obj_type_to_base_traj_fn} --rew_thres_with_selected_insts=${rew_thres_with_selected_insts} --selected_inst_idxes_dict=${selected_inst_idxes_dict} --customize_damping=${customize_damping} --customize_global_damping=${customize_global_damping} --train_on_all_trajs=${train_on_all_trajs} --eval_split_trajs=${eval_split_trajs} --single_instance_state_based_train=${single_instance_state_based_train} --controlFrequencyInv=${controlFrequencyInv} --downsample=${downsample} --target_inst_tag_list_fn=${target_inst_tag_list_fn} --use_teacher_model=${use_teacher_model} --teacher_model_path=${teacher_model_path} --teacher_model_inst_tags_fn=${teacher_model_inst_tags_fn} --teacher_index_to_weights=${teacher_index_to_weights} --teacher_index_to_inst_tags=${teacher_index_to_inst_tags} --use_history_obs=${use_history_obs} --history_length=${history_length} --good_inst_opt_res=${good_inst_opt_res} --w_franka=${w_franka}  --early_terminate=${early_terminate} --substeps=${substeps} --use_forcasting_model=${use_forcasting_model} --forcasting_model_weights=${forcasting_model_weights} --forcasting_model_n_layers=${forcasting_model_n_layers} --w_glb_traj_feat_cond=${w_glb_traj_feat_cond} --use_window_future_selection=${use_window_future_selection} --forcasting_inv_freq=${forcasting_inv_freq} --forcasting_history_ws=${forcasting_history_ws} --sv_info_during_training=${sv_info_during_training} --impedance_stiffness_low=${impedance_stiffness_low} --impedance_stiffness_high=${impedance_stiffness_high} --w_impedance_bias_control=${w_impedance_bias_control} --w_obj_latent_features=${w_obj_latent_features} --net_type=${net_type} --history_freq=${history_freq} --use_future_obs=${use_future_obs} --w_history_window_index=${w_history_window_index} --randomize_conditions=${randomize_conditions} --w_inst_latent_features=${w_inst_latent_features} --masked_mimic_training=${masked_mimic_training} --masked_mimic_teacher_model_path=${masked_mimic_teacher_model_path} --forcasting_model_training=${forcasting_model_training} --forcasting_model_lr=${forcasting_model_lr} --forcasting_model_weight_decay=${forcasting_model_weight_decay} --randomize_condition_type=${randomize_condition_type} --add_contact_conditions=${add_contact_conditions} --contact_info_sv_root=${contact_info_sv_root} --st_ed_state_cond=${st_ed_state_cond} --forcasting_diffusion_model=${forcasting_diffusion_model} --random_shift_cond=${random_shift_cond} --random_shift_cond_freq=${random_shift_cond_freq} --maxx_inv_cond_freq=${maxx_inv_cond_freq} --only_use_hand_first_frame=${only_use_hand_first_frame} --comput_reward_traj_hand_qpos=${comput_reward_traj_hand_qpos} --use_future_ref_as_obs_goal=${use_future_ref_as_obs_goal} --include_obj_rot_in_obs=${include_obj_rot_in_obs} --w_franka=${w_franka} --add_table=${add_table} --table_z_dim=${table_z_dim} --headless=${headless} --load_kine_info_retar_with_arm=${load_kine_info_retar_with_arm} --kine_info_with_arm_sv_root=${kine_info_with_arm_sv_root} --w_finger_pos_rew=${w_finger_pos_rew} --franka_delta_delta_mult_coef=${franka_delta_delta_mult_coef} --control_arm_via_ik=${control_arm_via_ik} --hand_qpos_rew_coef=${hand_qpos_rew_coef} --log_root=${log_root} --wo_vel_obs=${wo_vel_obs} --not_use_kine_bias=${not_use_kine_bias} --schedule_ornt_rew_coef=${schedule_ornt_rew_coef} --lowest_ornt_rew_coef=${lowest_ornt_rew_coef} --highest_ornt_rew_coef=${highest_ornt_rew_coef} --ornt_rew_coef_warm_starting_steps=${ornt_rew_coef_warm_starting_steps} --ornt_rew_coef_increasing_steps=${ornt_rew_coef_increasing_steps} --hand_glb_mult_factor_scaling_coef=${hand_glb_mult_factor_scaling_coef} --hand_glb_mult_scaling_progress_after=${hand_glb_mult_scaling_progress_after} --wo_fingertip_rot_vel=${wo_fingertip_rot_vel} --compute_hand_rew_buf_threshold=${compute_hand_rew_buf_threshold} --wo_fingertip_vel=${wo_fingertip_vel} --randomize=${randomize} --arm_stiffness=${arm_stiffness} --arm_effort=${arm_effort} --arm_damping=${arm_damping} --train_student_model=${train_student_model} --ts_teacher_model_obs_dim=${ts_teacher_model_obs_dim} --ts_teacher_model_weights_fn=${ts_teacher_model_weights_fn} --randomize_obj_init_pos=${randomize_obj_init_pos} --randomize_obs_more=${randomize_obs_more} --obj_init_pos_rand_sigma=${obj_init_pos_rand_sigma} --obs_simplified=${obs_simplified} --w_traj_modifications=${w_traj_modifications} --wo_fingertip_pos=${wo_fingertip_pos} --rand_obj_mass_lowest_range=${rand_obj_mass_lowest_range} --rand_obj_mass_highest_range=${rand_obj_mass_highest_range} --use_v2_leap_warm_urdf=${use_v2_leap_warm_urdf} --hand_specific_randomizations=${hand_specific_randomizations} --schedule_hodist_rew_coef=${schedule_hodist_rew_coef} --lowest_rew_finger_obj_dist_coef=${lowest_rew_finger_obj_dist_coef} --highest_rew_finger_obj_dist_coef=${highest_rew_finger_obj_dist_coef} --hodist_rew_coef_warm_starting_steps=${hodist_rew_coef_warm_starting_steps} --hodist_rew_coef_increasing_steps=${hodist_rew_coef_increasing_steps} --action_specific_randomizations=${action_specific_randomizations} --action_specific_rand_noise_scale=${action_specific_rand_noise_scale} --reset_obj_mass=${reset_obj_mass} --obj_mass_reset=${obj_mass_reset} --recompute_inertia=${recompute_inertia} --w_rotation_axis_rew=${w_rotation_axis_rew} --add_physical_params_in_obs=${add_physical_params_in_obs} --obs_rand_noise_scale=${obs_rand_noise_scale} --whether_randomize_obs_act=${whether_randomize_obs_act} --whether_randomize_obs=${whether_randomize_obs} --whether_randomize_act=${whether_randomize_act} --stiffness_coef=${stiffness_coef} --damping_coef=${damping_coef} --kine_ed_tag=${kine_ed_tag} --diff_latents=${diff_latents} --use_obs_latent_in_obs=${use_obs_latent_in_obs}  --use_latent_obs=${use_latent_obs} --obs_latent_dim=${obs_latent_dim} --teacher_model_w_vel_obs=${teacher_model_w_vel_obs} --rollout_teacher_model=${rollout_teacher_model} --rollout_student_model=${rollout_student_model} --latent_obs_encoder_decoder_weights_fn=${latent_obs_encoder_decoder_weights_fn}  --teacher_use_force_obs=${teacher_use_force_obs} --add_forece_obs=${add_forece_obs}
-  
+CUDA_VISIBLE_DEVICES=${cuda_idx} python train_pool_2.py --additional_tag=${additional_tag} --hand_type=${hand_type} --numEnvs=${numEnvs} --minibatch_size=${minibatch_size} --goal_cond=${goal_cond}  --test=${test} --use_relative_control=${use_relative_control} --use_kinematics_bias=${use_kinematics_bias} --w_obj_ornt=${w_obj_ornt} --obs_type=${obs_type} --separate_stages=${separate_stages} --rigid_obj_density=${rigid_obj_density}  --kinematics_only=${kinematics_only} --use_fingertips=${use_fingertips}  --use_kinematics_bias_wdelta=${use_kinematics_bias_wdelta} --hand_pose_guidance_glb_trans_coef=${hand_pose_guidance_glb_trans_coef} --hand_pose_guidance_glb_rot_coef=${hand_pose_guidance_glb_rot_coef} --hand_pose_guidance_fingerpose_coef=${hand_pose_guidance_fingerpose_coef} --dt=${dt} --glb_trans_vel_scale=${glb_trans_vel_scale} --glb_rot_vel_scale=${glb_rot_vel_scale} --rew_finger_obj_dist_coef=${rew_finger_obj_dist_coef} --rew_delta_hand_pose_coef=${rew_delta_hand_pose_coef} ${debug} --nn_gpus=${nn_gpus} --num_frames=${num_frames} --tracking_data_sv_root=${tracking_data_sv_root} --subj_nm=${subj_nm}  --st_idx=${st_idx} --dofSpeedScale=${dofSpeedScale} --use_twostage_rew=${use_twostage_rew} --episodeLength=${episodeLength} --data_inst_flag=${data_inst_flag} --pre_optimized_traj=${pre_optimized_traj} --use_generalist_policy=${use_generalist_policy} --use_hand_actions_rew=${use_hand_actions_rew} --supervised_training=${supervised_training} --checkpoint=${checkpoint} --max_epochs=${max_epochs} --training_mode=${training_mode} --test_inst_tag=${test_inst_tag} --test_optimized_res=${test_optimized_res} --preload_experiences_tf=${preload_experiences_tf} --preload_experiences_path=${preload_experiences_path} --single_instance_training=${single_instance_training} --generalist_tune_all_instnaces=${generalist_tune_all_instnaces} --obj_type_to_pre_optimized_traj=${obj_type_to_pre_optimized_traj} --pre_load_trajectories=${pre_load_trajectories} --sampleds_with_object_code_fn=${sampleds_with_object_code_fn} --log_path=${log_path} --grab_inst_tag_to_optimized_res_fn=${grab_inst_tag_to_optimized_res_fn} --taco_inst_tag_to_optimized_res_fn=${taco_inst_tag_to_optimized_res_fn} --single_instance_tag=${single_instance_tag} --obj_type_to_optimized_res_fn=${obj_type_to_optimized_res_fn} --supervised_loss_coef=${supervised_loss_coef} --pure_supervised_training=${pure_supervised_training} --inst_tag_to_latent_feature_fn=${inst_tag_to_latent_feature_fn} --object_type_to_latent_feature_fn=${object_type_to_latent_feature_fn} --grab_obj_type_to_opt_res_fn=${grab_obj_type_to_opt_res_fn} --taco_obj_type_to_opt_res_fn=${taco_obj_type_to_opt_res_fn}  --maxx_inst_nn=${maxx_inst_nn} --tracking_save_info_fn=${tracking_save_info_fn} --tracking_info_st_tag=${tracking_info_st_tag} --only_training_on_succ_samples=${only_training_on_succ_samples} --rew_filter=${rew_filter} --rew_low_threshold=${rew_low_threshold} --use_strict_maxx_nn_ts=${use_strict_maxx_nn_ts} --taco_interped_data_sv_additional_tag=${taco_interped_data_sv_additional_tag} --strict_maxx_nn_ts=${strict_maxx_nn_ts} --grab_train_test_setting=${grab_train_test_setting} --checkpoint=${checkpoint} --use_local_canonical_state=${use_local_canonical_state} --bound_loss_coef=${bound_loss_coef} --rew_grab_thres=${rew_grab_thres} --rew_taco_thres=${rew_taco_thres} --dataset_type=${dataset_type} --rew_smoothness_coef=${rew_smoothness_coef} --use_base_traj=${use_base_traj} --obj_type_to_base_traj_fn=${obj_type_to_base_traj_fn} --rew_thres_with_selected_insts=${rew_thres_with_selected_insts} --selected_inst_idxes_dict=${selected_inst_idxes_dict} --customize_damping=${customize_damping} --customize_global_damping=${customize_global_damping} --train_on_all_trajs=${train_on_all_trajs} --eval_split_trajs=${eval_split_trajs} --single_instance_state_based_train=${single_instance_state_based_train} --controlFrequencyInv=${controlFrequencyInv} --downsample=${downsample} --target_inst_tag_list_fn=${target_inst_tag_list_fn} --use_teacher_model=${use_teacher_model} --teacher_model_path=${teacher_model_path} --teacher_model_inst_tags_fn=${teacher_model_inst_tags_fn} --teacher_index_to_weights=${teacher_index_to_weights} --teacher_index_to_inst_tags=${teacher_index_to_inst_tags} --use_history_obs=${use_history_obs} --history_length=${history_length} --good_inst_opt_res=${good_inst_opt_res} --w_franka=${w_franka}  --early_terminate=${early_terminate} --substeps=${substeps} --use_forcasting_model=${use_forcasting_model} --forcasting_model_weights=${forcasting_model_weights} --forcasting_model_n_layers=${forcasting_model_n_layers} --w_glb_traj_feat_cond=${w_glb_traj_feat_cond} --use_window_future_selection=${use_window_future_selection} --forcasting_inv_freq=${forcasting_inv_freq} --forcasting_history_ws=${forcasting_history_ws} --sv_info_during_training=${sv_info_during_training} --impedance_stiffness_low=${impedance_stiffness_low} --impedance_stiffness_high=${impedance_stiffness_high} --w_impedance_bias_control=${w_impedance_bias_control} --w_obj_latent_features=${w_obj_latent_features} --net_type=${net_type} --history_freq=${history_freq} --use_future_obs=${use_future_obs} --w_history_window_index=${w_history_window_index} --randomize_conditions=${randomize_conditions} --w_inst_latent_features=${w_inst_latent_features} --masked_mimic_training=${masked_mimic_training} --masked_mimic_teacher_model_path=${masked_mimic_teacher_model_path} --forcasting_model_training=${forcasting_model_training} --forcasting_model_lr=${forcasting_model_lr} --forcasting_model_weight_decay=${forcasting_model_weight_decay} --randomize_condition_type=${randomize_condition_type} --add_contact_conditions=${add_contact_conditions} --contact_info_sv_root=${contact_info_sv_root} --st_ed_state_cond=${st_ed_state_cond} --forcasting_diffusion_model=${forcasting_diffusion_model} --random_shift_cond=${random_shift_cond} --random_shift_cond_freq=${random_shift_cond_freq} --maxx_inv_cond_freq=${maxx_inv_cond_freq} --only_use_hand_first_frame=${only_use_hand_first_frame} --comput_reward_traj_hand_qpos=${comput_reward_traj_hand_qpos} --use_future_ref_as_obs_goal=${use_future_ref_as_obs_goal} --include_obj_rot_in_obs=${include_obj_rot_in_obs} --w_franka=${w_franka} --add_table=${add_table} --table_z_dim=${table_z_dim} --headless=${headless} --load_kine_info_retar_with_arm=${load_kine_info_retar_with_arm} --kine_info_with_arm_sv_root=${kine_info_with_arm_sv_root} --w_finger_pos_rew=${w_finger_pos_rew} --franka_delta_delta_mult_coef=${franka_delta_delta_mult_coef} --control_arm_via_ik=${control_arm_via_ik} --hand_qpos_rew_coef=${hand_qpos_rew_coef} --log_root=${log_root} --wo_vel_obs=${wo_vel_obs} --not_use_kine_bias=${not_use_kine_bias} --schedule_ornt_rew_coef=${schedule_ornt_rew_coef} --lowest_ornt_rew_coef=${lowest_ornt_rew_coef} --highest_ornt_rew_coef=${highest_ornt_rew_coef} --ornt_rew_coef_warm_starting_steps=${ornt_rew_coef_warm_starting_steps} --ornt_rew_coef_increasing_steps=${ornt_rew_coef_increasing_steps} --hand_glb_mult_factor_scaling_coef=${hand_glb_mult_factor_scaling_coef} --hand_glb_mult_scaling_progress_after=${hand_glb_mult_scaling_progress_after} --wo_fingertip_rot_vel=${wo_fingertip_rot_vel} --compute_hand_rew_buf_threshold=${compute_hand_rew_buf_threshold} --wo_fingertip_vel=${wo_fingertip_vel} --randomize=${randomize} --arm_stiffness=${arm_stiffness} --arm_effort=${arm_effort} --arm_damping=${arm_damping} --train_student_model=${train_student_model} --ts_teacher_model_obs_dim=${ts_teacher_model_obs_dim} --ts_teacher_model_weights_fn=${ts_teacher_model_weights_fn} --randomize_obj_init_pos=${randomize_obj_init_pos} --randomize_obs_more=${randomize_obs_more} --obj_init_pos_rand_sigma=${obj_init_pos_rand_sigma} --obs_simplified=${obs_simplified} --w_traj_modifications=${w_traj_modifications} --wo_fingertip_pos=${wo_fingertip_pos} --rand_obj_mass_lowest_range=${rand_obj_mass_lowest_range} --rand_obj_mass_highest_range=${rand_obj_mass_highest_range} --use_v2_leap_warm_urdf=${use_v2_leap_warm_urdf} --hand_specific_randomizations=${hand_specific_randomizations} --schedule_hodist_rew_coef=${schedule_hodist_rew_coef} --lowest_rew_finger_obj_dist_coef=${lowest_rew_finger_obj_dist_coef} --highest_rew_finger_obj_dist_coef=${highest_rew_finger_obj_dist_coef} --hodist_rew_coef_warm_starting_steps=${hodist_rew_coef_warm_starting_steps} --hodist_rew_coef_increasing_steps=${hodist_rew_coef_increasing_steps} --action_specific_randomizations=${action_specific_randomizations} --action_specific_rand_noise_scale=${action_specific_rand_noise_scale} --reset_obj_mass=${reset_obj_mass} --obj_mass_reset=${obj_mass_reset} --recompute_inertia=${recompute_inertia} --w_rotation_axis_rew=${w_rotation_axis_rew} --add_physical_params_in_obs=${add_physical_params_in_obs} --obs_rand_noise_scale=${obs_rand_noise_scale} --whether_randomize_obs_act=${whether_randomize_obs_act} --whether_randomize_obs=${whether_randomize_obs} --whether_randomize_act=${whether_randomize_act} --stiffness_coef=${stiffness_coef} --damping_coef=${damping_coef} --kine_ed_tag=${kine_ed_tag} 
+
 

@@ -1428,140 +1428,6 @@ export include_obj_rot_in_obs=False
 ##### Conditional states setting -- using start and end frame as the conditions ######
 
 
-#### teacher model training ####
-export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s10'
-export max_epochs=10000
-
-export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s8'
-export max_epochs=10000
-
-export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s9'
-export max_epochs=10000
-
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s${teacher_subj_idx}_v2
-
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s${teacher_subj_idx}_v3goal
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s${teacher_subj_idx}_v3goal_wornt
-export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_all_v3goal_franka
-# export log_path=/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_all_v3goal_frteacherv4
-export max_epochs=10000
-#### teacher model training ####
-
-
-
-
-
-
-#### teacher-student training ####
-# export log_path='./isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_supv1_0.0_ctlinv_1_teacherfrom_s1_supcoef_0.01'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d001_s2tos8_'
-# export max_epochs=100000
-
-# # 
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d005_s2tos8_'
-# # export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s9_wfuturews5freq5_'
-# export max_epochs=100000
-
-
-# # 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondv2_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondfreq_'
-# export max_epochs=100000
-# # 
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcondv3condpartialhand_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_sup0d005_s2tos10_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_wfuturews5freq5_sup0d005_s2tos10_'
-# export max_epochs=100000
-
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_handfirstfr_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_winstfeat_s2_randshiftcond_singleinsttest_ncondhandonly_nhandfirstfr_'
-# export max_epochs=100000
-#### teacher-student training ####
-
-
-##### Subject training #####
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s2_'
-# export max_epochs=1000000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws4_s2_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_freq5_ws5_s10_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_distill_'
-# export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_randcond_distilltest_'
-# export max_epochs=100000
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s3_'
-# # export max_epochs=100000
-# # export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s5_'
-# # export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s8_'
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_nfuture_s10_'
-# # export max_epochs=100000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nresume_ninstfeat_v2_wohistory_wfuture_freq5_ws5_s2_contactcond_distll_'
-# export max_epochs=100000
-##### Subject training #####
-
-
-
-########## Forcasting model training ############
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_v4forcasting_nhist_nbias_glbtraj_singletraj_sn_toursesmall_forefreq10_inst3'
-# export max_epochs=1000000
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_v4forcasting_nhist_nbias_glbtraj_singletraj_sn_toursesmall_widx_forefreq60_inst3'
-# export max_epochs=10000
-# export log_path='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep4_wforcasting_model_nhist_nbias_glbtraj_singletraj_sn_toursesmall_widx_forefreq60_inst1_train_diff'
-# export max_epochs=10000
-########## Forcasting model training ############
-
-
-
-
-########## Impedance control ############
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_impedance_'
-# export max_epochs=100000
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_train_freq60_substep2_nimpedance_'
-# export max_epochs=100000
-########## Impedance control ############
-
-
-
-
-
-#### teacher-student training ####
-# export log_path='./isaacgym_rl_exp_grab_300_train_allegro_wcustomdamping_new_wfranka'
-# export max_epochs=10000
-#### teacher-student training ####
-
-
-
-#### leap hand model training ####
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_'
-# export max_epochs=10000
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_s1_'
-
-# export log_path='/cephfs/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_wcustomdamping_newtrainall_v2_s2_'
-# export max_epochs=10000
-#### leap hand model training ####
-
-
 
 
 
@@ -1780,46 +1646,11 @@ export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type
 
 
 
-# ######### add the ts teacher model setting #########
-# export train_student_model=True
-# export ts_teacher_model_obs_dim=731
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_rewv5_franka_ori_grab_s2_duck_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_14-12-54-28/nn/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_rewv5_franka_ori_grab_s2_duck_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_14-12-54-28/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_181.60353.pth'
-# ### apple eat 1 ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drFalsev34_rewv5_franka_ori_grab_s2_apple_eat_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_22-12-37-39/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_200_rew_171.44658.pth'
-# ### Flashlight on 1 ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev35_rewv5_franka_ori_grab_s2_flashlight_on_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-02-13-33/nn/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth'
-# ### elephant ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev41_rewv5_franka_ori_grab_s2_elephant_inspect_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-01-33-26/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_800_rew_104.26583.pth'
-# ### flashlight ###
-# export ts_teacher_model_weights_fn='/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_leap_v2urdf_wcustomdamping_v3goal_tsFalse_woftFalse_woftrotvelFalse_dofspeedvel1_ctlfreqinv3_nkinebiasTrue_trcoef0.01_drTruev41_rewv5_franka_ori_grab_s2_flashlight_on_1_nf_300_armmult2.0_table0.5_wovelTrue/tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_23-02-14-30/nn/last_tracking_ori_grab_s2_apple_lift_nf_300_leap_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_ep_800_rew_155.61037.pth'
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_distill_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-# ######### add the ts teacher model setting #########
-
-
-
-# ######### change the arm control frequencies #########
-# export arm_stiffness=100000
-# export arm_effort=100000
-# export arm_damping=80
-# ######### change the arm control frequencies #########
-
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_woftrotvel${wo_fingertip_rot_vel}_armp${arm_stiffness}_${arm_effort}_${arm_damping}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-
-
-
-
-
-
-
 ######### Randomization settings #########
 export randomize=True
 # export randomize=False
 export w_traj_modifications=False
 export obs_simplified=False
-#### version 1 randomization -- observations and actions are not randomized ####
-export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_dr${randomize}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-#### version 2/3 randomization -- observations and actions are randomized together ####
 export dr_version=3 # 
 export dr_version=4 # 
 export dr_version=5 # 
@@ -1852,52 +1683,6 @@ export w_traj_modifications=True
 export dr_version=14 ### with traj modifications (fixed), no simplified observation ###
 
 
-
-export dr_version=15 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=True
-
-
-
-export dr_version=16 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=False ## as a comparisons to drv15 to seee whether the randomization added onto the observations can work ##
-
-
-export dr_version=17 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=True 
-export obj_init_pos_rand_sigma=0.05
-
-export dr_version=18 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=True 
-export obj_init_pos_rand_sigma=0.1
-
-export dr_version=19 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=False 
-export obj_init_pos_rand_sigma=0.05
-
-export dr_version=20 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-export w_traj_modifications=True
-export randomize_obs_more=False 
-export obj_init_pos_rand_sigma=0.02
-
-# export dr_version=21 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-# export w_traj_modifications=True
-# export randomize_obs_more=True
-# export obj_init_pos_rand_sigma=0.02
-
-# export dr_version=22 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-# export w_traj_modifications=True
-# export randomize_obs_more=False
-# export obj_init_pos_rand_sigma=0.03
-
-# export dr_version=23 ### with traj modifications (fixed), no simplified observations, randomize more on the observations ###
-# export w_traj_modifications=True
-# export randomize_obs_more=True
-# export obj_init_pos_rand_sigma=0.03
 
 #### with new obj mass range ####
 export dr_version=24
@@ -1942,138 +1727,7 @@ export rand_obj_mass_lowest_range=0.5
 export rand_obj_mass_highest_range=1.5
 
 
-#### no rand just for debug #####
-export dr_version=29
-export randomize=False
 
-
-
-
-export dr_version=30
-export randomize=True
-export w_traj_modifications=True 
-export randomize_obs_more=True 
-export obj_init_pos_rand_sigma=0.02
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=False
-export wo_fingertip_vel=False
-export rand_obj_mass_lowest_range=0.5
-export rand_obj_mass_highest_range=1.5
-
-
-export dr_version=31
-export randomize=True
-export w_traj_modifications=True 
-export randomize_obs_more=True 
-export obj_init_pos_rand_sigma=0.02
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=True
-export wo_fingertip_vel=False
-export rand_obj_mass_lowest_range=0.5
-export rand_obj_mass_highest_range=1.5
-
-
-
-##### not use the randomization and for testing only #####
-export dr_version=32
-export randomize=False
-export w_traj_modifications=False
-export randomize_obs_more=False
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=True
-export wo_fingertip_vel=False
-
-
-# export dr_version=33
-# export wo_fingertip_pos=True
-# export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-
-
-# export dr_version=34
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-##### not use the randomization and for testing only #####
-
-
-# export dr_version=35
-# export randomize=True
-# export randomize_obs_more=False
-
-
-# export dr_version=36
-# export randomize=True
-# export randomize_obs_more=False
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-
-export dr_version=36
-export randomize=True
-export randomize_obs_more=False
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=True
-export wo_fingertip_vel=False
-
-
-# export dr_version=37
-# export randomize=True
-# export randomize_obs_more=True
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=True
-# export wo_fingertip_vel=False
-
-
-
-export dr_version=38
-export randomize=True
-export randomize_obj_init_pos=False
-export randomize_obs_more=False
-export rand_obj_mass_lowest_range=0.2
-export rand_obj_mass_highest_range=0.5
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=True
-export wo_fingertip_vel=False
-
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-
-
-export dr_version=39
-export randomize=True
-export randomize_obj_init_pos=False
-# export randomize_obs_more=False
-export randomize_obs_more=True
-export rand_obj_mass_lowest_range=0.2
-export rand_obj_mass_highest_range=0.5
-export wo_fingertip_pos=False
-export wo_fingertip_rot_vel=True
-export wo_fingertip_vel=False
-export hand_specific_randomizations=True
-export action_specific_randomizations=False
-export obs_rand_noise_scale=100 # original setting
-export obs_rand_noise_scale=50
-export obs_rand_noise_scale=10
-
-
-# export dr_version=40
-# export randomize=True
-# export randomize_obj_init_pos=True
-# export randomize_obs_more=False
-# export obj_init_pos_rand_sigma=0.02
-# export obj_init_pos_rand_sigma=0.01
-# export rand_obj_mass_lowest_range=0.2
-# export rand_obj_mass_highest_range=0.5
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=True
-# export wo_fingertip_vel=False
-# export hand_specific_randomizations=False
-# export action_specific_randomizations=True
-# export action_specific_rand_noise_scale=0.2
-# export action_specific_rand_noise_scale=0.1
-# export action_specific_rand_noise_scale=0.05 # 
 
 
 export dr_version=34
@@ -2088,66 +1742,6 @@ export wo_fingertip_rot_vel=False
 export wo_fingertip_vel=False
 
 
-
-# export dr_version=35
-# export randomize=True
-# export randomize_obs_more=False
-# export randomize_obj_init_pos=False
-# export hand_specific_randomizations=False
-# export action_specific_randomizations=False
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=False
-# # export wo_fingertip_rot_vel=True
-# export wo_fingertip_vel=False
-# # # hammer
-# export rand_obj_mass_lowest_range=0.3
-# export rand_obj_mass_highest_range=0.6
-# # # flashlight
-# # export rand_obj_mass_lowest_range=0.5
-# # export rand_obj_mass_highest_range=1.2
-# # duck 
-# # export rand_obj_mass_lowest_range=0.2
-# # export rand_obj_mass_highest_range=0.5
-
-# #################### reduced randomizations specifically for the reorientation settings ####################
-# ### v1 randomization with reorientations -- not randomize the observations or the actions ###
-# export whether_randomize_obs_act=False 
-# ### v2 randomization with reorientations -- randomize the actions only ###
-# # export whether_randomize_obs_act=True
-# # export whether_randomize_obs=False
-# # export whether_randomize_act=True
-# ### v2 randomization with reorientations -- randomize the actions only ###
-# # export whether_randomize_obs_act=True
-# # export whether_randomize_obs=True
-# # export whether_randomize_act=False
-# #################### reduced randomizations specifically reduced randomizations for the reorientation settings ####################
-
-
-
-
-# export dr_version=41
-# export randomize=True
-# # elephant
-# export rand_obj_mass_lowest_range=0.2
-# export rand_obj_mass_highest_range=0.5
-# # flashlight
-# # export rand_obj_mass_lowest_range=0.5
-# # export rand_obj_mass_highest_range=1.2
-# # hammer
-# export rand_obj_mass_lowest_range=0.5
-# export rand_obj_mass_highest_range=1.2
-# export randomize_obj_init_pos=True
-# export w_traj_modifications=True
-# export obj_init_pos_rand_sigma=0.02
-# export obj_init_pos_rand_sigma=0.01
-# export randomize_obs_more=False
-# export hand_specific_randomizations=False
-# export action_specific_randomizations=False
-# export wo_fingertip_pos=False
-# export wo_fingertip_rot_vel=True
-# # export wo_fingertip_rot_vel=False
-# export wo_fingertip_vel=False
-
 # export test_inst_tag=${pure_test_inst_tag}_nf_300
 
 
@@ -2156,10 +1750,11 @@ export wo_fingertip_vel=False
 
 
 
-# ######### tune the control frequencey #########
-# export controlFrequencyInv=6
-# export log_path=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_v2urdf_wcustomdamping_v3goal_woftrotvel${wo_fingertip_rot_vel}_dofspeedvel${dofSpeedScale}_ctlfreqinv${controlFrequencyInv}_nkinebias${not_use_kine_bias}_trcoef${warm_trans_actions_mult_coef}_dr${randomize}v${dr_version}_rewv${rew_version}_franka_${test_inst_tag}_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}_wovel${wo_vel_obs}
-# ######### tune the control frequencey #########
+
+
+
+
+
 
 
 GPUS=$1
@@ -2168,12 +1763,18 @@ TAGLISTFN=$2
 
 
 
-####### use_v2_leap_warm_urdf setting #######
+####### Kinematics files folder  #######
 export kine_info_with_arm_sv_root=./data/GRAB_Tracking_PK_LEAP_OFFSET_0d4_0d5_warm_v2_v2urdf/data
 export tracking_save_info_fn='./data/GRAB_Tracking_PK_LEAP_OFFSET_0d4_0d5_warm_v2_v2urdf/data'
 export tracking_data_sv_root='./data/GRAB_Tracking_PK_LEAP_OFFSET_0d4_0d5_warm_v2_v2urdf/data'
 export use_v2_leap_warm_urdf=True
-####### use_v2_leap_warm_urdf setting #######
+####### Kinematics files folder  #######
+
+
+
+export object_type_to_latent_feature_fn="../assets/obj_type_to_obj_feat.npy"
+export inst_tag_to_latent_feature_fn='../assets/inst_tag_to_obj_feat.npy'
+
 
 
 
@@ -2195,42 +1796,17 @@ export wo_vel_obs=False
 export log_path=./logs/uni_manip/isaacgym_rl_exp_grab_train_multiple_wfranka
 
 
-# export use_v2_leap_warm_urdf=False
 
-
-
-
-
-
-# Mass
-# apple in the sim: 0.3581828773021698
-# hammer in the sim: 0.1812218874692917; 0.0833 in the real
-# banana in the sim: 0.29999999
-# elephant in the real = 143g, elephant in the sim = 600g 
-# flashlight in the sim: 0.070
-# watch in the sim: 0.05955413728952408
 
 
 export log_path=${log_path}_wovel${wo_vel_obs}
 
 
-# 
-# tuning all instances setting #
-# 
-
-
-# ###### tuning all instances setting #######
-# export generalist_tune_all_instnaces=True
-# export log_root=/data/xueyi/uni_manip/isaacgym_rl_exp_grab_300_train_${hand_type}_wcustomdamping_v3goal_rewv${rew_version}_franka_armmult${franka_delta_delta_mult_coef}_table${table_z_dim}
-# export subj_nm='s2'
-# ###### tuning all instances setting #######
 
 
 
 
-# export glb_trans_vel_scale=1
-# export glb_rot_vel_scale=1
-# export dofSpeedScale=20
+
 export headless=True
 
 export st_idx=${GPUS}
@@ -2242,7 +1818,7 @@ export sv_info_during_training=True
 
 
 
-# bash scripts/run_tracking_headless_grab_multiple_wfranka.sh 0 2 assets/inst_tag_list_s2.npy
+# bash scripts/run_tracking_headless_grab_multiple_wfranka.sh 0 ../assets/inst_tag_list_s2.npy
 
 
 

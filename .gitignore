@@ -51,4 +51,7 @@ isaacgymenvs/scripts_new
 isaacgymenvs/scripts/*_local.sh
 isaacgymenvs/scripts/_*
 
+isaacgymenvs/data/*.zip
+isaacgymenvs/data/*
 
+isaacgymenvs/ckpts/*

@@ -763,6 +763,8 @@ class AllegroHandTrackingGeneralist(BaseTask):
             tot_fns = os.listdir(tracking_save_info_fn)
             tot_fns = [cur_fn for cur_fn in tot_fns if self.tracking_info_st_tag in cur_fn and cur_fn.endswith('.npy')]
             tot_grab_inst_tags = []
+            print(f"tracking_save_info_fn: {self.tracking_save_info_fn}")
+            print(f"Get all grab tags with grab_inst_tags: {len(tot_fns)}")
             for cur_fn in tot_fns:
                 if '_taco_' in cur_fn:
                     continue
@@ -772,10 +774,10 @@ class AllegroHandTrackingGeneralist(BaseTask):
                     if '_s1_' in cur_grab_inst_tag: # 
                         continue
                 
-                if 'mug' in cur_grab_inst_tag or 'cup' in cur_grab_inst_tag or 'wineglass' in cur_grab_inst_tag:
-                    continue
+                # if 'mug' in cur_grab_inst_tag or 'cup' in cur_grab_inst_tag or 'wineglass' in cur_grab_inst_tag:
+                #     continue
                 
-                cur_grab_mesh_fn = cur_grab_inst_tag.split("_nf_")[0]
+                pure_cur_grab_mesh_fn = cur_grab_inst_tag.split("_nf_")[0]
                 
                 # cur_grab_mesh_fn = os.path.join("/root/diffsim/UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", cur_grab_mesh_fn)
                 # if not os.path.exists(cur_grab_mesh_fn):
@@ -783,7 +785,14 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 #     if not os.path.exists(cur_grab_mesh_fn):
                 #         continue
                     
-                cur_grab_mesh_fn = os.path.join("../assets/datasetv4.1/sem", cur_grab_mesh_fn)
+                cur_grab_mesh_fn = os.path.join("../assets/datasetv4.1/sem", pure_cur_grab_mesh_fn)
+                
+                # print(f"cur_grab_mesh_fn: {cur_grab_mesh_fn}")
+                if not os.path.exists(cur_grab_mesh_fn):
+                    cur_grab_mesh_fn = os.path.join("../../UniDexGrasp/dexgrasp_policy/assets/datasetv4.1/sem", pure_cur_grab_mesh_fn)
+                    # print(f"cur_grab_mesh_fn: {cur_grab_mesh_fn}")
+                    if not os.path.exists(cur_grab_mesh_fn):
+                        continue
                 
                 tot_grab_inst_tags.append(cur_grab_inst_tag)
             return tot_grab_inst_tags
@@ -794,7 +803,7 @@ class AllegroHandTrackingGeneralist(BaseTask):
             if cur_inst_tag_tuple not in self.grab_inst_tag_to_opt_res:
                 self.grab_inst_tag_to_opt_res[cur_inst_tag_tuple] = ['']
         
-        
+        print(f"grab_inst_tag_to_opt_res: {len(self.grab_inst_tag_to_opt_res)}")
         if len(self.target_inst_tag_list_fn) > 0 and os.path.exists(self.target_inst_tag_list_fn):
             print(f"Loading target_inst_tag_list from: {self.target_inst_tag_list_fn}")
             self.target_inst_tag_list = np.load(self.target_inst_tag_list_fn, allow_pickle=True).item()
@@ -3044,6 +3053,8 @@ class AllegroHandTrackingGeneralist(BaseTask):
             #     self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
                 
             self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
+            if not os.path.exists(self.grab_obj_mesh_sv_folder):
+                self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
             grab_mesh_fn = f"{pure_cur_object_type}.obj"
             grab_mesh_fn = os.path.join(self.grab_obj_mesh_sv_folder, grab_mesh_fn)
             
@@ -3136,6 +3147,8 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 # if not os.path.exists(self.grab_obj_mesh_sv_folder):
                 #     self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
                 self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
+                if not os.path.exists(self.grab_obj_mesh_sv_folder):
+                    self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
                 pure_obj_type = obj_type.split("_nf_")[0]
                 
                 grab_mesh_fn = f"{pure_obj_type}.obj"
@@ -3226,7 +3239,10 @@ class AllegroHandTrackingGeneralist(BaseTask):
                 
                 # then segment the data_inst_tag to get the mesh file name #
                 # self.grab_obj_mesh_sv_folder = "/root/diffsim/tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
+                
                 self.grab_obj_mesh_sv_folder = "../assets/rsc/objs/meshes"
+                if not os.path.exists(self.grab_obj_mesh_sv_folder):
+                    self.grab_obj_mesh_sv_folder = "../../tiny-differentiable-simulator/python/examples/rsc/objs/meshes"
                 grab_mesh_fn = f"{obj_type}.obj"
                 grab_mesh_fn = os.path.join(self.grab_obj_mesh_sv_folder, grab_mesh_fn)
                 
@@ -4483,6 +4499,10 @@ class AllegroHandTrackingGeneralist(BaseTask):
         #     assets_path = "../../UniDexGrasp/dexgrasp_policy/assets"
             
         dataset_root_path = osp.join(assets_path, 'datasetv4.1')
+        
+        if not os.path.exists(dataset_root_path):
+            assets_path = "../../UniDexGrasp/dexgrasp_policy/assets"
+            dataset_root_path = "../../UniDexGrasp/dexgrasp_policy/assets/datasetv4.1"
         
         
         # print(f"[Debug] object_code_list: {self.object_code_list}")
