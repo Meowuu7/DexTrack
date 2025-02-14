@@ -385,9 +385,16 @@ Please contact xymeow7@gmail.com or create a github issue if you have any questi
 
 <!-- ## Bibtex
 
-If you find this code useful in your research, please cite:
+If you find this code useful in your research, please cite: -->
 
-TODO -->
+<!-- ```bibtex
+@inproceedings{liu2025,
+   title={GeneOH Diffusion: Towards Generalizable Hand-Object Interaction Denoising via Denoising Diffusion},
+   author={Liu, Xueyi and Yi, Li},
+   booktitle={The Twelfth International Conference on Learning Representations},
+   year={2024}
+}
+``` -->
 
 
 ## Acknowledgments
