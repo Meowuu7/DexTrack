@@ -61,6 +61,7 @@ Download the first part of object files from [this link](https://1drv.ms/u/c/c74
 
 Download the second part of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/Ed7YUar7_0lAvf9B8YQCZC0BEuaSr_5oSO65qR18RwBNvw?e=QC48Nn).  Extract this file in the folder `assets/rsc`. 
 
+Download the third part of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/EWEaowIuf7BMrL2NMSBXzM4BoXxjsc9HUp7wm36aLjdC5A?e=ccINfB).  Extract this file in the folder `assets`. 
 
 (Optional) Download checkpoints from [this link](https://1drv.ms/u/c/c746413ba7b58f04/ERogbFMZSPZFs7tFY2Lz3iMBRbwt6PphW4qsqFDhhCTwuQ?e=O2Yep8). Extract it in the folder `./ckpts`. 
 
