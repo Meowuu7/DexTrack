@@ -275,7 +275,7 @@ bash scripts/run_tracking_headless_grab_multiple.sh 0 '' ../assets/inst_tag_list
 
 Our pretrained checkpoint is `./ckpts/grab_duck_ckpt.pth`. Run the following command to evaluate it (e.g. on the sequence `s2_duck_inspect_1`): 
 ```bash
-bash scripts/run_tracking_headless_grab_multiple_test.sh 0 s2_duck_inspect_1 ./ckpts/grab_duck_ckpt.pth False
+bash scripts/run_tracking_headless_grab_multiple_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/grab_duck_ckpt.pth False
 ```
 
 The pretraiend policy for all trajectories in the GRAB's training split (trajectories from `s2` to `s10`) is `./ckpts/grab_trajs_tracking_ckpt.pth`. 
