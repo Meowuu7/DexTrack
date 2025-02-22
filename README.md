@@ -65,7 +65,7 @@ Download the third part of object files from [this link](https://1drv.ms/u/c/c74
 
 (Optional) Download checkpoints from [this link](https://1drv.ms/u/c/c746413ba7b58f04/ERogbFMZSPZFs7tFY2Lz3iMBRbwt6PphW4qsqFDhhCTwuQ?e=O2Yep8). Extract it in the folder `isaacgymenvs/`. 
 
-Final file structure:
+File structure:
 ```bash
 isaacgymenvs/
   data/
