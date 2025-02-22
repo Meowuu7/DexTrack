@@ -76,6 +76,8 @@ isaacgymenvs/
 assets/
   datasetv4.1/
   meshdatav3_scaled/
+  rsc/
+    objs/
 ckpts/
   ...
 ```
