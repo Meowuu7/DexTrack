@@ -69,7 +69,15 @@ Final file structure:
 ```bash
 isaacgymenvs/
   data/
-    
+    GRAB_Tracking_PK_reduced_300/
+    GRAB_Tracking_PK_LEAP_OFFSET_0d4_0d5_warm_v2_v2urdf/
+    modified_kinematics_data_leap_wfranka_v15urdf/
+    TACO_Tracking_PK_reduced/
+assets/
+  datasetv4.1/
+  meshdatav3_scaled/
+ckpts/
+  ...
 ```
 
 <!-- We've also included code for kinematic retargeting in this repo. Please refer to []() for detailed usage.  -->
