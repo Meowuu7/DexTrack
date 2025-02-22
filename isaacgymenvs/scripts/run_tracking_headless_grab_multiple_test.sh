@@ -744,7 +744,7 @@ export st_idx=${GPUS}
 
 
 
-# bash scripts/run_tracking_headless_grab_multiple_test.sh 0 s2_duck_inspect_1 /root/diffsim/DexTrack/isaacgymenvs/./logs/isaacgym_rl_allegro_multiple/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5_05-01-18-08/nn/tracking_ori_grab_s2_apple_lift_nf_300_obs_pure_state_wref_wdelta_density_500.0_trans_0.5_rot_0.5_goalcond_False_kinebias_t0.5r0.5f20_rfd_0.3_rh_0.5.pth
+# bash scripts/run_tracking_headless_grab_multiple_test.sh 0 ori_grab_s2_duck_inspect_1 '' True
 
 
 
