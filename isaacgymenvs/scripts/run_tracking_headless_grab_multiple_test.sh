@@ -723,7 +723,7 @@ export data_inst_flag=${pure_inst_tag}_nf_300
 export target_inst_tag_list_fn=''
 export test_inst_tag=${data_inst_flag}
 export single_instance_training=True # the learning model would not print additional infos in this setting
-
+export maxx_inst_nn=1
 
 
 

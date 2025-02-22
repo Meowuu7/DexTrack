@@ -63,7 +63,14 @@ Download the second part of object files from [this link](https://1drv.ms/u/c/c7
 
 Download the third part of object files from [this link](https://1drv.ms/u/c/c746413ba7b58f04/EWEaowIuf7BMrL2NMSBXzM4BoXxjsc9HUp7wm36aLjdC5A?e=ccINfB).  Extract this file in the folder `assets`. 
 
-(Optional) Download checkpoints from [this link](https://1drv.ms/u/c/c746413ba7b58f04/ERogbFMZSPZFs7tFY2Lz3iMBRbwt6PphW4qsqFDhhCTwuQ?e=O2Yep8). Extract it in the folder `./ckpts`. 
+(Optional) Download checkpoints from [this link](https://1drv.ms/u/c/c746413ba7b58f04/ERogbFMZSPZFs7tFY2Lz3iMBRbwt6PphW4qsqFDhhCTwuQ?e=O2Yep8). Extract it in the folder `isaacgymenvs/`. 
+
+Final file structure:
+```bash
+isaacgymenvs/
+  data/
+    
+```
 
 <!-- We've also included code for kinematic retargeting in this repo. Please refer to []() for detailed usage.  -->
 
@@ -273,12 +280,19 @@ For instance, to train a neural controller that can track all manipulation traje
 bash scripts/run_tracking_headless_grab_multiple.sh 0 '' ../assets/inst_tag_list_obj_duck.npy
 ```
 
-Our pretrained checkpoint is `./ckpts/grab_duck_ckpt.pth`. Run the following command to evaluate it (e.g. on the sequence `s2_duck_inspect_1`): 
+For all trajectories in the GRAB's training split (trajectories from `s2` to `s10`), run:
 ```bash
-bash scripts/run_tracking_headless_grab_multiple_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/grab_duck_ckpt.pth False
+bash scripts/run_tracking_headless_grab_multiple.sh 0 '' ''
 ```
 
+<!-- Our pretrained checkpoint is `./ckpts/grab_duck_ckpt.pth`.  -->
 The pretraiend policy for all trajectories in the GRAB's training split (trajectories from `s2` to `s10`) is `./ckpts/grab_trajs_tracking_ckpt.pth`. 
+Run the following command to evaluate it (e.g. on the sequence `s2_duck_inspect_1`): 
+```bash
+bash scripts/run_tracking_headless_grab_multiple_test.sh 0 ori_grab_s2_duck_inspect_1 ./ckpts/grab_trajs_tracking_ckpt.pth False
+```
+
+<!-- The pretraiend policy for all trajectories in the GRAB's training split (trajectories from `s2` to `s10`) is `./ckpts/grab_trajs_tracking_ckpt.pth`.  -->
 
 
 Similarly, to train a multiple trajectory tracker for a sequence retargeted from **GRAB** dataset using the `relative target` action space, run the following code:
