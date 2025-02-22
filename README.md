@@ -3,7 +3,7 @@
 [Website](https://meowuu7.github.io/DexTrack/)  | [Videos](https://youtu.be/zru1Z-DaiWE)  | [OpenReview](https://openreview.net/forum?id=ajSmXqgS24&noteId=SBH6txdWH9) | [arXiv](https://arxiv.org/abs/2502.09614)
 
 
-Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), capable of serving as an effective tool to 1) create dexterous robot hand-object manipulation demonstrations by mimicking kinematic referecnces, and 2) develop a versatile tracking controller that can accomplish diverse manipulation tasks.
+Implementation of our work [DexTrack](https://meowuu7.github.io/DexTrack/), capable of serving as an effective tool to 1) create dexterous robot hand-object manipulation demonstrations by mimicking kinematic references, and 2) develop a versatile tracking controller that can accomplish diverse manipulation tasks.
 <!-- .  Track 1) can serve as an effective tool to create dexterous robot hand-object manipulation demonstrations (with actions) and 2) is also a promising way to develop a tracking controller capable of accomplishing diverse manipulation tasks.  -->
  <!-- presenting an RL-based tracking control scheme for dexterous manipulations. It is a) an effective tool to create dexterous robot hand-object manipulation data with actions and b) a promising strategy to develop a generalizable and versatile neural controller for dexterous manipulation with a unified tracking scheme. -->
 
