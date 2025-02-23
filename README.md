@@ -396,7 +396,7 @@ For evaluation:
 bash scripts/run_tracking_headless_grab_multiple_wfranka_test.sh <GPU_ID> <TAG> <CKPT> <HEADLESS>
 ```
 
-We've included pre-trained checkpoints for `s4` and `s6` in the `./ckpts` folder (`leap_franka_grab_s${idx}_ckpt.pth`). 
+<!-- We've included pre-trained checkpoints for `s4` and `s6` in the `./ckpts` folder (`leap_franka_grab_s${idx}_ckpt.pth`).  -->
 
 
 **Notice**: In addition to the single and multiple trajectory tracking processes included above, DexTrack incorporates two key components that make the specialist-generalist iterative training framework work: 1) homotopy optimization for enhancing single trajectory tracking (applicable only to policies using the `cumulative residual` action space), and 2) a combination of IL and RL to improve the generalist tracker. However, these components require significant human effort and cannot easily be condensed into a single script. Besides, the corresponding code and scripts are too messy to be cleaned within an acceptable time frame. As a result, we do not currently plan to release them publicly.
